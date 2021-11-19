@@ -9,7 +9,6 @@ class App : Application() {
         super.onCreate()
 
 
-
         Locale.setDefault(Locale("da", "DK"))
     }
 }
