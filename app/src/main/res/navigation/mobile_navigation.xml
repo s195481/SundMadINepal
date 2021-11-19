@@ -11,7 +11,7 @@
         android:label="@string/title_recipe" />
 
     <fragment
-        android:id="@+id/navigation_comics"
+        android:id="@+id/navigation_health"
         android:name="com.example.sundmadinepal.ui.health.HealthFragment"
         android:label="@string/title_health"
         tools:layout="@layout/fragment_home" />

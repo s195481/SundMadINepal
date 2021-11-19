@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_health"
+        android:id="@+id/navigation_comics"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_comics" />
     <item
