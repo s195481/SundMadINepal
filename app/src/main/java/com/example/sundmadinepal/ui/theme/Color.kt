@@ -1,6 +1,7 @@
 package com.example.lec07_jetpackcompose.ui.theme
 
 import androidx.compose.ui.graphics.Color
+
 // For Home
 // For a 1000 Golden Days
 // For Recipes
@@ -8,8 +9,6 @@ import androidx.compose.ui.graphics.Color
 // For Comics
 // For HealthPost
 // For Quiz?
-
-
 
 
 val Purple200 = Color(0xFFBB86FC)
