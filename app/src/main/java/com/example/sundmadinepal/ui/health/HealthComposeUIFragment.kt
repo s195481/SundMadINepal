@@ -1,24 +1,13 @@
-package com.example.sundmadinepal.ui.goldenDays
+package com.example.sundmadinepal.ui.health
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -81,44 +70,7 @@ fun MyScreen() {
     }
 }*/
 @Composable
-fun MyScreen(viewModel: GoldenDaysViewModel) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(vertical = 20.dp)
-    ) {
-        Modifier.fillMaxSize()
-        LazyColumn(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(vertical = 20.dp)
-        ) {
-            itemsIndexed(items = viewModel.listOfCurrencies) { index, item ->
-                Text(text = "$item $index")
-            }
-        }
-        val cryptos by viewModel.listOfCryptos.collectAsState()
-        LazyColumn(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(vertical = 20.dp)
-        ) {
-            itemsIndexed(items = cryptos) { index, item ->
-                Text(text = "$item $index")
-            }
-        }
-
-        Column() {
-            Button(onClick = {
-                viewModel.addCurrency("Cur ")
-                Log.d("WAH", "WAH")
-            }) {
-                Text(text = "Add currency")
-            }
-            Button(onClick = {
-                viewModel.addCrypto("Crypto ")
-            }) {
-                Text(text = "Add crypto")
-            }
-        }
-    }
+fun MyScreen(viewModel: HealthViewModel) {
 }
 
 
@@ -137,8 +89,6 @@ fun MyTextField(state: String, onValueChange: (String) -> Unit) {
 fun DefaultPreview() {
     SundMadINepalTheme {
         //Greeting("Android")
-        var viewModel = GoldenDaysViewModel();
-        MyScreen(viewModel)
         //MyTextField()
     }
 }
