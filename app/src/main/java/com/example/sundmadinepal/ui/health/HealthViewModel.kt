@@ -6,8 +6,21 @@ import androidx.lifecycle.ViewModel
 
 class HealthViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _childName = MutableLiveData<String>().apply {
+        value = "This is the name"
     }
-    val text: LiveData<String> = _text
+    private val _childWeight = MutableLiveData<String>().apply {
+        value = "This is the weight"
+    }
+    private val _childHeight = MutableLiveData<String>().apply {
+        value = "This is the height"
+    }
+    private val _childBirthdate = MutableLiveData<String>().apply {
+        value = "This is the birthdate"
+    }
+    private val _childDiary = MutableLiveData<String>().apply {
+        value = "This is the diary"
+    }
+    private val wah = ""
+
 }
