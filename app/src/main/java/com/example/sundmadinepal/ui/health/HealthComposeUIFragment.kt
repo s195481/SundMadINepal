@@ -1,13 +1,21 @@
 package com.example.sundmadinepal.ui.health
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
-import androidx.compose.runtime.Composable
+import androidx.compose.material.TextFieldDefaults
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,7 +41,18 @@ fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
-/*
+@Composable
+fun TopBar(name: String){
+    /*Column() {
+        TextField(
+            value = "Health",
+            Modifier.padding(6.dp),
+            colors = TextFieldDefaults.outlinedTextFieldColors(backgroundColor = Color.Red)
+        )
+    }*/
+}
+
+
 @Composable
 fun MyScreen() {
     var textState1 by remember { mutableStateOf("") }
@@ -68,20 +87,6 @@ fun MyScreen() {
             Text("Click me!")
         }
     }
-}*/
-@Composable
-fun MyScreen(viewModel: HealthViewModel) {
-}
-
-
-@Composable
-fun MyTextField(state: String, onValueChange: (String) -> Unit) {
-    TextField(
-        state,
-        onValueChange,
-        maxLines = 2,
-        shape = RoundedCornerShape(4.dp)
-    )
 }
 
 @Preview(showBackground = true)
@@ -89,6 +94,6 @@ fun MyTextField(state: String, onValueChange: (String) -> Unit) {
 fun DefaultPreview() {
     SundMadINepalTheme {
         //Greeting("Android")
-        //MyTextField()
+        MyScreen()
     }
 }
