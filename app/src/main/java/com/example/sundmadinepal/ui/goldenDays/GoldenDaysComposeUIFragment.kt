@@ -2,6 +2,9 @@ package com.example.sundmadinepal.ui.goldenDays
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -16,21 +19,20 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.fragment.app.Fragment
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class GoldenDaysComposeUIFragment : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            SundMadINepalTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    var viewModel = GoldenDaysViewModel()
-                    MyScreen(viewModel)
-                    //Greeting("Android")
-                }
+class GoldenDaysComposeUIFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return ComposeView(requireContext()).apply {
+            setContent {
+                Text(text = "Hello world.")
             }
         }
     }
