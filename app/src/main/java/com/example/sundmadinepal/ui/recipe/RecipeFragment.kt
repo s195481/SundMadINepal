@@ -34,6 +34,8 @@ class RecipeFragment : Fragment() {
         recipeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        /*println("Going back");
+        activity?.onBackPressed();*/
         return root
     }
 
