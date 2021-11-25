@@ -49,14 +49,6 @@ fun Greeting(name: String) {
 
 @Composable
 fun MainInfo() {
-    /*
-    var expanded = false // Don't do this!
-    OutlinedButton(
-        onClick = { expanded = !expanded }
-    ) {
-        Text(if (expanded) "Show less" else "Show more")
-    }*/
-
     Row(
         horizontalArrangement = Arrangement.Center
     ) {
