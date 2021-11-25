@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Sund Mad I Nepal</string>
+    <string name="title_recipe"></string>
+    <string name="title_health"></string>
+    <string name="title_comics"></string>
+    <string name="title_goldenDays"></string>
 </resources>

@@ -75,13 +75,8 @@ fun MyScreen(viewModel: RecipeViewModel) {
 
 
 @Composable
-fun MyTextField(state: String, onValueChange: (String) -> Unit) {
-    TextField(
-        state,
-        onValueChange,
-        maxLines = 2,
-        shape = RoundedCornerShape(4.dp)
-    )
+fun Recipes(/* Can't remember what these guys are for "state: String, onValueChange: (String) -> Unit"*/) {
+
 }
 
 @Preview(showBackground = true)
@@ -89,6 +84,6 @@ fun MyTextField(state: String, onValueChange: (String) -> Unit) {
 fun DefaultPreview() {
     SundMadINepalTheme {
         //Greeting("Android")
-        //MyTextField()
+        Recipes()
     }
 }
