@@ -1,18 +1,13 @@
 package com.example.sundmadinepal.ui
 
 import android.os.Bundle
-import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,11 +35,6 @@ class MainComposeUIFragment : Fragment() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Composable
 fun MainScreen() {
     val navIconSize: Int = 170
     Column(
@@ -60,11 +50,11 @@ fun MainScreen() {
             Icon(
                 painter = painterResource(id = R.drawable.home),
                 contentDescription = "Home",
-                modifier = Modifier.size(50.dp).apply{padding(50.dp)}
+                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
             )
             Text(
                 text = "Home",
-                modifier = Modifier.size(50.dp).apply{padding(50.dp)},
+                modifier = Modifier.size(50.dp).apply { padding(50.dp) },
                 textAlign = TextAlign.Center
             )
         }
@@ -155,7 +145,6 @@ fun MyScreen() {
 @Composable
 fun DefaultPreview() {
     SundMadINepalTheme {
-        //Greeting("Android")
         MyScreen()
     }
 }
