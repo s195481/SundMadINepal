@@ -1,22 +1,17 @@
 package com.example.sundmadinepal.ui.health
 
-import android.content.Context
 import android.os.Bundle
-import android.service.autofill.OnClickAction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -51,13 +46,13 @@ fun MainInfo() {
     Row(
         horizontalArrangement = Arrangement.Center
     ) {
-        IconButton(modifier = Modifier.
-        then(Modifier.size(24.dp)),
+        IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
             onClick = { }) {
             Icon(
                 Icons.Filled.ArrowBack,
                 "contentDescription",
-                tint = Color.Red)
+                tint = Color.Red
+            )
         }
         Icon(
             painter = painterResource(id = R.drawable.temp),

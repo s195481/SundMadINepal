@@ -1,23 +1,19 @@
 package com.example.sundmadinepal.ui
 
-import android.content.Context
 import android.os.Bundle
-import android.service.autofill.OnClickAction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
@@ -28,14 +24,14 @@ import androidx.fragment.app.Fragment
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class GoldenDaysComposeUIFragment : Fragment() {
+class MainComposeUIFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                Text(text = "Hello world.")
+                MainScreen()
             }
         }
     }
@@ -62,69 +58,69 @@ fun MainScreen() {
             )
         }
         Row() {
-            IconButton(modifier = Modifier.
-            then(Modifier.size(24.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
                 onClick = {
 
                 }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "1000GoldenDays",
-                    tint = Color.Magenta)
+                    tint = Color.Magenta
+                )
             }
-            IconButton(modifier = Modifier.
-            then(Modifier.size(24.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
                 onClick = {
 
                 }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "Recipes",
-                    tint = Color.LightGray)
+                    tint = Color.LightGray
+                )
             }
         }
         Row() {
-            IconButton(modifier = Modifier.
-            then(Modifier.size(24.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
                 onClick = {
 
                 }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "Comics",
-                    tint = Color.Yellow)
+                    tint = Color.Yellow
+                )
             }
-            IconButton(modifier = Modifier.
-            then(Modifier.size(24.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
                 onClick = {
 
                 }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "Quiz",
-                    tint = Color.Green)
+                    tint = Color.Green
+                )
             }
         }
         Row() {
-            IconButton(modifier = Modifier.
-            then(Modifier.size(24.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
                 onClick = {
 
                 }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "HealthPost",
-                    tint = Color.Cyan)
+                    tint = Color.Cyan
+                )
             }
-            IconButton(modifier = Modifier.
-            then(Modifier.size(24.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
                 onClick = {
 
                 }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "Health",
-                    tint = Color.Red)
+                    tint = Color.Red
+                )
             }
         }
     }

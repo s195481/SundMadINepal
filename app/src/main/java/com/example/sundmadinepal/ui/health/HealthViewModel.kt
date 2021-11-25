@@ -2,7 +2,6 @@ package com.example.sundmadinepal.ui.health
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.util.*
 
 class HealthViewModel : ViewModel() {
 
