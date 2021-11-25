@@ -1,8 +1,8 @@
 package com.example.sundmadinepal.ui.health
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.util.*
 
 class HealthViewModel : ViewModel() {
 
@@ -21,6 +21,5 @@ class HealthViewModel : ViewModel() {
     private val _childDiary = MutableLiveData<String>().apply {
         value = "This is the diary"
     }
-    private val wah = ""
 
 }
