@@ -64,7 +64,9 @@ fun MainScreen() {
         Row() {
             IconButton(modifier = Modifier.
             then(Modifier.size(24.dp)),
-                onClick = { }) {
+                onClick = {
+
+                }) {
                 Icon(
                     Icons.Filled.ArrowBack,
                     "1000GoldenDays",
@@ -72,46 +74,56 @@ fun MainScreen() {
             }
             IconButton(modifier = Modifier.
             then(Modifier.size(24.dp)),
-                onClick = { }) {
+                onClick = {
+
+                }) {
                 Icon(
                     Icons.Filled.ArrowBack,
-                    "contentDescription",
+                    "Recipes",
                     tint = Color.LightGray)
             }
         }
         Row() {
             IconButton(modifier = Modifier.
             then(Modifier.size(24.dp)),
-                onClick = { }) {
+                onClick = {
+
+                }) {
                 Icon(
                     Icons.Filled.ArrowBack,
-                    "contentDescription",
+                    "Comics",
                     tint = Color.Yellow)
             }
             IconButton(modifier = Modifier.
             then(Modifier.size(24.dp)),
-                onClick = { }) {
+                onClick = {
+
+                }) {
                 Icon(
                     Icons.Filled.ArrowBack,
-                    "contentDescription",
+                    "Quiz",
                     tint = Color.Green)
             }
         }
         Row() {
             IconButton(modifier = Modifier.
             then(Modifier.size(24.dp)),
-                onClick = { }) {
+                onClick = {
+
+                }) {
                 Icon(
                     Icons.Filled.ArrowBack,
-                    "contentDescription",
+                    "HealthPost",
                     tint = Color.Cyan)
             }
             IconButton(modifier = Modifier.
             then(Modifier.size(24.dp)),
-                onClick = { }) {
+                onClick = {
+
+                }) {
                 Icon(
                     Icons.Filled.ArrowBack,
-                    "contentDescription",
+                    "Health",
                     tint = Color.Red)
             }
         }
