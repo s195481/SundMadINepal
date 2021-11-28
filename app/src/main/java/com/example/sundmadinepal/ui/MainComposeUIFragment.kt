@@ -135,16 +135,10 @@ fun MainScreen() {
     }
 }
 
-
-@Composable
-fun MyScreen() {
-    MainScreen()
-}
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     SundMadINepalTheme {
-        MyScreen()
+        MainScreen()
     }
 }

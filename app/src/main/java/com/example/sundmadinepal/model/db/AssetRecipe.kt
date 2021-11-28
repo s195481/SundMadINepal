@@ -1,6 +1,5 @@
 package com.example.sundmadinepal.model.db
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.sundmadinepal.model.model.Recipe
@@ -14,6 +13,6 @@ data class AssetRecipe(
     val picture: String
 )
 
-fun AssetRecipe.toModel(): Recipe = Recipe(id,name,ingredients,procedure,picture)
+fun AssetRecipe.toModel(): Recipe = Recipe(id, name, ingredients, procedure, picture)
 
-fun Recipe.toEntity(): AssetRecipe = AssetRecipe(id,name,ingredients,procedure,picture)
+fun Recipe.toEntity(): AssetRecipe = AssetRecipe(id, name, ingredients, procedure, picture)
