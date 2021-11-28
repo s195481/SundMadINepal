@@ -5,24 +5,32 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import com.example.sundmadinepal.R
+import com.example.sundmadinepal.model.model.Comics
+import com.example.sundmadinepal.model.model.GoldenDays
+import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
 class GoldenDaysComposeUIFragment : Fragment() {
@@ -32,18 +40,83 @@ class GoldenDaysComposeUIFragment : Fragment() {
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                Text(text = "Hello world.")
+                GoldenDays()
             }
         }
     }
 }
 
-
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun GoldenDays() {
+    val goldenDays = remember { GoldenDaysViewModel.DataProvider.goldenDaysList }
+    Column() {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.newborn),
+                contentDescription = "GoldenDays",
+                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
+            )
+            Text(
+                text = "1000 Golden Days",
+                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
+                textAlign = TextAlign.Center
+            )
+        }
+        LazyColumn(
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        ) {
+            items(
+                items = goldenDays,
+                itemContent = {
+                    GoldenDaysListItem(goldenDays = it)
+                })
+        }
+    }
 }
 
+@Composable
+fun GoldenDaysListItem(goldenDays: GoldenDays) {
+    Column(
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.LightGray)
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.settings),
+                contentDescription = goldenDays.goldenDayPeriod,
+                modifier = Modifier.size(50.dp).apply { padding(70.dp) }
+            )
+            Text(text = goldenDays.goldenDayPeriod, style = MaterialTheme.typography.h6)
+            Text(text = goldenDays.goldenDayTex, style = MaterialTheme.typography.caption)
+
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    SundMadINepalTheme {
+        //Greeting("Android")
+        GoldenDays()
+    }
+}
+
+// TODO Smarte ting nedenunder ift. at lave stateflow og databinding og sådan. Vent med at slette det.
 /*
 @Composable
 fun MyScreen() {
@@ -79,7 +152,7 @@ fun MyScreen() {
             Text("Click me!")
         }
     }
-}*/
+}
 @Composable
 fun MyScreen(viewModel: GoldenDaysViewModel) {
     Column(
@@ -123,7 +196,7 @@ fun MyScreen(viewModel: GoldenDaysViewModel) {
 
 
 @Composable
-fun MyTextField(state: String, onValueChange: (String) -> Unit) {
+fun MyTextField(state: Comics, onValueChange: (String) -> Unit) {
     TextField(
         state,
         onValueChange,
@@ -142,3 +215,4 @@ fun DefaultPreview() {
         //MyTextField()
     }
 }
+ */
