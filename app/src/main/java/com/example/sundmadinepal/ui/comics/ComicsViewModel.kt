@@ -25,9 +25,8 @@ class ComicsViewModel : ViewModel() {
                 id = 3
             ),
 
-        )
+            )
     }
-
 
 
     private val _text = MutableLiveData<String>().apply {

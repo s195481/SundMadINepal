@@ -13,7 +13,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -28,8 +27,6 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Comics
-import com.example.sundmadinepal.model.model.Recipe
-import com.example.sundmadinepal.ui.recipe.RecipeViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
 class ComicsComposeUIFragment : Fragment() {
@@ -83,16 +80,17 @@ fun ComicListItem(comic: Comics) {
     Column(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top,
-        modifier = Modifier.
-        fillMaxSize().
-        padding(8.dp).
-        clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
     ) {
         Row(
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth().
-            background(Color.LightGray)
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.LightGray)
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.settings),
