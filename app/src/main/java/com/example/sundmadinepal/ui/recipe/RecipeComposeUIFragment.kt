@@ -39,7 +39,6 @@ class RecipeComposeUIFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 Recipes()
-
             }
         }
     }

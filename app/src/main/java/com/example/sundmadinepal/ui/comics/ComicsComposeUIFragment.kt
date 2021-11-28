@@ -47,7 +47,7 @@ class ComicsComposeUIFragment : Fragment() {
 
 
 @Composable
-fun Comics(/* Can't remember what these guys are for "state: String, onValueChange: (String) -> Unit"*/) {
+fun Comics() {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
     Column() {
         Row(
