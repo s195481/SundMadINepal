@@ -41,12 +41,12 @@ class RecipeComposeUIFragment : Fragment() {
 
 @Composable
 fun Recipes(/* Can't remember what these guys are for "state: String, onValueChange: (String) -> Unit"*/) {
-    val puppies = remember { RecipeViewModel.DataProvider.recipeList }
+    val recipies = remember { RecipeViewModel.DataProvider.recipeList }
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
     ) {
         items(
-            items = puppies,
+            items = recipies,
             itemContent = {
                 RecipeListItem(recipe = it)
             })
