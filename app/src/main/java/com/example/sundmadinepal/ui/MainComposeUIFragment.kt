@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.NonNull
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -18,7 +19,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.sundmadinepal.MainActivity
 
 import com.example.sundmadinepal.R
@@ -68,7 +73,7 @@ fun MainScreen() {
         ) {
             IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                 onClick = {
-                    Navigation.findNavController(MainActivity(),R.id.nav_host_fragment).navigate(R.id.action_mainComposeUIFragment_to_goldenDaysComposeUIFragment)
+                    MainActivity().findNavController(R.id.nav_host_fragment_container)
                 }) {
                 Icon(
                     painter = painterResource(id = R.drawable.newborn),
@@ -140,6 +145,8 @@ fun MainScreen() {
         }
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
