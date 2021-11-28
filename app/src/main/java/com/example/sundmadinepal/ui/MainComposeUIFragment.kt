@@ -18,6 +18,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.example.sundmadinepal.MainActivity
+
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
@@ -33,6 +36,8 @@ class MainComposeUIFragment : Fragment() {
         }
     }
 }
+
+
 
 @Composable
 fun MainScreen() {
@@ -63,7 +68,7 @@ fun MainScreen() {
         ) {
             IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                 onClick = {
-
+                    Navigation.findNavController(MainActivity(),R.id.nav_host_fragment).navigate(R.id.action_mainComposeUIFragment_to_goldenDaysComposeUIFragment)
                 }) {
                 Icon(
                     painter = painterResource(id = R.drawable.newborn),
@@ -74,6 +79,7 @@ fun MainScreen() {
             }
             IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                 onClick = {
+
 
                 }) {
                 Icon(

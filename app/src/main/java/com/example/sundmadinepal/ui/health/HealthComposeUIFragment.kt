@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class GoldenDaysComposeUIFragment : Fragment() {
+class HealthComposeUIFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

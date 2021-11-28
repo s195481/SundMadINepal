@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainComposeUIFragment">
+
+    <fragment
+        android:id="@+id/mainComposeUIFragment"
+        android:name="com.example.sundmadinepal.ui.MainComposeUIFragment"
+        android:label="MainComposeUIFragment" >
+        <action
+            android:id="@+id/action_mainComposeUIFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+        <action
+            android:id="@+id/action_mainComposeUIFragment_to_goldenDaysComposeUIFragment"
+            app:destination="@id/goldenDaysComposeUIFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.sundmadinepal.ui.recipe.RecipeFragment"
+        android:label="RecipeFragment" />
+    <fragment
+        android:id="@+id/goldenDaysComposeUIFragment"
+        android:name="com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposeUIFragment"
+        android:label="GoldenDaysComposeUIFragment" />
+</navigation>

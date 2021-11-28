@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class GoldenDaysComposeUIFragment : Fragment() {
+class ComicsComposeUIFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
