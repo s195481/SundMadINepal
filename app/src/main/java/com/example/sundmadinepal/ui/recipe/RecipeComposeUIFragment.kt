@@ -23,7 +23,7 @@ import androidx.compose.material.MaterialTheme.typography
 import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel.DataProvider.recipeList
 
-class GoldenDaysComposeUIFragment : Fragment() {
+class RecipeComposeUIFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
