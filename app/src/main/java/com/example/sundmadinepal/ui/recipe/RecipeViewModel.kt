@@ -56,5 +56,4 @@ class RecipeViewModel : ViewModel() {
         value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
-    val recipe: Recipe = Recipe("Dahl_v1","Dahl","Beans","Cook","")
 }
