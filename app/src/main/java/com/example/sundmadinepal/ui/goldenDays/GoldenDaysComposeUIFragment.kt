@@ -55,6 +55,35 @@ fun GoldenDays() {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
+            // TODO Backbutton
+            /*
+            Row(
+
+        ) {
+            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                onClick = {
+
+                }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.newborn),
+                    "1000GoldenDays",
+                    tint = Color.Magenta,
+                    modifier = Modifier.size(navIconSize.dp)
+                )
+            }
+            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                onClick = {
+
+                }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.recipes),
+                    "Recipes",
+                    tint = Color.LightGray,
+                    modifier = Modifier.size(navIconSize.dp)
+                )
+            }
+        }
+             */
             Icon(
                 painter = painterResource(id = R.drawable.newborn),
                 contentDescription = "GoldenDays",
