@@ -4,24 +4,39 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import com.example.sundmadinepal.R
+import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class GoldenDaysComposeUIFragment : Fragment() {
+class RecipeComposeUIFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                Text(text = "Hello world.")
+                Recipes()
             }
         }
     }
@@ -29,54 +44,64 @@ class GoldenDaysComposeUIFragment : Fragment() {
 
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-/*
-@Composable
-fun MyScreen() {
-    var textState1 by remember { mutableStateOf("") }
-    var textState2 by remember { mutableStateOf("") }
+fun Recipes(/* Can't remember what these guys are for "state: String, onValueChange: (String) -> Unit"*/) {
+    val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column() {
-        TextField(
-            value = textState1,
-            onValueChange = {
-                Log.d("textState1:", "textState1: $it")
-                textState1 = it
-            },
-            Modifier.padding(6.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(backgroundColor = Color.Red)
-        )
-
-        TextField(
-            value = textState2,
-            onValueChange = {
-                Log.d("textState2:", "textState2: $it")
-                textState2 = it
-            },
-            Modifier.padding(6.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(backgroundColor = Color.Blue)
-        )
-
-        Button(
-            onClick = {
-                Log.d("MyScreenButton", "MyScreenButton: $textState1, $textState2")
-            },
-            modifier = Modifier.scale(1.5f)
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click me!")
+            Icon(
+                painter = painterResource(id = R.drawable.recipes),
+                contentDescription = "Recipes",
+                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
+            )
+            Text(
+                text = "Recipes",
+                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
+                textAlign = TextAlign.Center
+            )
+        }
+        LazyColumn(
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        ) {
+            items(
+                items = recipes,
+                itemContent = {
+                    RecipeListItem(recipe = it)
+                })
         }
     }
-}*/
-@Composable
-fun MyScreen(viewModel: RecipeViewModel) {
 }
 
-
 @Composable
-fun Recipes(/* Can't remember what these guys are for "state: String, onValueChange: (String) -> Unit"*/) {
+fun RecipeListItem(recipe: Recipe) {
+    Column(
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.LightGray)
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.settings),
+                contentDescription = recipe.id,
+                modifier = Modifier.size(50.dp).apply { padding(70.dp) }
+            )
+            Text(text = recipe.name, style = typography.h6)
+            Text(text = recipe.id, style = typography.caption)
 
+        }
+    }
 }
 
 @Preview(showBackground = true)

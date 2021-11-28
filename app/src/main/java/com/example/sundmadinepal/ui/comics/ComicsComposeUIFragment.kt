@@ -4,24 +4,39 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import com.example.sundmadinepal.R
+import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class GoldenDaysComposeUIFragment : Fragment() {
+class ComicsComposeUIFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                Text(text = "Hello world.")
+                Comics()
             }
         }
     }
@@ -29,59 +44,64 @@ class GoldenDaysComposeUIFragment : Fragment() {
 
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-/*
-@Composable
-fun MyScreen() {
-    var textState1 by remember { mutableStateOf("") }
-    var textState2 by remember { mutableStateOf("") }
+fun Comics() {
+    val comics = remember { ComicsViewModel.DataProvider.comicsList }
     Column() {
-        TextField(
-            value = textState1,
-            onValueChange = {
-                Log.d("textState1:", "textState1: $it")
-                textState1 = it
-            },
-            Modifier.padding(6.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(backgroundColor = Color.Red)
-        )
-
-        TextField(
-            value = textState2,
-            onValueChange = {
-                Log.d("textState2:", "textState2: $it")
-                textState2 = it
-            },
-            Modifier.padding(6.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(backgroundColor = Color.Blue)
-        )
-
-        Button(
-            onClick = {
-                Log.d("MyScreenButton", "MyScreenButton: $textState1, $textState2")
-            },
-            modifier = Modifier.scale(1.5f)
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click me!")
+            Icon(
+                painter = painterResource(id = R.drawable.comic),
+                contentDescription = "Comics",
+                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
+            )
+            Text(
+                text = "Comics",
+                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
+                textAlign = TextAlign.Center
+            )
+        }
+        LazyColumn(
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        ) {
+            items(
+                items = comics,
+                itemContent = {
+                    ComicListItem(comic = it)
+                })
         }
     }
-}*/
-@Composable
-fun MyScreen(viewModel: ComicsViewModel) {
 }
 
-
 @Composable
-fun MyTextField(state: String, onValueChange: (String) -> Unit) {
-    TextField(
-        state,
-        onValueChange,
-        maxLines = 2,
-        shape = RoundedCornerShape(4.dp)
-    )
+fun ComicListItem(comic: Comics) {
+    Column(
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.LightGray)
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.settings),
+                contentDescription = comic.id.toString(),
+                modifier = Modifier.size(50.dp).apply { padding(70.dp) }
+            )
+            Text(text = comic.comic_name, style = MaterialTheme.typography.h6)
+            Text(text = comic.id.toString(), style = MaterialTheme.typography.caption)
+
+        }
+    }
 }
 
 @Preview(showBackground = true)
@@ -89,6 +109,6 @@ fun MyTextField(state: String, onValueChange: (String) -> Unit) {
 fun DefaultPreview() {
     SundMadINepalTheme {
         //Greeting("Android")
-        //MyTextField()
+        Comics()
     }
 }
