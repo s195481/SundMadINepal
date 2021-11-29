@@ -1,24 +1,23 @@
 package com.example.sundmadinepal
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.example.sundmadinepal.databinding.MainActivityBinding
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.ui.MainComposeUIFragment
+import com.example.sundmadinepal.ui.comics.ComicsComposeUIFragment
+import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposeUIFragment
+import com.example.sundmadinepal.ui.health.HealthComposeUIFragment
+import com.example.sundmadinepal.ui.recipe.RecipeComposeUIFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<MainActivityBinding>(
-            this,
-            R.layout.main_activity
-        )
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .add(binding.container.id, MainComposeUIFragment())
-                .commitNow()
+        setContent {
+            MainComposeUIFragment()
         }
     }
 }

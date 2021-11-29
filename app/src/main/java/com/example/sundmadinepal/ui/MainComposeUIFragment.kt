@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -18,24 +20,36 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
+import com.example.sundmadinepal.ui.comics.ComicsComposeUIFragment
+import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposeUIFragment
+import com.example.sundmadinepal.ui.health.HealthComposeUIFragment
+import com.example.sundmadinepal.ui.recipe.RecipeComposeUIFragment
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class MainComposeUIFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return ComposeView(requireContext()).apply {
-            setContent {
-                MainScreen()
+class MainComposeUIFragment : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            val navController = rememberNavController()
+            NavHost(navController = navController, startDestination = "MainComposeUIFragment") {
+                composable("MainComposeUIFragment") { MainComposeUIFragment() }
+                composable("RecipeComposeUIFragment") { RecipeComposeUIFragment() }
+                composable("GoldenDaysComposeUIFragment") { GoldenDaysComposeUIFragment() }
+                composable("ComicsComposeUIFragment") { ComicsComposeUIFragment() }
+                composable("HealthComposeUIFragment") { HealthComposeUIFragment() }
             }
+            MainScreen(navController)
         }
     }
 }
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavController) {
     val navIconSize: Int = 170
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -59,11 +73,10 @@ fun MainScreen() {
             )
         }
         Row(
-
         ) {
             IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                 onClick = {
-
+                    navController.navigate("GoldenDaysComposeUIFragment")
                 }) {
                 Icon(
                     painter = painterResource(id = R.drawable.newborn),
@@ -139,6 +152,6 @@ fun MainScreen() {
 @Composable
 fun DefaultPreview() {
     SundMadINepalTheme {
-        MainScreen()
+        //MainScreen()
     }
 }
