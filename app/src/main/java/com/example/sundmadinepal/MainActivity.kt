@@ -51,7 +51,6 @@ class MainActivity : ComponentActivity() {
                 composable("health") { HealthComposable(navController) }
                 composable("healthPost") {HealthPostComposable(navController)}
             }
-            //MainComposable(navController)
         }
     }
 }
@@ -177,6 +176,19 @@ fun GoldenDaysComposable(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
+            Row(){
+                IconButton(modifier = Modifier.then(Modifier.size(50.dp)),
+                    onClick = {
+                        navController.navigate("main")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.health_post),
+                        "healthPost",
+                        tint = Color.Cyan,
+                        modifier = Modifier.size(50.dp)
+                    )
+                }
+            }
             Icon(
                 painter = painterResource(id = R.drawable.newborn),
                 contentDescription = "GoldenDays",
