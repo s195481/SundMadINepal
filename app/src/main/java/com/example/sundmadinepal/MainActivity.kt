@@ -3,6 +3,7 @@ package com.example.sundmadinepal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -70,7 +71,7 @@ fun MainScreen(navController: NavController) {
         }
         Row(
         ) {
-            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)).background(color = Color.Green),
                 onClick = {
                     navController.navigate("GoldenDaysComposeUIFragment")
                 }) {
