@@ -43,7 +43,6 @@ class MainComposeUIFragment : ComponentActivity() {
                 composable("ComicsComposeUIFragment") { ComicsComposeUIFragment() }
                 composable("HealthComposeUIFragment") { HealthComposeUIFragment() }
             }
-            MainScreen(navController)
         }
     }
 }
