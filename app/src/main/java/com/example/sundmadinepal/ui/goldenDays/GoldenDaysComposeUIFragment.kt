@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Comics
@@ -41,13 +42,13 @@ class GoldenDaysComposeUIFragment : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            GoldenDays()
+            GoldenDays(navController)
         }
     }
 }
 
 @Composable
-fun GoldenDays() {
+fun GoldenDays(navController: NavController) {
     val goldenDays = remember { GoldenDaysViewModel.DataProvider.goldenDaysList }
     Column() {
         Row(
@@ -112,7 +113,8 @@ fun GoldenDaysListItem(goldenDays: GoldenDays) {
 fun DefaultPreview() {
     SundMadINepalTheme {
         //Greeting("Android")
-        GoldenDays()
+        val navController = rememberNavController()
+        GoldenDays(navController)
     }
 }
 

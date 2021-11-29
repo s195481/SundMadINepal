@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "MainComposeUIFragment") {
                 composable("MainComposeUIFragment") { MainComposeUIFragment() }
                 composable("RecipeComposeUIFragment") { RecipeComposeUIFragment() }
-                composable("GoldenDaysComposeUIFragment") { GoldenDaysComposeUIFragment() }
+                composable("goldenDays") { GoldenDaysComposeUIFragment() }
                 composable("ComicsComposeUIFragment") { ComicsComposeUIFragment() }
                 composable("HealthComposeUIFragment") { HealthComposeUIFragment() }
             }
@@ -73,7 +73,7 @@ fun MainScreen(navController: NavController) {
         ) {
             IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)).background(color = Color.Green),
                 onClick = {
-                    navController.navigate("GoldenDaysComposeUIFragment")
+                    navController.navigate("goldenDays")
                 }) {
                 Icon(
                     painter = painterResource(id = R.drawable.newborn),
