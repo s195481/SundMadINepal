@@ -149,6 +149,7 @@ fun MainScreen(navController: NavController) {
 @Composable
 fun DefaultPreview() {
     SundMadINepalTheme {
-        //MainScreen()
+        val navController = rememberNavController()
+        MainScreen(navController)
     }
 }
