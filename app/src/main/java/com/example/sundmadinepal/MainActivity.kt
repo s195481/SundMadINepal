@@ -45,10 +45,11 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main") {
                 composable("main") { MainComposable(navController) }
-                composable("recipe") { RecipesComposable() }
+                composable("recipe") { RecipesComposable(navController) }
                 composable("goldenDays") { GoldenDaysComposable(navController) }
-                composable("comics") { ComicsComposable() }
-                composable("health") { HealthComposable() }
+                composable("comics") { ComicsComposable(navController) }
+                composable("health") { HealthComposable(navController) }
+                composable("healthPost") {HealthPostComposable(navController)}
             }
             //MainComposable(navController)
         }
@@ -133,7 +134,7 @@ fun MainComposable(navController: NavController) {
                 }) {
                 Icon(
                     painter = painterResource(id = R.drawable.quiz),
-                    "Quiz",
+                    "quiz",
                     tint = Color.Green,
                     modifier = Modifier.size(navIconSize.dp)
                 )
@@ -146,7 +147,7 @@ fun MainComposable(navController: NavController) {
                 }) {
                 Icon(
                     painter = painterResource(id = R.drawable.health_post),
-                    "HealthPost",
+                    "healthPost",
                     tint = Color.Cyan,
                     modifier = Modifier.size(navIconSize.dp)
                 )
@@ -229,7 +230,7 @@ fun GoldenDaysListItem(goldenDays: GoldenDays) {
 }
 
 @Composable
-fun HealthComposable() {
+fun HealthComposable(navController: NavController) {
     Row(
         horizontalArrangement = Arrangement.Center
     ) {
@@ -302,7 +303,7 @@ fun HealthComposable() {
 
 
 @Composable
-fun RecipesComposable() {
+fun RecipesComposable(navController: NavController) {
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column() {
         Row(
@@ -363,7 +364,7 @@ fun RecipeListItem(recipe: Recipe) {
 }
 
 @Composable
-fun ComicsComposable() {
+fun ComicsComposable(navController: NavController) {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
     Column() {
         Row(
@@ -419,6 +420,38 @@ fun ComicListItem(comic: Comics) {
             Text(text = comic.comic_name, style = MaterialTheme.typography.h6)
             Text(text = comic.id.toString(), style = MaterialTheme.typography.caption)
 
+        }
+    }
+}
+
+@Composable
+fun HealthPostComposable(navController: NavController) {
+    val comics = remember { ComicsViewModel.DataProvider.comicsList }
+    Column() {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.comic),
+                contentDescription = "Comics",
+                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
+            )
+            Text(
+                text = "Comics",
+                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
+                textAlign = TextAlign.Center
+            )
+        }
+        LazyColumn(
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        ) {
+            items(
+                items = comics,
+                itemContent = {
+                    ComicListItem(comic = it)
+                })
         }
     }
 }
