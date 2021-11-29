@@ -32,13 +32,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
-import com.example.sundmadinepal.ui.MainComposeUIFragment
-import com.example.sundmadinepal.ui.comics.ComicsComposeUIFragment
 import com.example.sundmadinepal.ui.comics.ComicsViewModel
-import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposeUIFragment
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
-import com.example.sundmadinepal.ui.health.HealthComposeUIFragment
-import com.example.sundmadinepal.ui.recipe.RecipeComposeUIFragment
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
