@@ -2,16 +2,6 @@ package com.example.sundmadinepal
 
 import android.app.Application
 import com.example.sundmadinepal.di.ServiceLocator
-import com.example.sundmadinepal.model.AssetRepository
-import com.example.sundmadinepal.model.api.RecipeApi
-import com.example.sundmadinepal.model.api.model.RecipeDto
-import com.example.sundmadinepal.model.db.AppDatabase
-import com.example.sundmadinepal.model.db.AssetRecipe
-import com.example.sundmadinepal.model.db.RecipeDao
-import com.example.sundmadinepal.model.db.toEntity
-import com.example.sundmadinepal.model.model.Recipe
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class App : Application() {

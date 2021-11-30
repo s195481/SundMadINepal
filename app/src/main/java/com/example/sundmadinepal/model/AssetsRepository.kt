@@ -26,7 +26,6 @@ class AssetRepository(
     }
 
 
-
     fun getAsset(id: String): Flow<Unit> {
         refresh(id)
 
@@ -68,7 +67,7 @@ class AssetRepository(
             .map { (entity, _) -> entity.toModel() }
     }
 
-    fun RecipeGeneratorThing(){
+    fun RecipeGeneratorThing() {
         val assetDao = database.recipeDao()
         val recipe1: Recipe = Recipe(
             id = "Dahl_v1",
@@ -80,7 +79,8 @@ class AssetRepository(
         val recipe1x: AssetRecipe = (recipe1.toEntity())
         fun recipestuff() = runBlocking { // this: CoroutineScope
             launch {
-                assetDao.insert(recipe1x) }
+                assetDao.insert(recipe1x)
+            }
         }
         recipestuff()
 
