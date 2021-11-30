@@ -6,11 +6,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.get
 import com.example.sundmadinepal.facilitator.permission.PermissionFacilitator
+import com.example.sundmadinepal.model.AssetRepository
+import com.example.sundmadinepal.model.api.RecipeApi
+import com.example.sundmadinepal.model.api.WrapperConverter
+import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.ui.MainViewModel
 import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
 import com.example.sundmadinepal.ui.health.HealthViewModel
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
 
 object ServiceLocator {
 
@@ -18,6 +27,33 @@ object ServiceLocator {
 
     fun init(application: Application) {
         ServiceLocator.application = application
+    }
+
+    val database : AppDatabase by lazy { AppDatabase.build(application) }
+
+    private val recipeApi : RecipeApi by lazy {
+        Retrofit.Builder()
+            .baseUrl("80.166.169.49")
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor{ chain -> chain.request().newBuilder()
+                    .addHeader(
+                        "user",
+                        "temporary"
+                    )
+                        .build()
+                        .let{ chain.proceed(it)}
+                    }
+                    .addInterceptor(
+                        HttpLoggingInterceptor { println(it) }
+                            .also { it.level = HttpLoggingInterceptor.Level.BODY }
+                    )
+                    .build()
+            )
+            .addConverterFactory(WrapperConverter())
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
+            .create()
     }
 
 
@@ -37,6 +73,10 @@ object ServiceLocator {
                 } as T
             }
         }
+    }
+
+    private val recipeRepository : AssetRepository by lazy{
+        AssetRepository(recipeApi,database)
     }
 
     // Effectively singleton

@@ -12,8 +12,8 @@ import kotlinx.coroutines.runBlocking
 import java.io.IOException
 
 class AssetRepository(
-    private val database: AppDatabase,
-    private val recipeApi: RecipeApi
+    private val recipeApi: RecipeApi,
+    private val database: AppDatabase
 ) {
     private val _refreshTrigger = MutableStateFlow("" to -1L)
 
@@ -24,6 +24,8 @@ class AssetRepository(
         val (_, currentCount) = _refreshTrigger.value
         _refreshTrigger.value = _refreshTrigger.value.copy(id, currentCount + 1)
     }
+
+
 
     fun getAsset(id: String): Flow<Unit> {
         refresh(id)
