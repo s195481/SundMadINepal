@@ -3,18 +3,16 @@ package com.example.sundmadinepal.model;
 import com.example.sundmadinepal.model.api.RecipeApi
 import com.example.sundmadinepal.model.api.model.RecipeDto
 import com.example.sundmadinepal.model.api.model.toEntity
-
-import com.example.sundmadinepal.model.db.AppDatabase;
-import com.example.sundmadinepal.model.db.toEntity
+import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.model.db.toModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import java.io.IOException
 
-class AssetRepository (
+class AssetRepository(
     private val database: AppDatabase,
     private val recipeApi: RecipeApi
-){
+) {
     private val _refreshTrigger = MutableStateFlow("" to -1L)
 
     /**

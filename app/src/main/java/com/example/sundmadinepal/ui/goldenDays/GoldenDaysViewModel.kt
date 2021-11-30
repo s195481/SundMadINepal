@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.model.model.GoldenDays
-import com.example.sundmadinepal.model.model.Recipe
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class GoldenDaysViewModel : ViewModel() {
