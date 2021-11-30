@@ -211,8 +211,8 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.baby),
-                        modifier = Modifier.size(navIconSize.dp)
                         contentDescription = stringResource(R.string.title_health),
+                        modifier = Modifier.size(navIconSize.dp)
                     )
                 }
             }
