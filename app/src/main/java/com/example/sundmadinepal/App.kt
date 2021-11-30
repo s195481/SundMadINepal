@@ -24,6 +24,6 @@ class App : Application() {
         val database: AppDatabase = AppDatabase.build(this)
         //val recipeApi: RecipeApi = RecipeApi
 
-        AssetRepository(database,recipeApi).RecipeGeneratorThing()
+        //AssetRepository(database,recipeApi).RecipeGeneratorThing()
     }
 }
