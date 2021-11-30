@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
                 composable("goldenDays") { GoldenDaysComposable(navController) }
                 composable("comics") { ComicsComposable(navController) }
                 composable("health") { HealthComposable(navController) }
-                composable("healthPost") {HealthPostComposable(navController)}
+                composable("healthPost") { HealthPostComposable(navController) }
             }
         }
     }
@@ -61,106 +61,148 @@ fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
         MainComposable(navController)
+        //RecipesComposable(navController)
+        //GoldenDaysComposable(navController)
+        //ComicsComposable(navController)
+        //HealthComposable(navController)
+        //HealthPostComposable(navController)
     }
 }
 
 @Composable
 fun MainComposable(navController: NavController) {
-    val navIconSize: Int = 170
+    val navIconSize: Int = 150
+    val navPadding: Int = navIconSize / 10
+    val titleSize: Int = 100
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.Top,
             modifier = Modifier.fillMaxWidth()
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.home),
                 contentDescription = "Home",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
+                modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) }
             )
             Text(
                 text = "Home",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Center
+                style = MaterialTheme.typography.h4,
+                modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) },
+                textAlign = TextAlign.Justify,
             )
         }
-        Row(
-        ) {
-            IconButton(modifier = Modifier
-                .then(Modifier.size(navIconSize.dp))
-                .background(color = Color.Green),
-                onClick = {
-                    navController.navigate("goldenDays")
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.newborn),
-                    "1000GoldenDays",
-                    tint = Color.Magenta,
-                    modifier = Modifier.size(navIconSize.dp)
-                )
+        Row() {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(navPadding.dp)
+            ) {
+                IconButton(modifier = Modifier
+                    .then(Modifier.size(navIconSize.dp))
+                    .background(color = Color.Green),
+                    onClick = {
+                        navController.navigate("goldenDays")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.newborn),
+                        "1000GoldenDays",
+                        tint = Color.Magenta,
+                        modifier = Modifier.size(navIconSize.dp)
+                    )
+                }
             }
-            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                onClick = {
-                    navController.navigate("recipes")
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.recipes),
-                    "Recipes",
-                    tint = Color.LightGray,
-                    modifier = Modifier.size(navIconSize.dp)
-                )
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(navPadding.dp)
+            ) {
+                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                    onClick = {
+                        navController.navigate("recipes")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.recipes),
+                        "Recipes",
+                        tint = Color.LightGray,
+                        modifier = Modifier.size(navIconSize.dp)
+                    )
+                }
             }
         }
         Row() {
-            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                onClick = {
-                    navController.navigate("comics")
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.comic),
-                    "Comics",
-                    tint = Color.Yellow,
-                    modifier = Modifier.size(navIconSize.dp)
-                )
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(navPadding.dp)
+            ) {
+                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                    onClick = {
+                        navController.navigate("comics")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.comic),
+                        "Comics",
+                        tint = Color.Yellow,
+                        modifier = Modifier.size(navIconSize.dp)
+                    )
+                }
             }
-            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                onClick = {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(navPadding.dp)
+            ) {
+                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                    onClick = {
 
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.quiz),
-                    "quiz",
-                    tint = Color.Green,
-                    modifier = Modifier.size(navIconSize.dp)
-                )
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.quiz),
+                        "quiz",
+                        tint = Color.Green,
+                        modifier = Modifier.size(navIconSize.dp)
+                    )
+                }
             }
         }
         Row() {
-            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                onClick = {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(navPadding.dp)
+            ) {
+                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                    onClick = {
 
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.health_post),
-                    "healthPost",
-                    tint = Color.Cyan,
-                    modifier = Modifier.size(navIconSize.dp)
-                )
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.health_post),
+                        "healthPost",
+                        tint = Color.Cyan,
+                        modifier = Modifier.size(navIconSize.dp)
+                    )
+                }
             }
-            IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                onClick = {
-                    navController.navigate("health")
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.baby),
-                    "Health",
-                    tint = Color.Red,
-                    modifier = Modifier.size(navIconSize.dp)
-                )
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(navPadding.dp)
+            ) {
+                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
+                    onClick = {
+                        navController.navigate("health")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.baby),
+                        "Health",
+                        tint = Color.Red,
+                        modifier = Modifier.size(navIconSize.dp)
+                    )
+                }
             }
         }
     }
@@ -176,7 +218,7 @@ fun GoldenDaysComposable(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Row(){
+            Row() {
                 IconButton(modifier = Modifier.then(Modifier.size(50.dp)),
                     onClick = {
                         navController.navigate("main")
