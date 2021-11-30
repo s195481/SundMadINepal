@@ -1,5 +1,6 @@
 package com.example.sundmadinepal
 
+import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,6 +30,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
@@ -36,6 +38,7 @@ import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import java.util.*
 
 
 class MainActivity : ComponentActivity() {
@@ -63,10 +66,10 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
-        MainComposable(navController)
+        //MainComposable(navController)
         //RecipesComposable(navController)
         //GoldenDaysComposable(navController)
-        //ComicsComposable(navController)
+        ComicsComposable(navController)
         //HealthComposable(navController)
         //HealthPostComposable(navController)
     }
@@ -471,6 +474,8 @@ fun TopBarGenerator(
     val titlePadding: Int = titleSize / 10
     val backButtonSize: Int = titleSize / 2
     Row(
+        modifier = Modifier
+            .background(colorResource(color))
     ) {
         if (backButtonBool) {
             Row(
@@ -478,8 +483,7 @@ fun TopBarGenerator(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .height(titleSize.dp)
-                    .padding(titlePadding.dp)
-                    .background(colorResource(color)),
+                    .padding(titlePadding.dp),
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
                     onClick = {
@@ -498,7 +502,7 @@ fun TopBarGenerator(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(colorResource(color))
+
         ) {
             Icon(
                 painter = painterResource(id = titleImageSrc),
