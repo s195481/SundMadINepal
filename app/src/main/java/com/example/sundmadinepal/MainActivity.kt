@@ -69,8 +69,8 @@ fun DefaultPreview() {
         //MainComposable(navController)
         //RecipesComposable(navController)
         //GoldenDaysComposable(navController)
-        ComicsComposable(navController)
-        //HealthComposable(navController)
+        //ComicsComposable(navController)
+        HealthComposable(navController)
         //HealthPostComposable(navController)
     }
 }
@@ -288,7 +288,7 @@ fun HealthComposable(navController: NavController) {
                 .background(Color.Yellow)
         ) {
             Icon(
-                painter = painterResource(id = R.drawable.temp),
+                painter = painterResource(id = R.drawable.defaultbabyprofile),
                 contentDescription = stringResource(R.string.child_string),
                 modifier = Modifier.size(20.dp)
             )
