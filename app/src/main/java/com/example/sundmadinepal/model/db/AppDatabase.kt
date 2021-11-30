@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun assetDao(): RecipeDao
+    abstract fun recipeDao(): RecipeDao
 
     companion object {
         fun build(context: Context): AppDatabase {
