@@ -22,8 +22,8 @@ class App : Application() {
         ServiceLocator.init(this)
         // TODO Probably delete stuff below later on
         val database: AppDatabase = AppDatabase.build(this)
-        //val recipeApi: RecipeApi = RecipeApi
+        val recipeApi: RecipeApi = ServiceLocator.recipeApi
 
-        //AssetRepository(database,recipeApi).RecipeGeneratorThing()
+        AssetRepository(recipeApi, database).RecipeGeneratorThing()
     }
 }
