@@ -1,6 +1,7 @@
 package com.example.sundmadinepal.di
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
@@ -45,7 +46,7 @@ object ServiceLocator {
                         .let{ chain.proceed(it)}
                     }
                     .addInterceptor(
-                        HttpLoggingInterceptor { println(it) }
+                        HttpLoggingInterceptor { Log.e("ServiceLocator",it) }
                             .also { it.level = HttpLoggingInterceptor.Level.BODY }
                     )
                     .build()
