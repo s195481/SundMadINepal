@@ -11,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import java.io.IOException
 
-class AssetRepository (
+class AssetsRepository (
     private val database: AppDatabase,
     private val recipeApi: RecipeApi
 ){

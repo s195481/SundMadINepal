@@ -1,10 +1,11 @@
-package dk.shortcut.dtudemoapp.di
+package com.example.sundmadinepal.di
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.get
+import com.example.sundmadinepal.facilitator.permission.PermissionFacilitator
 import com.example.sundmadinepal.ui.MainViewModel
 import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
@@ -16,7 +17,7 @@ object ServiceLocator {
     private lateinit var application: Application
 
     fun init(application: Application) {
-        this.application = application
+        ServiceLocator.application = application
     }
 
 
@@ -36,6 +37,11 @@ object ServiceLocator {
                 } as T
             }
         }
+    }
+
+    // Effectively singleton
+    val permissionFacilitator: PermissionFacilitator by lazy {
+        PermissionFacilitator(application)
     }
 
     val ViewModelStoreOwner.mainViewModel: MainViewModel
