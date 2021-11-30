@@ -32,11 +32,11 @@ class RecipeComposeUIFragment : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            Recipes()
+           // Recipes()
         }
     }
 }
-
+/*
 
 @Composable
 fun Recipes(/* Can't remember what these guys are for "state: String, onValueChange: (String) -> Unit"*/) {
@@ -106,4 +106,4 @@ fun DefaultPreview() {
         //Greeting("Android")
         Recipes()
     }
-}
+}*/

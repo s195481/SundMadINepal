@@ -20,20 +20,26 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
+import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.ui.comics.ComicsComposeUIFragment
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposeUIFragment
 import com.example.sundmadinepal.ui.health.HealthComposeUIFragment
-import com.example.sundmadinepal.ui.recipe.RecipeComposeUIFragment
+//import com.example.sundmadinepal.ui.recipe.RecipeComposeUIFragment
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import java.util.*
+import android.app.Application
 
 class MainComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        /*Locale.setDefault(Locale("da", "DK"))
+        ServiceLocator.recipeRepository.RecipeGeneratorThing()
+        ServiceLocator.init(this)*/
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "MainComposeUIFragment") {
                 composable("MainComposeUIFragment") { MainComposeUIFragment() }
-                composable("RecipeComposeUIFragment") { RecipeComposeUIFragment() }
+                //composable("RecipeComposeUIFragment") { RecipeComposeUIFragment() }
                 composable("GoldenDaysComposeUIFragment") { GoldenDaysComposeUIFragment() }
                 composable("ComicsComposeUIFragment") { ComicsComposeUIFragment() }
                 composable("HealthComposeUIFragment") { HealthComposeUIFragment() }
