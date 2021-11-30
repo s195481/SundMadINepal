@@ -61,12 +61,12 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
-        //MainComposable(navController)
+        MainComposable(navController)
         //RecipesComposable(navController)
         //GoldenDaysComposable(navController)
         //ComicsComposable(navController)
         //HealthComposable(navController)
-        HealthPostComposable(navController)
+        //HealthPostComposable(navController)
     }
 }
 
@@ -81,6 +81,16 @@ fun MainComposable(navController: NavController) {
             .background(colorResource(id = R.color.Home_Menu_Background)),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.home,
+            title = stringResource(id = R.string.home_string),
+            titleSize = titleSize,
+            backButtonBool = false,
+            color = R.color.Figma_Home_top
+        )
+        // NOTE Den laver ikke de rigtige farver med ovenstående metode, men gør det dog med det der står nedenunder. Decisons...
+        /*
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.Top,
@@ -100,122 +110,88 @@ fun MainComposable(navController: NavController) {
                 modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) },
                 textAlign = TextAlign.Justify,
             )
+        }*/
+        Row() {
+            NavFromHomeGenerator(
+                navController = navController,
+                destination = "goldenDays",
+                title = R.string.title_goldenDays,
+                imageSrc = R.drawable.newborn,
+                iconSize = navIconSize,
+                color = R.color.Golden_Days_Icon,
+                padding = navPadding
+            )
+            NavFromHomeGenerator(
+                navController = navController,
+                destination = "recipes",
+                title = R.string.title_recipe,
+                imageSrc = R.drawable.recipes,
+                iconSize = navIconSize,
+                color = R.color.Recipe_Icon,
+                padding = navPadding
+            )
         }
         Row() {
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Golden_Days_Icon))
-            ) {
-                IconButton(modifier = Modifier
-                    .then(Modifier.size(navIconSize.dp))
-                        ,
-                    onClick = {
-                        navController.navigate("goldenDays")
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.newborn),
-                        contentDescription = stringResource(R.string.title_goldenDays),
-                        modifier = Modifier.size(navIconSize.dp)
-                    )
-                }
-            }
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Recipe_Icon))
-            ) {
-                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                    onClick = {
-                        navController.navigate("recipes")
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.recipes),
-                        contentDescription = stringResource(R.string.title_recipe),
-                        modifier = Modifier.size(navIconSize.dp)
-                    )
-                }
-            }
+            NavFromHomeGenerator(
+                navController = navController,
+                destination = "comics",
+                title = R.string.title_comics,
+                imageSrc = R.drawable.comic,
+                iconSize = navIconSize,
+                color = R.color.Comics_Icon,
+                padding = navPadding
+            )
+            NavFromHomeGenerator(
+                navController = navController,
+                destination = "",
+                title = R.string.title_quiz,
+                imageSrc = R.drawable.quiz,
+                iconSize = navIconSize,
+                color = R.color.Quiz_Icon,
+                padding = navPadding
+            )
         }
         Row() {
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Comics_Icon))
-            ) {
-                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                    onClick = {
-                        navController.navigate("comics")
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.comic),
-                        contentDescription = stringResource(R.string.title_comics),
-                        modifier = Modifier.size(navIconSize.dp)
-                    )
-                }
-            }
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Quiz_Icon))
-            ) {
-                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                    onClick = {
-
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.quiz),
-                        contentDescription = stringResource(R.string.title_quiz),
-                        modifier = Modifier.size(navIconSize.dp)
-                    )
-                }
-            }
+            NavFromHomeGenerator(
+                navController = navController,
+                destination = "healthPost",
+                title = R.string.title_healthpost,
+                imageSrc = R.drawable.health_post,
+                iconSize = navIconSize,
+                color = R.color.Healthpost_Icon,
+                padding = navPadding
+            )
+            NavFromHomeGenerator(
+                navController = navController,
+                destination = "health",
+                title = R.string.title_health,
+                imageSrc = R.drawable.baby,
+                iconSize = navIconSize,
+                color = R.color.Health_Icon,
+                padding = navPadding
+            )
         }
-        Row() {
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Healthpost_Icon))
-            ) {
-                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                    onClick = {
-                        navController.navigate("healthPost")
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.health_post),
-                        contentDescription = stringResource(R.string.title_healthpost),
-                        modifier = Modifier.size(navIconSize.dp)
-                    )
-                }
-            }
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Health_Icon))
-            ) {
-                IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
-                    onClick = {
-                        navController.navigate("health")
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.baby),
-                        contentDescription = stringResource(R.string.title_health),
-                        modifier = Modifier.size(navIconSize.dp)
-                    )
-                }
-            }
+    }
+}
+@Composable
+fun NavFromHomeGenerator(navController: NavController, destination: String, title: Int, imageSrc: Int, iconSize: Int, color: Int, padding: Int ){
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .padding(padding.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+            .background(colorResource(id = color))
+    ) {
+        IconButton(modifier = Modifier.then(Modifier.size(iconSize.dp)),
+            onClick = {
+                navController.navigate(destination)
+            }) {
+            Icon(
+                painter = painterResource(id = imageSrc),
+                contentDescription = stringResource(title),
+                modifier = Modifier.size(iconSize.dp)
+            )
         }
     }
 }
@@ -231,7 +207,9 @@ fun GoldenDaysComposable(navController: NavController) {
             navController = navController,
             titleImageSrc = R.drawable.newborn,
             title = stringResource(R.string.title_goldenDays),
-            titleSize = 100
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Golden_Days_Icon
         )
 
         LazyColumn(
@@ -285,7 +263,9 @@ fun HealthComposable(navController: NavController) {
             navController = navController,
             titleImageSrc = R.drawable.baby,
             title = stringResource(R.string.title_health),
-            titleSize = 100
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Health_Icon
         )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -345,7 +325,9 @@ fun RecipesComposable(navController: NavController) {
     Column(
         Modifier.fillMaxWidth()
     ) {
-        TopBarGenerator(navController, R.drawable.recipes, stringResource(R.string.title_recipe), 100)
+        TopBarGenerator(navController, R.drawable.recipes, stringResource(R.string.title_recipe), 100,
+            backButtonBool = true,
+            color = R.color.Recipe_Icon)
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
@@ -397,7 +379,9 @@ fun ComicsComposable(navController: NavController) {
             navController = navController,
             titleImageSrc = R.drawable.comic,
             title = stringResource(R.string.title_comics),
-            titleSize = 100
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Comics_Icon
         )
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
@@ -449,7 +433,9 @@ fun HealthPostComposable(navController: NavController) {
             navController = navController,
             titleImageSrc = R.drawable.health_post,
             title = stringResource(R.string.title_healthpost),
-            titleSize = 100
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Healthpost_Icon
         )
     }
 }
@@ -459,28 +445,33 @@ fun TopBarGenerator(
     navController: NavController,
     titleImageSrc: Int,
     title: String,
-    titleSize: Int
+    titleSize: Int,
+    backButtonBool: Boolean,
+    color: Int
 ) {
     val titlePadding: Int = titleSize / 10
     val backButtonSize: Int = titleSize / 2
     Row(
     ) {
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .height(titleSize.dp)
-                .padding(titlePadding.dp)
-        ) {
-            IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
-                onClick = {
-                    navController.navigate("main")
-                }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.backbutton),
-                    "backbutton",
-                    modifier = Modifier.size(backButtonSize.dp)
-                )
+        if (backButtonBool) {
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .height(titleSize.dp)
+                    .padding(titlePadding.dp)
+                    .background(colorResource(color)),
+            ) {
+                IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
+                    onClick = {
+                        navController.navigate("main")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.backbutton),
+                        "backbutton",
+                        modifier = Modifier.size(backButtonSize.dp)
+                    )
+                }
             }
         }
         Row(
