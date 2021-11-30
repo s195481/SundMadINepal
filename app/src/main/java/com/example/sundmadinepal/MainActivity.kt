@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -74,13 +75,19 @@ fun MainComposable(navController: NavController) {
     val navPadding: Int = navIconSize / 10
     val titleSize: Int = 100
     Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.Home_Menu_Background)),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(
+
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.Top,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(colorResource(id = R.color.Figma_Home_top))
+
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.home),
@@ -100,18 +107,17 @@ fun MainComposable(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Golden_Days_Icon))
             ) {
                 IconButton(modifier = Modifier
                     .then(Modifier.size(navIconSize.dp))
-                    .background(color = Color.Green),
+                        ,
                     onClick = {
                         navController.navigate("goldenDays")
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.newborn),
                         "1000GoldenDays",
-                        tint = Color.Magenta,
                         modifier = Modifier.size(navIconSize.dp)
                     )
                 }
@@ -121,7 +127,7 @@ fun MainComposable(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Recipe_Icon))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -130,7 +136,6 @@ fun MainComposable(navController: NavController) {
                     Icon(
                         painter = painterResource(id = R.drawable.recipes),
                         "Recipes",
-                        tint = Color.LightGray,
                         modifier = Modifier.size(navIconSize.dp)
                     )
                 }
@@ -142,7 +147,7 @@ fun MainComposable(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Comics_Icon))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -151,7 +156,6 @@ fun MainComposable(navController: NavController) {
                     Icon(
                         painter = painterResource(id = R.drawable.comic),
                         "Comics",
-                        tint = Color.Yellow,
                         modifier = Modifier.size(navIconSize.dp)
                     )
                 }
@@ -161,7 +165,7 @@ fun MainComposable(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Quiz_Icon))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -170,7 +174,6 @@ fun MainComposable(navController: NavController) {
                     Icon(
                         painter = painterResource(id = R.drawable.quiz),
                         "quiz",
-                        tint = Color.Green,
                         modifier = Modifier.size(navIconSize.dp)
                     )
                 }
@@ -182,7 +185,7 @@ fun MainComposable(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Healthpost_Icon))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -191,7 +194,6 @@ fun MainComposable(navController: NavController) {
                     Icon(
                         painter = painterResource(id = R.drawable.health_post),
                         "healthPost",
-                        tint = Color.Cyan,
                         modifier = Modifier.size(navIconSize.dp)
                     )
                 }
@@ -201,7 +203,7 @@ fun MainComposable(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(navPadding.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp))).background(colorResource(id = R.color.Health_Icon))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -210,7 +212,6 @@ fun MainComposable(navController: NavController) {
                     Icon(
                         painter = painterResource(id = R.drawable.baby),
                         "Health",
-                        tint = Color.Red,
                         modifier = Modifier.size(navIconSize.dp)
                     )
                 }

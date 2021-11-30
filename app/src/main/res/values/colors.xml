@@ -11,4 +11,13 @@
     <color name="light_blue_600">#FF039BE5</color>
     <color name="gray_400">#FFBDBDBD</color>
     <color name="gray_600">#FF757575</color>
+    <color name="Figma_Home_top">#E1A1A1</color>
+    <color name="Home_Menu_Background">#DF6E6E</color>DF6E6E
+    <color name="Golden_Days_Icon">#F07CE4</color>
+    <color name="Recipe_Icon">#8B7EDD</color>
+    <color name="Comics_Icon">#F0D07C</color>
+    <color name="Quiz_Icon">#8CF07C</color>
+    <color name="Healthpost_Icon">#A9DBF6</color>
+    <color name="Health_Icon">#FF6363</color>
+
 </resources>
