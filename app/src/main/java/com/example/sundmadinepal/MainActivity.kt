@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main") {
                 composable("main") { MainComposable(navController) }
-                composable("recipe") { RecipesComposable(navController) }
+                composable("recipes") { RecipesComposable(navController) }
                 composable("goldenDays") { GoldenDaysComposable(navController) }
                 composable("comics") { ComicsComposable(navController) }
                 composable("health") { HealthComposable(navController) }
