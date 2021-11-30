@@ -20,10 +20,7 @@ class App : Application() {
         super.onCreate()
         Locale.setDefault(Locale("da", "DK"))
         ServiceLocator.init(this)
-        // TODO Probably delete stuff below later on
-        val database: AppDatabase = AppDatabase.build(this)
-        val recipeApi: RecipeApi = ServiceLocator.recipeApi
 
-        AssetRepository(recipeApi, database).RecipeGeneratorThing()
+        ServiceLocator.recipeRepository.RecipeGeneratorThing()
     }
 }

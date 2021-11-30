@@ -75,7 +75,7 @@ object ServiceLocator {
         }
     }
 
-    private val recipeRepository : AssetRepository by lazy{
+    val recipeRepository : AssetRepository by lazy{
         AssetRepository(recipeApi,database)
     }
 

@@ -322,6 +322,7 @@ fun HealthComposable(navController: NavController) {
 @Composable
 fun RecipesComposable(navController: NavController) {
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
+    RecipeViewModel.
     Column(
         Modifier.fillMaxWidth()
     ) {
