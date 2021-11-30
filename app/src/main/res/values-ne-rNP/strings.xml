@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Sund Mad I Nepal</string>
-    <string name="title_recipe"></string>
-    <string name="title_health"></string>
-    <string name="title_comics"></string>
-    <string name="title_goldenDays"></string>
+    <string name="title_recipe">पकाउने समाग्री र तरीका</string>
+    <string name="title_health">स्वास्थ्य</string>
+    <string name="title_comics">चित्र कथा</string>
+    <string name="title_goldenDays">एक हजार सुनौलो दिनहरू</string>
     <string name="recipes_string">पकाउने समाग्री र तरीका</string>
     <string name="vegetable_string">सब्जी / तरकारी</string>
     <string name="mum_string">आमा</string>
