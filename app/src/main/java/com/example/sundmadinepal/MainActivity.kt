@@ -186,7 +186,7 @@ fun MainComposable(navController: NavController) {
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
-
+                        navController.navigate("healthPost")
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.health_post),
