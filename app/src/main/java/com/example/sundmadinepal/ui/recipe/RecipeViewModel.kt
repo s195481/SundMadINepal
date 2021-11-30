@@ -62,7 +62,7 @@ class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel
                 picture = ""
             ),
             // TODO recipeRepository.getAsset("Dahl_v1"),
-            recipeRepository.getAsset("Dahl_v1"),
+            // recipeRepository.getAsset("Dahl_v1"),
         )
     }
 
