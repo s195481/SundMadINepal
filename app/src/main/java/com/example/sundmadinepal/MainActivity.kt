@@ -1,6 +1,5 @@
 package com.example.sundmadinepal
 
-import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,7 +29,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
@@ -38,7 +36,6 @@ import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
-import java.util.*
 
 
 class MainActivity : ComponentActivity() {
@@ -282,26 +279,30 @@ fun HealthComposable(navController: NavController) {
             color = R.color.Health_Icon
         )
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .padding(24.dp)
                 .background(Color.Yellow)
         ) {
-            Icon(
-                painter = painterResource(id = R.drawable.defaultbabyprofile),
-                contentDescription = stringResource(R.string.child_string),
-                modifier = Modifier.size(20.dp)
-            )
-            Text(
-                text = stringResource(R.string.name_string)
-            )
-            Text(
-                text = (stringResource(R.string.day_string) + "/" + stringResource(R.string.months_string) + "/" + stringResource(
-                    R.string.year_string
-                ))
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.defaultbabyprofile),
+                    contentDescription = stringResource(R.string.child_string),
+                    modifier = Modifier.size(20.dp)
+                )
+                Text(
+                    text = stringResource(R.string.name_string)
+                )
+                Text(
+                    text = (stringResource(R.string.day_string) + "/" +
+                            stringResource(R.string.months_string) + "/" +
+                            stringResource(R.string.year_string))
+                )
+            }
+
             Row(
-                horizontalArrangement = Arrangement.Start
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     text = (stringResource(R.string.height_string) + ":")
@@ -311,7 +312,8 @@ fun HealthComposable(navController: NavController) {
                 )
             }
             Row(
-                horizontalArrangement = Arrangement.Start
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     text = (stringResource(R.string.weight_string) + ":")
@@ -321,7 +323,8 @@ fun HealthComposable(navController: NavController) {
                 )
             }
             Row(
-                horizontalArrangement = Arrangement.Start
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     text = (stringResource(R.string.diary_string) + ":")
