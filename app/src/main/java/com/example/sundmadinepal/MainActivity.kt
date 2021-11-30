@@ -182,7 +182,7 @@ fun GoldenDaysComposable(navController: NavController) {
                         navController.navigate("main")
                     }) {
                     Icon(
-                        painter = painterResource(id = R.drawable.health_post),
+                        painter = painterResource(id = R.drawable.backbutton),
                         "healthPost",
                         tint = Color.Cyan,
                         modifier = Modifier.size(50.dp)
