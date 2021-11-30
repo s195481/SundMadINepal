@@ -5,14 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -60,12 +59,12 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
-        MainComposable(navController)
+        //MainComposable(navController)
         //RecipesComposable(navController)
         //GoldenDaysComposable(navController)
         //ComicsComposable(navController)
         //HealthComposable(navController)
-        //HealthPostComposable(navController)
+        HealthPostComposable(navController)
     }
 }
 
@@ -99,7 +98,9 @@ fun MainComposable(navController: NavController) {
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(navPadding.dp)
+                modifier = Modifier
+                    .padding(navPadding.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             ) {
                 IconButton(modifier = Modifier
                     .then(Modifier.size(navIconSize.dp))
@@ -118,7 +119,9 @@ fun MainComposable(navController: NavController) {
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(navPadding.dp)
+                modifier = Modifier
+                    .padding(navPadding.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -137,7 +140,9 @@ fun MainComposable(navController: NavController) {
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(navPadding.dp)
+                modifier = Modifier
+                    .padding(navPadding.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -154,7 +159,9 @@ fun MainComposable(navController: NavController) {
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(navPadding.dp)
+                modifier = Modifier
+                    .padding(navPadding.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -173,7 +180,9 @@ fun MainComposable(navController: NavController) {
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(navPadding.dp)
+                modifier = Modifier
+                    .padding(navPadding.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -190,7 +199,9 @@ fun MainComposable(navController: NavController) {
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(navPadding.dp)
+                modifier = Modifier
+                    .padding(navPadding.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(navIconSize.dp)),
                     onClick = {
@@ -212,36 +223,16 @@ fun MainComposable(navController: NavController) {
 @Composable
 fun GoldenDaysComposable(navController: NavController) {
     val goldenDays = remember { GoldenDaysViewModel.DataProvider.goldenDaysList }
-    Column() {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Row() {
-                IconButton(modifier = Modifier.then(Modifier.size(50.dp)),
-                    onClick = {
-                        navController.navigate("main")
-                    }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.backbutton),
-                        "healthPost",
-                        tint = Color.Cyan,
-                        modifier = Modifier.size(50.dp)
-                    )
-                }
-            }
-            Icon(
-                painter = painterResource(id = R.drawable.newborn),
-                contentDescription = "GoldenDays",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
-            )
-            Text(
-                text = "1000 Golden Days",
-                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Center
-            )
-        }
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.newborn,
+            title = "1000 Golden Days",
+            titleSize = 100
+        )
+
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
@@ -283,74 +274,65 @@ fun GoldenDaysListItem(goldenDays: GoldenDays) {
     }
 }
 
+//TODO Fix it's ugly as fuuuck
 @Composable
 fun HealthComposable(navController: NavController) {
-    Row(
-        horizontalArrangement = Arrangement.Center
-    ) {
-        IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
-            onClick = { }) {
-            Icon(
-                Icons.Filled.ArrowBack,
-                "contentDescription",
-                tint = Color.Red
-            )
-        }
-        Icon(
-            painter = painterResource(id = R.drawable.temp),
-            contentDescription = "Temp",
-            modifier = Modifier.size(20.dp)
-        )
-        Text(
-            text = "Health"
-        )
-    }
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .padding(24.dp)
-            .background(Color.Yellow)
+        modifier = Modifier.fillMaxWidth()
     ) {
-        Icon(
-            painter = painterResource(id = R.drawable.temp),
-            contentDescription = "Kid",
-            modifier = Modifier.size(20.dp)
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.baby,
+            title = "Health",
+            titleSize = 100
         )
-        Text(
-            text = "name"
-        )
-        Text(
-            text = "dd/mm/yyyy"
-        )
-        Row(
-            horizontalArrangement = Arrangement.Start
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(24.dp)
+                .background(Color.Yellow)
         ) {
-            Text(
-                text = "Height: "
+            Icon(
+                painter = painterResource(id = R.drawable.temp),
+                contentDescription = "Kid",
+                modifier = Modifier.size(20.dp)
             )
             Text(
-                text = "55 cm"
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.Start
-        ) {
-            Text(
-                text = "Weight: "
+                text = "name"
             )
             Text(
-                text = "5 kg"
+                text = "dd/mm/yyyy"
             )
-        }
-        Row(
-            horizontalArrangement = Arrangement.Start
-        ) {
-            Text(
-                text = "Diary: "
-            )
-            Text(
-                text = "Only eaten breastmilk so far."
-            )
+            Row(
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "Height: "
+                )
+                Text(
+                    text = "55 cm"
+                )
+            }
+            Row(
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "Weight: "
+                )
+                Text(
+                    text = "5 kg"
+                )
+            }
+            Row(
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "Diary: "
+                )
+                Text(
+                    text = "Only eaten breastmilk so far."
+                )
+            }
         }
     }
 }
@@ -359,34 +341,22 @@ fun HealthComposable(navController: NavController) {
 @Composable
 fun RecipesComposable(navController: NavController) {
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
-    Column() {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.recipes),
-                contentDescription = "Recipes",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
-            )
-            Text(
-                text = "Recipes",
-                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Center
-            )
-        }
-        LazyColumn(
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
-        ) {
-            items(
-                items = recipes,
-                itemContent = {
-                    RecipeListItem(recipe = it)
-                })
-        }
+    Column(
+        Modifier.fillMaxWidth()
+    ){
+    TopBarGenerator(navController, R.drawable.recipes,"Recipes", 100)
+    LazyColumn(
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+    ) {
+        items(
+            items = recipes,
+            itemContent = {
+                RecipeListItem(recipe = it)
+            })
+    }
     }
 }
+
 
 @Composable
 fun RecipeListItem(recipe: Recipe) {
@@ -420,23 +390,15 @@ fun RecipeListItem(recipe: Recipe) {
 @Composable
 fun ComicsComposable(navController: NavController) {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
-    Column() {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.comic),
-                contentDescription = "Comics",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
-            )
-            Text(
-                text = "Comics",
-                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Center
-            )
-        }
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.comic,
+            title = "Comics",
+            titleSize = 100
+        )
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
@@ -480,32 +442,60 @@ fun ComicListItem(comic: Comics) {
 
 @Composable
 fun HealthPostComposable(navController: NavController) {
-    val comics = remember { ComicsViewModel.DataProvider.comicsList }
-    Column() {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.health_post,
+            title = "Health Post",
+            titleSize = 100
+        )
+    }
+}
+
+
+@Composable
+fun TopBarGenerator(navController: NavController, titleImageSrc: Int, title: String, titleSize: Int){
+    val titlePadding: Int = titleSize/10
+    val backButtonSize: Int = titleSize/2
+    Row(
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .height(titleSize.dp)
+                .padding(titlePadding.dp)
+        ) {
+            IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
+                onClick = {
+                    navController.navigate("main")
+                }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.backbutton),
+                    "backbutton",
+                    modifier = Modifier.size(backButtonSize.dp)
+                )
+            }
+        }
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
+            modifier = Modifier.fillMaxWidth()){
             Icon(
-                painter = painterResource(id = R.drawable.comic),
-                contentDescription = "Comics",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
+                painter = painterResource(id = titleImageSrc),
+                contentDescription = title,
+                modifier = Modifier
+                    .size(titleSize.dp)
+                    .padding(titlePadding.dp)
             )
             Text(
-                text = "Comics",
-                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Center
+                text = title,
+                style = MaterialTheme.typography.h4,
+                modifier = Modifier.padding(titlePadding.dp),
+                textAlign = TextAlign.Justify,
             )
-        }
-        LazyColumn(
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
-        ) {
-            items(
-                items = comics,
-                itemContent = {
-                    ComicListItem(comic = it)
-                })
         }
     }
 }
