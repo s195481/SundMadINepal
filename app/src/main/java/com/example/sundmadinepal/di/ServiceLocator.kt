@@ -30,23 +30,24 @@ object ServiceLocator {
         ServiceLocator.application = application
     }
 
-    val database : AppDatabase by lazy { AppDatabase.build(application) }
+    val database: AppDatabase by lazy { AppDatabase.build(application) }
 
-    private val recipeApi : RecipeApi by lazy {
+    private val recipeApi: RecipeApi by lazy {
         Retrofit.Builder()
             .baseUrl("https://dadadadadadadadadadadadadadadadadadadadadada.com")
             .client(
                 OkHttpClient.Builder()
-                    .addInterceptor{ chain -> chain.request().newBuilder()
-                    .addHeader(
-                        "user",
-                        "temporary"
-                    )
-                        .build()
-                        .let{ chain.proceed(it)}
+                    .addInterceptor { chain ->
+                        chain.request().newBuilder()
+                            .addHeader(
+                                "user",
+                                "temporary"
+                            )
+                            .build()
+                            .let { chain.proceed(it) }
                     }
                     .addInterceptor(
-                        HttpLoggingInterceptor { Log.e("ServiceLocator",it) }
+                        HttpLoggingInterceptor { Log.e("ServiceLocator", it) }
                             .also { it.level = HttpLoggingInterceptor.Level.BODY }
                     )
                     .build()
@@ -76,8 +77,8 @@ object ServiceLocator {
         }
     }
 
-    val recipeRepository : AssetRepository by lazy{
-        AssetRepository(recipeApi,database)
+    val recipeRepository: AssetRepository by lazy {
+        AssetRepository(recipeApi, database)
     }
 
     // Effectively singleton

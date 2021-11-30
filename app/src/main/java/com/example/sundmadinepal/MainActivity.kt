@@ -5,15 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.material.SnackbarDefaults.backgroundColor
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -173,8 +172,17 @@ fun MainComposable(navController: NavController) {
         }
     }
 }
+
 @Composable
-fun NavFromHomeGenerator(navController: NavController, destination: String, title: Int, imageSrc: Int, iconSize: Int, color: Int, padding: Int ){
+fun NavFromHomeGenerator(
+    navController: NavController,
+    destination: String,
+    title: Int,
+    imageSrc: Int,
+    iconSize: Int,
+    color: Int,
+    padding: Int
+) {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
@@ -282,7 +290,9 @@ fun HealthComposable(navController: NavController) {
                 text = stringResource(R.string.name_string)
             )
             Text(
-                text = (stringResource(R.string.day_string) + "/" + stringResource(R.string.months_string) + "/" + stringResource(R.string.year_string))
+                text = (stringResource(R.string.day_string) + "/" + stringResource(R.string.months_string) + "/" + stringResource(
+                    R.string.year_string
+                ))
             )
             Row(
                 horizontalArrangement = Arrangement.Start
@@ -332,7 +342,8 @@ fun RecipesComposable(navController: NavController) {
             stringResource(R.string.title_recipe),
             100,
             backButtonBool = true,
-            color = R.color.Recipe_Icon)
+            color = R.color.Recipe_Icon
+        )
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
