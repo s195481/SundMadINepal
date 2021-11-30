@@ -41,6 +41,9 @@ import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // To call or not call
+        App()
+        // That is the question
         setContent {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main") {
@@ -475,8 +478,7 @@ fun TopBarGenerator(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .height(titleSize.dp)
-                    .padding(titlePadding.dp)
-                    .background(colorResource(color)),
+                    .padding(titlePadding.dp),
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
                     onClick = {
@@ -493,7 +495,9 @@ fun TopBarGenerator(
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(colorResource(color))
         ) {
             Icon(
                 painter = painterResource(id = titleImageSrc),
