@@ -33,7 +33,7 @@ object ServiceLocator {
 
     private val recipeApi : RecipeApi by lazy {
         Retrofit.Builder()
-            .baseUrl("80.166.169.49")
+            .baseUrl("https://dadadadadadadadadadadadadadadadadadadadadada.com")
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor{ chain -> chain.request().newBuilder()
