@@ -478,7 +478,8 @@ fun TopBarGenerator(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .height(titleSize.dp)
-                    .padding(titlePadding.dp),
+                    .padding(titlePadding.dp)
+                    .background(colorResource(color)),
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
                     onClick = {
