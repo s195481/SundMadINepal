@@ -1,7 +1,7 @@
 package com.example.sundmadinepal.model.api
 
 import com.example.sundmadinepal.model.api.model.RecipeDto
-import retrofit2    .Call
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 

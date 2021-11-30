@@ -343,20 +343,19 @@ fun RecipesComposable(navController: NavController) {
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
         Modifier.fillMaxWidth()
-    ){
-    TopBarGenerator(navController, R.drawable.recipes,"Recipes", 100)
-    LazyColumn(
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
     ) {
-        items(
-            items = recipes,
-            itemContent = {
-                RecipeListItem(recipe = it)
-            })
-    }
+        TopBarGenerator(navController, R.drawable.recipes, "Recipes", 100)
+        LazyColumn(
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        ) {
+            items(
+                items = recipes,
+                itemContent = {
+                    RecipeListItem(recipe = it)
+                })
+        }
     }
 }
-
 
 @Composable
 fun RecipeListItem(recipe: Recipe) {
@@ -454,11 +453,15 @@ fun HealthPostComposable(navController: NavController) {
     }
 }
 
-
 @Composable
-fun TopBarGenerator(navController: NavController, titleImageSrc: Int, title: String, titleSize: Int){
-    val titlePadding: Int = titleSize/10
-    val backButtonSize: Int = titleSize/2
+fun TopBarGenerator(
+    navController: NavController,
+    titleImageSrc: Int,
+    title: String,
+    titleSize: Int
+) {
+    val titlePadding: Int = titleSize / 10
+    val backButtonSize: Int = titleSize / 2
     Row(
     ) {
         Row(
@@ -482,7 +485,8 @@ fun TopBarGenerator(navController: NavController, titleImageSrc: Int, title: Str
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()){
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Icon(
                 painter = painterResource(id = titleImageSrc),
                 contentDescription = title,
