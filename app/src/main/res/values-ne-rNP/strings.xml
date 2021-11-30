@@ -5,6 +5,8 @@
     <string name="title_health">स्वास्थ्य</string>
     <string name="title_comics">चित्र कथा</string>
     <string name="title_goldenDays">एक हजार सुनौलो दिनहरू</string>
+    <string name="title_healthpost">स्वास्थ्य चौकी</string>
+    <string name="title_quiz">हाजिरी जवाफ</string>
     <string name="recipes_string">पकाउने समाग्री र तरीका</string>
     <string name="vegetable_string">सब्जी / तरकारी</string>
     <string name="mum_string">आमा</string>
@@ -45,4 +47,5 @@
     <string name="year_string">बर्ष</string>
     <string name="statistics_string">तथ्यांक</string>
     <string name="yourChild_string">तपाईको बच्चा</string>
+    <string name="weight_string">वजन</string>
 </resources>

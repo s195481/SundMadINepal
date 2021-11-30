@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -84,11 +85,11 @@ fun MainComposable(navController: NavController) {
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.home),
-                contentDescription = "Home",
+                contentDescription = stringResource(R.string.home_string),
                 modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) }
             )
             Text(
-                text = "Home",
+                text = stringResource(R.string.home_string),
                 style = MaterialTheme.typography.h4,
                 modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) },
                 textAlign = TextAlign.Justify,
@@ -110,7 +111,7 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.newborn),
-                        "1000GoldenDays",
+                        contentDescription = stringResource(R.string.title_goldenDays),
                         tint = Color.Magenta,
                         modifier = Modifier.size(navIconSize.dp)
                     )
@@ -129,7 +130,7 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.recipes),
-                        "Recipes",
+                        contentDescription = stringResource(R.string.title_recipe),
                         tint = Color.LightGray,
                         modifier = Modifier.size(navIconSize.dp)
                     )
@@ -150,7 +151,7 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.comic),
-                        "Comics",
+                        contentDescription = stringResource(R.string.title_comics),
                         tint = Color.Yellow,
                         modifier = Modifier.size(navIconSize.dp)
                     )
@@ -169,7 +170,7 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.quiz),
-                        "quiz",
+                        contentDescription = stringResource(R.string.title_quiz),
                         tint = Color.Green,
                         modifier = Modifier.size(navIconSize.dp)
                     )
@@ -190,7 +191,7 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.health_post),
-                        "healthPost",
+                        contentDescription = stringResource(R.string.title_healthpost),
                         tint = Color.Cyan,
                         modifier = Modifier.size(navIconSize.dp)
                     )
@@ -209,7 +210,7 @@ fun MainComposable(navController: NavController) {
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.baby),
-                        "Health",
+                        contentDescription = stringResource(R.string.title_health),
                         tint = Color.Red,
                         modifier = Modifier.size(navIconSize.dp)
                     )
@@ -229,7 +230,7 @@ fun GoldenDaysComposable(navController: NavController) {
         TopBarGenerator(
             navController = navController,
             titleImageSrc = R.drawable.newborn,
-            title = "1000 Golden Days",
+            title = stringResource(R.string.title_goldenDays),
             titleSize = 100
         )
 
@@ -283,7 +284,7 @@ fun HealthComposable(navController: NavController) {
         TopBarGenerator(
             navController = navController,
             titleImageSrc = R.drawable.baby,
-            title = "Health",
+            title = stringResource(R.string.title_health),
             titleSize = 100
         )
         Column(
@@ -294,20 +295,20 @@ fun HealthComposable(navController: NavController) {
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.temp),
-                contentDescription = "Kid",
+                contentDescription = stringResource(R.string.child_string),
                 modifier = Modifier.size(20.dp)
             )
             Text(
-                text = "name"
+                text = stringResource(R.string.name_string)
             )
             Text(
-                text = "dd/mm/yyyy"
+                text = (stringResource(R.string.day_string) + "/" + stringResource(R.string.months_string) + "/" + stringResource(R.string.year_string))
             )
             Row(
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = "Height: "
+                    text = (stringResource(R.string.height_string) + ":")
                 )
                 Text(
                     text = "55 cm"
@@ -317,7 +318,7 @@ fun HealthComposable(navController: NavController) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = "Weight: "
+                    text = (stringResource(R.string.weight_string) + ":")
                 )
                 Text(
                     text = "5 kg"
@@ -327,7 +328,7 @@ fun HealthComposable(navController: NavController) {
                 horizontalArrangement = Arrangement.Start
             ) {
                 Text(
-                    text = "Diary: "
+                    text = (stringResource(R.string.diary_string) + ":")
                 )
                 Text(
                     text = "Only eaten breastmilk so far."
@@ -344,7 +345,7 @@ fun RecipesComposable(navController: NavController) {
     Column(
         Modifier.fillMaxWidth()
     ) {
-        TopBarGenerator(navController, R.drawable.recipes, "Recipes", 100)
+        TopBarGenerator(navController, R.drawable.recipes, stringResource(R.string.title_recipe), 100)
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
@@ -395,7 +396,7 @@ fun ComicsComposable(navController: NavController) {
         TopBarGenerator(
             navController = navController,
             titleImageSrc = R.drawable.comic,
-            title = "Comics",
+            title = stringResource(R.string.title_comics),
             titleSize = 100
         )
         LazyColumn(
@@ -447,7 +448,7 @@ fun HealthPostComposable(navController: NavController) {
         TopBarGenerator(
             navController = navController,
             titleImageSrc = R.drawable.health_post,
-            title = "Health Post",
+            title = stringResource(R.string.title_healthpost),
             titleSize = 100
         )
     }

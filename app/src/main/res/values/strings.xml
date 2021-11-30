@@ -4,6 +4,8 @@
     <string name="title_health">Health</string>
     <string name="title_comics">Comics</string>
     <string name="title_goldenDays">1000 Golden Days</string>
+    <string name="title_healthpost">Healthpost</string>
+    <string name="title_quiz">Quiz</string>
     <string name="recipes_string">Recipes</string>
     <string name="vegetable_string">Vegetable</string>
     <string name="mum_string">Mum</string>
@@ -44,4 +46,5 @@
     <string name="year_string">Year</string>
     <string name="statistics_string">Statistics</string>
     <string name="yourChild_string">Your Child</string>
+    <string name="weight_string">Weight</string>
 </resources>
