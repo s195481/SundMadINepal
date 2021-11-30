@@ -321,12 +321,16 @@ fun HealthComposable(navController: NavController) {
 
 @Composable
 fun RecipesComposable(navController: NavController) {
+    //val recipes2 = remember { RecipeViewModel().getRecipes()}
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
-    RecipeViewModel.
     Column(
         Modifier.fillMaxWidth()
     ) {
-        TopBarGenerator(navController, R.drawable.recipes, stringResource(R.string.title_recipe), 100,
+        TopBarGenerator(
+            navController,
+            R.drawable.recipes,
+            stringResource(R.string.title_recipe),
+            100,
             backButtonBool = true,
             color = R.color.Recipe_Icon)
         LazyColumn(
@@ -335,7 +339,7 @@ fun RecipesComposable(navController: NavController) {
             items(
                 items = recipes,
                 itemContent = {
-                    RecipeListItem(recipe = it)
+                    RecipeListItem(recipe = it as Recipe)
                 })
         }
     }
