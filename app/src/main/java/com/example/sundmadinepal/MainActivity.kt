@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // To call or not call
-        App()
+        //App()
         // That is the question
         setContent {
             val navController = rememberNavController()
