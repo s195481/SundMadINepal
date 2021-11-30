@@ -19,7 +19,7 @@ class PermissionActivity : AppCompatActivity() {
             ) {
                 permissionFacilitator.reportPermissionsStatus(it)
                 finish()
-            }.launch(permissions)
+            }.launch(permissions as Array<String>?)
         } else {
             val singlePermission = permissions.single()
             registerForActivityResult(
