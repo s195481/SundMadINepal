@@ -91,28 +91,6 @@ fun MainComposable(navController: NavController) {
             backButtonBool = false,
             color = R.color.Figma_Home_top
         )
-        // NOTE Den laver ikke de rigtige farver med ovenstående metode, men gør det dog med det der står nedenunder. Decisons...
-        /*
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.Top,
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(colorResource(id = R.color.Figma_Home_top))
-
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.home),
-                contentDescription = stringResource(R.string.home_string),
-                modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) }
-            )
-            Text(
-                text = stringResource(R.string.home_string),
-                style = MaterialTheme.typography.h4,
-                modifier = Modifier.size(titleSize.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Justify,
-            )
-        }*/
         Row() {
             NavFromHomeGenerator(
                 navController = navController,
@@ -268,7 +246,7 @@ fun GoldenDaysListItem(goldenDays: GoldenDays) {
 @Composable
 fun HealthComposable(navController: NavController) {
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxSize()
     ) {
         TopBarGenerator(
             navController = navController,
@@ -281,58 +259,86 @@ fun HealthComposable(navController: NavController) {
         Column(
             modifier = Modifier
                 .background(Color.Yellow)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(corner = CornerSize(40.dp))),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
+            Row(
+                modifier = Modifier
+                    .size(150.dp)
+                    .background(Color.White)
+                    .clip(RoundedCornerShape(corner = CornerSize(40.dp)))
+                    .padding(20.dp),
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.defaultbabyprofile),
-                    contentDescription = stringResource(R.string.child_string),
-                    modifier = Modifier.size(20.dp)
-                )
-                Text(
-                    text = stringResource(R.string.name_string)
-                )
-                Text(
-                    text = (stringResource(R.string.day_string) + "/" +
-                            stringResource(R.string.months_string) + "/" +
-                            stringResource(R.string.year_string))
-                )
+                IconButton(
+                    modifier = Modifier
+                        .then(Modifier.size(150.dp))
+                        .clip(
+                            RoundedCornerShape(corner = CornerSize(40.dp))
+                        ),
+                    onClick = {
+                        //TODO Add Destination
+                        navController.navigate(" ")
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.defaultbabyprofile),
+                        contentDescription = stringResource(R.string.child_string),
+                        modifier = Modifier
+                            .size(150.dp)
+                            .background(Color.White),
+                    )
+                }
             }
+            Text(
+                text = stringResource(R.string.name_string),
+                modifier = Modifier.padding(5.dp)
+            )
+            Text(
+                text = (stringResource(R.string.day_string) + "/" +
+                        stringResource(R.string.months_string) + "/" +
+                        stringResource(R.string.year_string)),
+                modifier = Modifier.padding(5.dp)
+            )
+        }
 
-            Row(
-                horizontalArrangement = Arrangement.Start,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = (stringResource(R.string.height_string) + ":")
-                )
-                Text(
-                    text = "55 cm"
-                )
-            }
-            Row(
-                horizontalArrangement = Arrangement.Start,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = (stringResource(R.string.weight_string) + ":")
-                )
-                Text(
-                    text = "5 kg"
-                )
-            }
-            Row(
-                horizontalArrangement = Arrangement.Start,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = (stringResource(R.string.diary_string) + ":")
-                )
-                Text(
-                    text = "Only eaten breastmilk so far."
-                )
-            }
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+        ) {
+            Text(
+                text = (stringResource(R.string.height_string) + ":")
+            )
+            Text(
+                text = "55 cm"
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+        ) {
+            Text(
+                text = (stringResource(R.string.weight_string) + ":")
+            )
+            Text(
+                text = "5 kg"
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+        ) {
+            Text(
+                text = (stringResource(R.string.diary_string) + ":")
+            )
+            Text(
+                text = "Only eaten breastmilk so far."
+            )
         }
     }
 }
