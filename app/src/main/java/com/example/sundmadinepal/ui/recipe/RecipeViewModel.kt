@@ -3,6 +3,7 @@ package com.example.sundmadinepal.ui.recipe
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.sundmadinepal.model.db.RecipeDao
 import com.example.sundmadinepal.model.model.Recipe
 
 class RecipeViewModel : ViewModel() {
