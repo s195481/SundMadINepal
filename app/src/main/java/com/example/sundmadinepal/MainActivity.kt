@@ -5,9 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -73,7 +76,7 @@ fun DefaultPreview() {
         val navController = rememberNavController()
         //MainComposable(navController)
         //RecipesComposable(navController)
-        //GoldenDaysComposable(navController)
+        GoldenDaysComposable(navController)
         //GoldenDaysMaternityComposable(navController)
         //GoldenDaysFirstPeriodComposable(navController)
         //GoldenDaysSecondPeriodComposable(navController)
@@ -217,7 +220,7 @@ fun GoldenDaysComposable(navController: NavController) {
         )
 
         LazyColumn(
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         ) {
             items(
                 items = goldenDays,
@@ -228,69 +231,56 @@ fun GoldenDaysComposable(navController: NavController) {
     }
 }
 
+
 @Composable
 fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
-    Column(
-        horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Top,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp)
-            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
+    val imageSize: Int = 220
+    val imagePadding: Int = 0
+    Row(modifier = Modifier.padding(all = 8.dp)) {
+        IconButton(
+            onClick = {
+                navController.navigate(goldenDays.goldenDayPeriod)
+            },
             modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.LightGray)
+                .apply { padding(imagePadding.dp) }
+                .size(imageSize.dp)
+                .clip(CircleShape)
+                .border(1.5.dp, Color.Black, CircleShape)
         ) {
-            IconButton(
-                onClick = {
-                    navController.navigate(goldenDays.goldenDayPeriod)
-                }
-            ) {
-                if (goldenDays.goldenDayPicture == "maternity") {
-                    Image(
-                        painter = painterResource(R.drawable.maternity),
-                        contentDescription = goldenDays.goldenDayPeriod,
-                        modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-                    )
-                } else if (goldenDays.goldenDayPicture == "zerotosixmonths") {
-                    Image(
-                        painter = painterResource(R.drawable.zerotosixsmonth),
-                        contentDescription = goldenDays.goldenDayPeriod,
-                        modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-                    )
-                } else if (goldenDays.goldenDayPicture == "sixtoninemonths") {
-                    Image(
-                        painter = painterResource(R.drawable.sixtoninemonths),
-                        contentDescription = goldenDays.goldenDayPeriod,
-                        modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-                    )
-                } else if (goldenDays.goldenDayPicture == "ninetotwelvemonths") {
-                    Image(
-                        painter = painterResource(R.drawable.ninetotwelvemonths),
-                        contentDescription = goldenDays.goldenDayPeriod,
-                        modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-                    )
-                } else if (goldenDays.goldenDayPicture == "twelvetotwentyfourmonths") {
-                    Image(
-                        painter = painterResource(R.drawable.twelvetotwentyfourmonths),
-                        contentDescription = goldenDays.goldenDayPeriod,
-                        modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-                    )
-                } else {
-                    Image(
-                        painter = painterResource(R.drawable.information),
-                        contentDescription = goldenDays.goldenDayPeriod,
-                        modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-                    )
-                }
+            if (goldenDays.goldenDayPicture == "maternity") {
+                Image(
+                    painter = painterResource(R.drawable.maternity),
+                    contentDescription = goldenDays.goldenDayPeriod
+                )
+            } else if (goldenDays.goldenDayPicture == "zerotosixmonths") {
+                Image(
+                    painter = painterResource(R.drawable.zerotosixsmonth),
+                    contentDescription = goldenDays.goldenDayPeriod
+                )
+            } else if (goldenDays.goldenDayPicture == "sixtoninemonths") {
+                Image(
+                    painter = painterResource(R.drawable.sixtoninemonths),
+                    contentDescription = goldenDays.goldenDayPeriod
+                )
+            } else if (goldenDays.goldenDayPicture == "ninetotwelvemonths") {
+                Image(
+                    painter = painterResource(R.drawable.ninetotwelvemonths),
+                    contentDescription = goldenDays.goldenDayPeriod
+                )
+            } else if (goldenDays.goldenDayPicture == "twelvetotwentyfourmonths") {
+                Image(
+                    painter = painterResource(R.drawable.twelvetotwentyfourmonths),
+                    contentDescription = goldenDays.goldenDayPeriod
+                )
+            } else {
+                Image(
+                    painter = painterResource(R.drawable.information),
+                    contentDescription = goldenDays.goldenDayPeriod
+                )
             }
-            Text(text = goldenDays.goldenDayPeriod, style = MaterialTheme.typography.h6)
-            Text(text = goldenDays.goldenDayTex, style = MaterialTheme.typography.caption)
         }
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = goldenDays.goldenDayPeriod, style = MaterialTheme.typography.h6)
     }
 }
 
