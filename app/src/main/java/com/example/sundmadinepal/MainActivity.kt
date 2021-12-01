@@ -266,24 +266,13 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
 }
 
 @Composable
-fun GoldenDaysMaternityComposable(navController: NavController){
-    Column(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        TopBarGenerator(
-            navController = navController,
-            titleImageSrc = R.drawable.newborn,
-            title = stringResource(R.string.maternity_string),
-            titleSize = 100,
-            backButtonBool = true,
-            color = R.color.Golden_Days_Icon
-        )
-        GoldenDaysPeriodGenerator(
-            navController = navController,
-            title = R.string.maternity_string,
-            picture = R.drawable.maternity,
-            breadText = R.string.maternity_detailed_string)
-    }
+fun GoldenDaysMaternityComposable(navController: NavController) {
+    GoldenDaysPeriodGenerator(
+        navController = navController,
+        title = R.string.maternity_string,
+        picture = R.drawable.maternity,
+        breadText = R.string.maternity_detailed_string
+    )
 }
 
 @Composable
