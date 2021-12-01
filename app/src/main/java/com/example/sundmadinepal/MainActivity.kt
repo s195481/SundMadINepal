@@ -1,7 +1,7 @@
 package com.example.sundmadinepal
 
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -20,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,6 +30,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadinepal.di.ServiceLocator
+import com.example.sundmadinepal.di.ServiceLocator.init
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
@@ -38,6 +39,7 @@ import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import java.util.*
 
 
 class MainActivity : ComponentActivity() {
@@ -46,6 +48,7 @@ class MainActivity : ComponentActivity() {
         // To call or not call
         //App()
         // That is the question
+        init(App()) 
         setContent {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main") {
@@ -67,9 +70,9 @@ fun DefaultPreview() {
         val navController = rememberNavController()
         //MainComposable(navController)
         //RecipesComposable(navController)
-        //GoldenDaysComposable(navController)
+        GoldenDaysComposable(navController)
         //ComicsComposable(navController)
-        HealthComposable(navController)
+        //HealthComposable(navController)
         //HealthPostComposable(navController)
     }
 }
@@ -242,6 +245,11 @@ fun GoldenDaysListItem(goldenDays: GoldenDays) {
 
         }
     }
+}
+
+@Composable
+fun GoldenDaysPeriod(){
+
 }
 
 //TODO Fix it's ugly as fuuuck
