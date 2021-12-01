@@ -300,8 +300,21 @@ fun HealthComposable(navController: NavController) {
                 modifier = Modifier.padding(5.dp)
             )
         }
-
-        Row(
+        Column() {
+            InfoBarGenerator(
+                infoType = (stringResource(R.string.height_string) + ":"),
+                infoFill = "55cm"
+            )
+            InfoBarGenerator(
+                infoType = (stringResource(R.string.weight_string) + ":"),
+                infoFill = "5kg"
+            )
+            InfoBarGenerator(
+                infoType = (stringResource(R.string.diary_string) + ":"),
+                infoFill = "He's a sucker for breastmilk"
+            )
+        }
+        /*Row(
             horizontalArrangement = Arrangement.Start,
             modifier = Modifier
                 .fillMaxWidth()
@@ -338,6 +351,37 @@ fun HealthComposable(navController: NavController) {
             )
             Text(
                 text = "Only eaten breastmilk so far."
+            )
+        }*/
+    }
+}
+
+@Composable
+fun InfoBarGenerator(infoType: String, infoFill: String) {
+    Column(
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.LightGray)
+        ) {
+            Text(
+                text = infoType,
+                style = MaterialTheme.typography.h6,
+                modifier = Modifier.padding(8.dp)
+            )
+            Text(
+                text = infoFill,
+                style = MaterialTheme.typography.caption,
+                modifier = Modifier.padding(8.dp),
             )
         }
     }
