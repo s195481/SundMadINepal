@@ -85,4 +85,27 @@
         \n●	Use a variety of food from the 3 food groups
         \n●Twice a year, provide vitamin A supplement
     </string>
+
+    <string name="nutritionalflour_string">
+        How to prepare nutritional flour:
+        \nTake 2 proportions of different types of grains (corn, barley, rye, millet, oat, rice, etc. one proportio each)
+        and 1 proportion of cereals/lentils (soya, chickpeas, peas, etc). Separately sort/clean and dry roast well until
+        cooked properly and then separately grind store. This flour can be cooked with green spinach, carrot ,milk, clarified butter,
+        honey , eggs, meat, and iodized salt.
+    </string>
+    <string name="jaulo_string">
+        Jaulo
+        \nIngredients:
+        \n●	Rice	25 gram
+        \n●	Mung / pink lentil / split yellow pigeon peas / black gram lentil	8 gram
+        \n●	Clarified butter or oil 5 gram
+        \n●	Green spinach (saag) according to taste
+        \n
+        \nDirection:
+        \n●	Clean rice and lentils.
+        \n●	Mix rice and lentil together and soak for half an hour after washing.
+        \n●	After half an hour, cook in a pan covering with lid using a bit of clarified butter and water.
+        \n●	While porridge is being cooked, add finely chopped green spinach and cook further covering with lid.
+        \n●	Add iodized salt for taste.
+    </string>
 </resources>

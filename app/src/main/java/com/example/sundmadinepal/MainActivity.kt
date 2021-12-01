@@ -30,7 +30,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.sundmadinepal.di.ServiceLocator.init
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
@@ -52,15 +51,16 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "main") {
                 composable("main") { MainComposable(navController) }
                 composable("recipes") { RecipesComposable(navController) }
+                // TODO composable("recipeDetails") { RecipesDetailedComposable(navController) }
                 composable("goldenDays") { GoldenDaysComposable(navController) }
-                composable("comics") { ComicsComposable(navController) }
-                composable("health") { HealthComposable(navController) }
-                composable("healthPost") { HealthPostComposable(navController) }
                 composable("Maternity") { GoldenDaysMaternityComposable(navController) }
                 composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
                 composable("6-9 Months") { GoldenDaysSecondPeriodComposable(navController) }
                 composable("9-12 Months") { GoldenDaysThirdPeriodComposable(navController) }
                 composable("12-24 Months") { GoldenDaysFourthPeriodComposable(navController) }
+                composable("comics") { ComicsComposable(navController) }
+                composable("health") { HealthComposable(navController) }
+                composable("healthPost") { HealthPostComposable(navController) }
             }
         }
     }
