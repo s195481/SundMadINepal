@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -279,7 +280,7 @@ fun HealthComposable(navController: NavController) {
                         ),
                     onClick = {
                         //TODO Add ability to change picture
-                        Toast.makeText(MainActivity(),"Picture changing not implemented",Toast.LENGTH_LONG).show()
+                        //Toast.makeText(LocalContext.current,"Picture changing not implemented",Toast.LENGTH_LONG).show()
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.defaultbabyprofile),
