@@ -94,23 +94,23 @@ E/AndroidRuntime:     at androidx.compose.runtime.Recomposer$runRecomposeAndAppl
 I/Process: Sending signal. PID: 3012 SIG: 9
 
          */
-        val Jaulo: String = Resources.getSystem().getString(R.string.jaulo_title_string)
-        val Flour: String = Resources.getSystem().getString(R.string.nutritionalflour_title_string)
+        //val Jaulo: String = Resources.getSystem().getString(R.string.jaulo_title_string)
+        //val Flour: String = Resources.getSystem().getString(R.string.nutritionalflour_title_string)
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
             // TODO Har lige lavet alt nedunder til Strings - bare så det kan blive loaded og der kan laves UI
             Recipe(
-                id = "Jaulo",
+                id = "jaulo",
                 name ="Jaulo",
                 ingredients = "",
-                procedure = "Jaulo",
+                procedure = "jaulo",
                 picture = "jaulo"
             ),
             Recipe(
-                id = "Flour",
+                id = "nutritionalflour",
                 name = "Flour",
                 ingredients = "",
-                procedure = "Flour",
+                procedure = "nutritionalflour",
                 picture = "nutritionalflour"
             )/*,
             Recipe(
