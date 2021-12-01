@@ -98,18 +98,19 @@ I/Process: Sending signal. PID: 3012 SIG: 9
         val Flour: String = Resources.getSystem().getString(R.string.nutritionalflour_title_string)
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
+            // TODO Har lige lavet alt nedunder til Strings - bare så det kan blive loaded og der kan laves UI
             Recipe(
-                id = Jaulo,
-                name =Jaulo,
+                id = "Jaulo",
+                name ="Jaulo",
                 ingredients = "",
-                procedure = Jaulo,
+                procedure = "Jaulo",
                 picture = "jaulo"
             ),
             Recipe(
-                id = Flour,
-                name = Flour,
+                id = "Flour",
+                name = "Flour",
                 ingredients = "",
-                procedure = Flour,
+                procedure = "Flour",
                 picture = "nutritionalflour"
             )/*,
             Recipe(
