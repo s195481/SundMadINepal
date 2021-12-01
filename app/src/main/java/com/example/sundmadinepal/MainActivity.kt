@@ -250,7 +250,7 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
             ) {
                 if (goldenDays.goldenDayPicture == "maternity") {
                     Icon(
-                        painter = painterResource(R.drawable.settings),
+                        painter = painterResource(R.drawable.maternity),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
                     )
