@@ -19,11 +19,10 @@ class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel
     }
 
     object DataProvider {
-        val resources: Resources = Resources.getSystem()
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
             Recipe(
-                id = resources.getString(R.string.jaulo_title_string),
+                id = Resources.getSystem().getString(R.string.jaulo_title_string),
                 name = Resources.getSystem().getString(R.string.jaulo_title_string),
                 ingredients = "",
                 procedure = Resources.getSystem().getString(R.string.jaulo_string),

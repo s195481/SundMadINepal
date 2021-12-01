@@ -508,34 +508,6 @@ fun RecipesComposable(navController: NavController) {
     }
 }
 
-@Composable
-fun RecipeListItemOG(recipe: Recipe) {
-    Column(
-        horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Top,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp)
-            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.LightGray)
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.settings),
-                contentDescription = recipe.id,
-                modifier = Modifier.size(50.dp).apply { padding(70.dp) }
-            )
-            Text(text = recipe.name, style = MaterialTheme.typography.h6)
-            Text(text = recipe.id, style = MaterialTheme.typography.caption)
-
-        }
-    }
-}
 
 @Composable
 fun RecipeListItem(navController: NavController, recipe: Recipe) {
