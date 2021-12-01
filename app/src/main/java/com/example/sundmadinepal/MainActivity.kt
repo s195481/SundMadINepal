@@ -365,6 +365,7 @@ fun GoldenDaysPeriodGenerator(
         )
         Text(
             text = stringResource(id = breadText),
+            style = MaterialTheme.typography.body1,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp)
