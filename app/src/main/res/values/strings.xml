@@ -86,6 +86,9 @@
         \n●Twice a year, provide vitamin A supplement
     </string>
 
+    <string name="nutritionalflour_title_string">
+        Nutritional Flour
+    </string>
     <string name="nutritionalflour_string">
         How to prepare nutritional flour:
         \nTake 2 proportions of different types of grains (corn, barley, rye, millet, oat, rice, etc. one proportio each)
@@ -93,8 +96,10 @@
         cooked properly and then separately grind store. This flour can be cooked with green spinach, carrot ,milk, clarified butter,
         honey , eggs, meat, and iodized salt.
     </string>
-    <string name="jaulo_string">
+    <string name="jaulo_title_string">
         Jaulo
+    </string>
+    <string name="jaulo_string">
         \nIngredients:
         \n●	Rice	25 gram
         \n●	Mung / pink lentil / split yellow pigeon peas / black gram lentil	8 gram
