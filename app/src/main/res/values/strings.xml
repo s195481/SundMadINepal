@@ -47,4 +47,16 @@
     <string name="statistics_string">Statistics</string>
     <string name="yourChild_string">Your Child</string>
     <string name="weight_string">Weight</string>
+
+    <string name="maternity_detailed_string">Healthy diet for children 0 - 24 months:
+\n●	It is important to breastfeed also after 6 months
+\n●	It is important to start feeding the baby solid food like beans, vegetables and eggs after 6 months only.
+\n●	It is important to feed the baby a variety of solid foods from 3 food groups
+\n
+\n●	The 3 food groups are:
+\nEnergy food (rice, wheat, potatoes )
+\nGrowth development foods (meat, fish, chickpeas and other pulses, yogurt, milk and egg
+\nProtective foods: Vegetables (green etc), fruits.
+\n●	while feeding a child one should be patient and playful taking plenty of time
+    </string>
 </resources>

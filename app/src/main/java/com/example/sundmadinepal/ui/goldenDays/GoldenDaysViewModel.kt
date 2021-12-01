@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.model.model.GoldenDays
 import kotlinx.coroutines.flow.MutableStateFlow
-
+// TODO Delete class and remove dependencies
 class GoldenDaysViewModel : ViewModel() {
 
     object DataProvider {
