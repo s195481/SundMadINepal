@@ -59,7 +59,11 @@ class MainActivity : ComponentActivity() {
                 composable("comics") { ComicsComposable(navController) }
                 composable("health") { HealthComposable(navController) }
                 composable("healthPost") { HealthPostComposable(navController) }
-                composable("maternity") { GoldenDaysPeriod(navController) }
+                composable("Maternity") { GoldenDaysMaternityComposable(navController) }
+                composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
+                composable("6-9 Months") { GoldenDaysSecondPeriodComposable(navController) }
+                composable("9-12 Months") { GoldenDaysThirdPeriodComposable(navController) }
+                composable("12-24 Months") { GoldenDaysFourthPeriodComposable(navController) }
             }
         }
     }
@@ -73,7 +77,12 @@ fun DefaultPreview() {
         //MainComposable(navController)
         //RecipesComposable(navController)
         //GoldenDaysComposable(navController)
-            GoldenDaysPeriod(navController)
+            GoldenDaysMaternityComposable(navController)
+            //GoldenDaysFirstPeriodComposable(navController)
+            //GoldenDaysSecondPeriodComposable(navController)
+            //GoldenDaysThirdPeriodComposable(navController)
+            //GoldenDaysFourthPeriodComposable(navController)
+
         //ComicsComposable(navController)
         //HealthComposable(navController)
         //HealthPostComposable(navController)
@@ -216,14 +225,14 @@ fun GoldenDaysComposable(navController: NavController) {
             items(
                 items = goldenDays,
                 itemContent = {
-                    GoldenDaysListItem(navController,goldenDays = it, "maternity")
+                    GoldenDaysListItem(navController,goldenDays = it)
                 })
         }
     }
 }
 
 @Composable
-fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays, destination: String) {
+fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
     Column(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top,
@@ -241,7 +250,7 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays, des
         ) {
             IconButton(
                 onClick = {
-                    navController.navigate(destination)
+                    navController.navigate(goldenDays.goldenDayPeriod)
                 }
             ){
                 Icon(
@@ -257,8 +266,49 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays, des
 }
 
 @Composable
-fun GoldenDaysPeriod(navController: NavController) {
-    val title: Int = R.string.maternity_string
+fun GoldenDaysMaternityComposable(navController: NavController){
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.newborn,
+            title = stringResource(R.string.maternity_string),
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Golden_Days_Icon
+        )
+        GoldenDaysPeriodGenerator(
+            navController = navController,
+            title = R.string.maternity_string,
+            picture = R.drawable.maternity,
+            breadText = R.string.maternity_detailed_string)
+    }
+}
+
+@Composable
+fun GoldenDaysFirstPeriodComposable(navController: NavController){
+    R.drawable.maternity
+}
+
+@Composable
+fun GoldenDaysSecondPeriodComposable(navController: NavController){
+    R.drawable.maternity
+}
+
+@Composable
+fun GoldenDaysThirdPeriodComposable(navController: NavController){
+    R.drawable.maternity
+}
+
+@Composable
+fun GoldenDaysFourthPeriodComposable(navController: NavController){
+    R.drawable.maternity
+}
+
+
+@Composable
+fun GoldenDaysPeriodGenerator(navController: NavController, title: Int, picture: Int, breadText: Int) {
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -271,7 +321,7 @@ fun GoldenDaysPeriod(navController: NavController) {
             color = R.color.Golden_Days_Icon
         )
         Icon(
-            painter = painterResource(R.drawable.maternity),
+            painter = painterResource(picture),
             contentDescription = stringResource(title),
             modifier = Modifier
                 .fillMaxWidth()
@@ -279,7 +329,7 @@ fun GoldenDaysPeriod(navController: NavController) {
                 .padding(10.dp)
         )
         Text(
-            text = stringResource(id = R.string.maternity_detailed_string)
+            text = stringResource(id = breadText)
         )
     }
 }
