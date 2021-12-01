@@ -658,7 +658,7 @@ fun TopBarGenerator(
             )
             Text(
                 text = title,
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.h5,
                 modifier = Modifier.padding(titlePadding.dp),
                 textAlign = TextAlign.Justify,
             )
