@@ -3,7 +3,6 @@ package com.example.sundmadinepal.ui.recipe
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.sundmadinepal.di.ServiceLocator.recipeRepository
 import com.example.sundmadinepal.model.AssetRepository
 import com.example.sundmadinepal.model.model.Recipe
 
