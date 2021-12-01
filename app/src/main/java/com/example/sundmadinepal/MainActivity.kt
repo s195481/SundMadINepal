@@ -236,7 +236,8 @@ fun GoldenDaysComposable(navController: NavController) {
 fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
     val imageSize: Int = 220
     val imagePadding: Int = 0
-    Row(modifier = Modifier.padding(all = 8.dp)) {
+    Row(modifier = Modifier.padding(all = 8.dp),
+    verticalAlignment = Alignment.CenterVertically) {
         IconButton(
             onClick = {
                 navController.navigate(goldenDays.goldenDayPeriod)
@@ -280,7 +281,8 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
             }
         }
         Spacer(modifier = Modifier.width(8.dp))
-        Text(text = goldenDays.goldenDayPeriod, style = MaterialTheme.typography.h6)
+        Text(text = goldenDays.goldenDayPeriod,
+            style = MaterialTheme.typography.h6)
     }
 }
 
