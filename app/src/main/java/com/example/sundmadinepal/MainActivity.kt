@@ -3,6 +3,7 @@ package com.example.sundmadinepal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -249,37 +250,37 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
                 }
             ) {
                 if (goldenDays.goldenDayPicture == "maternity") {
-                    Icon(
-                        painter = painterResource(R.drawable.settings),
+                    Image(
+                        painter = painterResource(R.drawable.maternity),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
                     )
                 } else if (goldenDays.goldenDayPicture == "zerotosixmonths") {
-                    Icon(
+                    Image(
                         painter = painterResource(R.drawable.zerotosixsmonth),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
                     )
                 } else if (goldenDays.goldenDayPicture == "sixtoninemonths") {
-                    Icon(
+                    Image(
                         painter = painterResource(R.drawable.sixtoninemonths),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
                     )
                 } else if (goldenDays.goldenDayPicture == "ninetotwelvemonths") {
-                    Icon(
+                    Image(
                         painter = painterResource(R.drawable.ninetotwelvemonths),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
                     )
                 } else if (goldenDays.goldenDayPicture == "twelvetotwentyfourmonths") {
-                    Icon(
+                    Image(
                         painter = painterResource(R.drawable.twelvetotwentyfourmonths),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
                     )
                 } else {
-                    Icon(
+                    Image(
                         painter = painterResource(R.drawable.information),
                         contentDescription = goldenDays.goldenDayPeriod,
                         modifier = Modifier.size(50.dp).apply { padding(70.dp) }
@@ -361,7 +362,7 @@ fun GoldenDaysPeriodGenerator(
             backButtonBool = true,
             color = R.color.Golden_Days_Icon
         )
-        Icon(
+        Image(
             painter = painterResource(picture),
             contentDescription = stringResource(title),
             modifier = Modifier
