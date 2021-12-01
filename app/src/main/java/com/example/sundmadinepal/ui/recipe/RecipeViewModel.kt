@@ -20,7 +20,6 @@ class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel
 
 
     object DataProvider {
-        val contentString = ObservableInt()
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
             Recipe(
