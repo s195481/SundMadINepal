@@ -76,8 +76,8 @@ fun DefaultPreview() {
         val navController = rememberNavController()
         //MainComposable(navController)
         //RecipesComposable(navController)
-        GoldenDaysComposable(navController)
-        //GoldenDaysMaternityComposable(navController)
+        //GoldenDaysComposable(navController)
+        GoldenDaysMaternityComposable(navController)
         //GoldenDaysFirstPeriodComposable(navController)
         //GoldenDaysSecondPeriodComposable(navController)
         //GoldenDaysThirdPeriodComposable(navController)
@@ -365,7 +365,7 @@ fun GoldenDaysPeriodGenerator(
         )
         Text(
             text = stringResource(id = breadText),
-            style = MaterialTheme.typography.body1,
+            style = MaterialTheme.typography.subtitle1,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp)
