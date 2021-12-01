@@ -35,28 +35,6 @@ class GoldenDaysViewModel : ViewModel() {
                 "12-24 Months",
                 ""
             ),
-            GoldenDays(
-                "Maternity",
-                "Maternity",
-                ""
-            ),
         )
-    }
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
-    }
-    val text: LiveData<String> = _text
-
-    val listOfCurrencies = mutableListOf("EUR", "USD", "DKK")
-
-    val listOfCryptos = MutableStateFlow(listOf("BTC", "ETH", "ADA"))
-
-    fun addCurrency(currency: String) {
-        listOfCurrencies.add(currency);
-    }
-
-    fun addCrypto(crypto: String) {
-        listOfCryptos.value = listOfCryptos.value.plus(crypto)
     }
 }

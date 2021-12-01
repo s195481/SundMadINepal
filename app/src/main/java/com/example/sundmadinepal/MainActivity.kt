@@ -39,6 +39,7 @@ import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import com.google.android.material.internal.ContextUtils.getActivity
 import java.util.*
 
 
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
         // To call or not call
         //App()
         // That is the question
-        init(App()) 
+        // init(App())
         setContent {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main") {
@@ -70,10 +71,12 @@ fun DefaultPreview() {
         val navController = rememberNavController()
         //MainComposable(navController)
         //RecipesComposable(navController)
-        GoldenDaysComposable(navController)
+        //GoldenDaysComposable(navController)
+            GoldenDaysPeriod(navController)
         //ComicsComposable(navController)
         //HealthComposable(navController)
         //HealthPostComposable(navController)
+
     }
 }
 
@@ -248,8 +251,19 @@ fun GoldenDaysListItem(goldenDays: GoldenDays) {
 }
 
 @Composable
-fun GoldenDaysPeriod(){
-
+fun GoldenDaysPeriod(navController: NavController) {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.newborn,
+            title = stringResource(R.string.title_goldenDays),
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Golden_Days_Icon
+        )
+    }
 }
 
 //TODO Fix it's ugly as fuuuck
@@ -511,7 +525,8 @@ fun TopBarGenerator(
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
                     onClick = {
-                        navController.navigate("main")
+                        //navController.navigate("main")
+                        navController.popBackStack()
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.backbutton),
