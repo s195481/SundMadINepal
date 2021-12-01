@@ -13,27 +13,27 @@ class GoldenDaysViewModel : ViewModel() {
             GoldenDays(
                 "Maternity",
                 "Maternity",
-                ""
+                "maternity"
             ),
             GoldenDays(
                 "0-6 Months",
                 "0-6 Months",
-                ""
+                "zerotosixmonths"
             ),
             GoldenDays(
                 "6-9 Months",
                 "6-9 Months",
-                ""
+                "sixtoninemonths"
             ),
             GoldenDays(
                 "9-12 Months",
                 "9-12 Months",
-                ""
+                "ninetotwelvemonths"
             ),
             GoldenDays(
                 "12-24 Months",
                 "12-24 Months",
-                ""
+                "twelvetotwentyfourmonths"
             ),
         )
     }
