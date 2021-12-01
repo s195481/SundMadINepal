@@ -75,9 +75,10 @@ fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
         //MainComposable(navController)
-        //RecipesComposable(navController)
+        RecipesComposable(navController)
+
         //GoldenDaysComposable(navController)
-        GoldenDaysMaternityComposable(navController)
+        //GoldenDaysMaternityComposable(navController)
         //GoldenDaysFirstPeriodComposable(navController)
         //GoldenDaysSecondPeriodComposable(navController)
         //GoldenDaysThirdPeriodComposable(navController)
@@ -501,14 +502,14 @@ fun RecipesComposable(navController: NavController) {
             items(
                 items = recipes,
                 itemContent = {
-                    RecipeListItem(recipe = it as Recipe)
+                    RecipeListItem(navController = navController, recipe = it)
                 })
         }
     }
 }
 
 @Composable
-fun RecipeListItem(recipe: Recipe) {
+fun RecipeListItemOG(recipe: Recipe) {
     Column(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top,
@@ -536,6 +537,44 @@ fun RecipeListItem(recipe: Recipe) {
     }
 }
 
+@Composable
+fun RecipeListItem(navController: NavController, recipe: Recipe) {
+    val imageSize: Int = 220
+    val imagePadding: Int = 0
+    Row(modifier = Modifier.padding(all = 8.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        IconButton(
+            onClick = {
+                // TODO navController.navigate(goldenDays.goldenDayPeriod)
+            },
+            modifier = Modifier
+                .apply { padding(imagePadding.dp) }
+                .size(imageSize.dp)
+                .clip(CircleShape)
+                .border(1.5.dp, Color.Black, CircleShape)
+        ) {
+            if (recipe.picture == "jaulo") {
+                Image(
+                    painter = painterResource(R.drawable.jaulo),
+                    contentDescription = recipe.id
+                )
+            } else if (recipe.picture == "nutritionalflour") {
+                Image(
+                    painter = painterResource(R.drawable.nutritionalflour),
+                    contentDescription = recipe.id
+                )
+            }  else {
+                Image(
+                    painter = painterResource(R.drawable.information),
+                    contentDescription = recipe.id
+                )
+            }
+        }
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = recipe.name,
+            style = MaterialTheme.typography.h6)
+    }
+}
 @Composable
 fun ComicsComposable(navController: NavController) {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
@@ -632,7 +671,6 @@ fun TopBarGenerator(
             ) {
                 IconButton(modifier = Modifier.then(Modifier.size(backButtonSize.dp)),
                     onClick = {
-                        //navController.navigate("main")
                         navController.popBackStack()
                     }) {
                     Icon(

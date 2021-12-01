@@ -1,8 +1,11 @@
 package com.example.sundmadinepal.ui.recipe
 
+import android.content.res.Resources
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.AssetRepository
 import com.example.sundmadinepal.model.model.Recipe
 
@@ -19,12 +22,45 @@ class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
             Recipe(
-                id = "Dahl_v1",
-                name = "Dahl_v1",
-                ingredients = "Beans 1",
-                procedure = "Cook 1",
-                picture = ""
+                id = Resources.getSystem().getString(R.string.jaulo_title_string),
+                name = Resources.getSystem().getString(R.string.jaulo_title_string),
+                ingredients = "",
+                procedure = Resources.getSystem().getString(R.string.jaulo_string),
+                picture = "jaulo"
             ),
+            Recipe(
+                id = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                name = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                ingredients = "",
+                procedure = Resources.getSystem().getString(R.string.nutritionalflour_string),
+                picture = "nutritionalflour"
+            ),Recipe(
+                id = Resources.getSystem().getString(R.string.jaulo_title_string),
+                name = Resources.getSystem().getString(R.string.jaulo_title_string),
+                ingredients = "",
+                procedure = Resources.getSystem().getString(R.string.jaulo_string),
+                picture = "jaulo"
+            ),
+            Recipe(
+                id = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                name = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                ingredients = "",
+                procedure = Resources.getSystem().getString(R.string.nutritionalflour_string),
+                picture = "nutritionalflour"
+            ),Recipe(
+                id = Resources.getSystem().getString(R.string.jaulo_title_string),
+                name = Resources.getSystem().getString(R.string.jaulo_title_string),
+                ingredients = "",
+                procedure = Resources.getSystem().getString(R.string.jaulo_string),
+                picture = "jaulo"
+            ),
+            Recipe(
+                id = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                name = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                ingredients = "",
+                procedure = Resources.getSystem().getString(R.string.nutritionalflour_string),
+                picture = "nutritionalflour"
+            ),/*,
             Recipe(
                 id = "Dahl_v2",
                 name = "Dahl_v2",
@@ -59,7 +95,7 @@ class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel
                 ingredients = "Beans 6",
                 procedure = "Cook 6",
                 picture = ""
-            ),
+            ),*/
             // TODO recipeRepository.getAsset("Dahl_v1"),
             // recipeRepository.getAsset("Dahl_v1"),
         )
