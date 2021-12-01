@@ -1,6 +1,7 @@
 package com.example.sundmadinepal.ui.recipe
 
 import android.content.res.Resources
+import android.content.res.loader.ResourcesLoader
 import androidx.compose.ui.res.stringResource
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.LiveData
@@ -19,20 +20,22 @@ class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel
     }
 
     object DataProvider {
+        val Jaulo: String = Resources.getSystem().getResourceName(R.string.jaulo_title_string)
+        val Flour: String = Resources.getSystem().getResourceName(R.string.nutritionalflour_title_string)
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
             Recipe(
-                id = Resources.getSystem().getString(R.string.jaulo_title_string),
-                name = Resources.getSystem().getString(R.string.jaulo_title_string),
+                id = Jaulo,
+                name =Jaulo,
                 ingredients = "",
-                procedure = Resources.getSystem().getString(R.string.jaulo_string),
+                procedure = Jaulo,
                 picture = "jaulo"
             ),
             Recipe(
-                id = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
-                name = Resources.getSystem().getString(R.string.nutritionalflour_title_string),
+                id = Flour,
+                name = Flour,
                 ingredients = "",
-                procedure = Resources.getSystem().getString(R.string.nutritionalflour_string),
+                procedure = Flour,
                 picture = "nutritionalflour"
             )/*,
             Recipe(
