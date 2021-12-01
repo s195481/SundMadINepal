@@ -30,6 +30,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadinepal.di.ServiceLocator.init
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
         // To call or not call
         //App()
         // That is the question
-        // init(App())
+        //init(App())
         setContent {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main") {
