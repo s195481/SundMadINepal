@@ -1,6 +1,7 @@
 package com.example.sundmadinepal
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -277,8 +278,8 @@ fun HealthComposable(navController: NavController) {
                             RoundedCornerShape(corner = CornerSize(40.dp))
                         ),
                     onClick = {
-                        //TODO Add Destination
-                        navController.navigate(" ")
+                        //TODO Add ability to change picture
+                        Toast.makeText(MainActivity(),"Picture changing not implemented",Toast.LENGTH_LONG).show()
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.defaultbabyprofile),
@@ -314,45 +315,6 @@ fun HealthComposable(navController: NavController) {
                 infoFill = "He's a sucker for breastmilk"
             )
         }
-        /*Row(
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp)
-        ) {
-            Text(
-                text = (stringResource(R.string.height_string) + ":")
-            )
-            Text(
-                text = "55 cm"
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp)
-        ) {
-            Text(
-                text = (stringResource(R.string.weight_string) + ":")
-            )
-            Text(
-                text = "5 kg"
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp)
-        ) {
-            Text(
-                text = (stringResource(R.string.diary_string) + ":")
-            )
-            Text(
-                text = "Only eaten breastmilk so far."
-            )
-        }*/
     }
 }
 
