@@ -77,7 +77,7 @@ fun DefaultPreview() {
         //MainComposable(navController)
         //RecipesComposable(navController)
         //GoldenDaysComposable(navController)
-            GoldenDaysMaternityComposable(navController)
+            //GoldenDaysMaternityComposable(navController)
             //GoldenDaysFirstPeriodComposable(navController)
             //GoldenDaysSecondPeriodComposable(navController)
             //GoldenDaysThirdPeriodComposable(navController)
@@ -277,22 +277,42 @@ fun GoldenDaysMaternityComposable(navController: NavController) {
 
 @Composable
 fun GoldenDaysFirstPeriodComposable(navController: NavController){
-    R.drawable.maternity
+    GoldenDaysPeriodGenerator(
+        navController = navController,
+        title = R.string.zeroToSixMonths_string,
+        picture = R.drawable.zerotosixsmonth,
+        breadText = R.string.zeroToSixMonths_detailed_string
+    )
 }
 
 @Composable
 fun GoldenDaysSecondPeriodComposable(navController: NavController){
-    R.drawable.maternity
+    GoldenDaysPeriodGenerator(
+        navController = navController,
+        title = R.string.sixToNineMonths_string,
+        picture = R.drawable.sixtoninemonths,
+        breadText = R.string.sixToNineMonths_detailed_string
+    )
 }
 
 @Composable
 fun GoldenDaysThirdPeriodComposable(navController: NavController){
-    R.drawable.maternity
+    GoldenDaysPeriodGenerator(
+        navController = navController,
+        title = R.string.nineToTwelveMonths_string,
+        picture = R.drawable.ninetotwelvemonths,
+        breadText = R.string.nineToTwelveMonths_detailed_string
+    )
 }
 
 @Composable
 fun GoldenDaysFourthPeriodComposable(navController: NavController){
-    R.drawable.maternity
+    GoldenDaysPeriodGenerator(
+        navController = navController,
+        title = R.string.twelveToTwentyfourMonths_string,
+        picture = R.drawable.twelvetotwentyfourmonths,
+        breadText = R.string.twelveToTwentyFourMonths_detailed_string
+    )
 }
 
 
