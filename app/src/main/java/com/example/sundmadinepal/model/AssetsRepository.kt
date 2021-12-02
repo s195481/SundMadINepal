@@ -76,7 +76,7 @@ class AssetRepository(
             procedure = "Cook 1",
             picture = ""
         )
-        val recipe1x: AssetRecipe = (recipe1.toEntity())
+        val recipe1x: RecipeEntity = (recipe1.toEntity())
         fun recipestuff() = runBlocking { // this: CoroutineScope
             launch {
                 assetDao.insert(recipe1x)

@@ -29,6 +29,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.model.model.Comics
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.model.model.Recipe
@@ -52,6 +53,8 @@ class MainActivity : ComponentActivity() {
                 composable("healthPost") { HealthPostComposable(navController) }
             }
         }
+        //ServiceLocator.init(application)
+        //println(ServiceLocator.database.recipeDao().loadAll())
     }
 }
 
@@ -195,11 +198,11 @@ fun NavFromHomeGenerator(
             onClick = {
                 navController.navigate(destination)
             }) {
-            Icon(
+            /*Icon(
                 painter = painterResource(id = imageSrc),
                 contentDescription = stringResource(title),
                 modifier = Modifier.size(iconSize.dp)
-            )
+            )*/
         }
     }
 }
@@ -332,7 +335,7 @@ fun HealthComposable(navController: NavController) {
 @Composable
 fun RecipesComposable(navController: NavController) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
-    val recipes = remember { RecipeViewModel.DataProvider.recipeList }
+//    val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
         Modifier.fillMaxWidth()
     ) {
@@ -344,7 +347,7 @@ fun RecipesComposable(navController: NavController) {
             backButtonBool = true,
             color = R.color.Recipe_Icon
         )
-        LazyColumn(
+        /*LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
             items(
@@ -352,7 +355,7 @@ fun RecipesComposable(navController: NavController) {
                 itemContent = {
                     RecipeListItem(recipe = it as Recipe)
                 })
-        }
+        }*/
     }
 }
 
@@ -482,11 +485,11 @@ fun TopBarGenerator(
                     onClick = {
                         navController.navigate("main")
                     }) {
-                    Icon(
+                    /*Icon(
                         painter = painterResource(id = R.drawable.backbutton),
                         "backbutton",
                         modifier = Modifier.size(backButtonSize.dp)
-                    )
+                    )*/
                 }
             }
         }
@@ -495,13 +498,13 @@ fun TopBarGenerator(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Icon(
+            /*Icon(
                 painter = painterResource(id = titleImageSrc),
                 contentDescription = title,
                 modifier = Modifier
                     .size(titleSize.dp)
                     .padding(titlePadding.dp)
-            )
+            )*/
             Text(
                 text = title,
                 style = MaterialTheme.typography.h4,
