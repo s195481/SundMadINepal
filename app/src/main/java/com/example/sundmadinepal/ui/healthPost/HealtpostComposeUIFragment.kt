@@ -218,8 +218,6 @@ fun CollapsableLazyColumn(
                         Image(
                             painter = painterResource(image),
                             contentDescription = "",
-                            modifier = Modifier
-                                .fillMaxWidth(),
                         )
                     }
                 }
