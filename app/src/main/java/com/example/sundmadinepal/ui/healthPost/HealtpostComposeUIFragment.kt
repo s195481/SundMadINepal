@@ -9,6 +9,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -209,7 +211,6 @@ fun CollapsableLazyColumn(
                     }
                     Divider()
                 }
-
                 items(dataItem.images) { image ->
                     Row {
                         Spacer(modifier = Modifier
@@ -218,7 +219,8 @@ fun CollapsableLazyColumn(
                             painter = painterResource(image),
                             contentDescription = "",
                             modifier = Modifier
-                                .fillMaxWidth()
+                                .fillMaxWidth(),
+                            contentScale = ContentScale.Fit
                         )
                     }
                 }
