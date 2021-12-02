@@ -1,5 +1,6 @@
 package com.example.sundmadinepal.ui.recipe
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,8 +9,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -17,13 +22,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadinepal.MainActivity
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposable
@@ -43,16 +51,17 @@ class RecipeComposeUIFragment : ComponentActivity() {
 fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
-        RecipesComposable(navController)
+        //RecipesComposable(navController)
     }
 }
 
 @Composable
-fun RecipesComposable(navController: NavController) {
+fun RecipesComposable(navController: NavController, navigateToProfile: (Recipe) -> Unit) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
-        Modifier.fillMaxWidth()
+        Modifier
+            .fillMaxWidth()
             .background(colorResource(R.color.Home_Col)),
     ) {
         TopBarGenerator(
@@ -69,7 +78,7 @@ fun RecipesComposable(navController: NavController) {
             items(
                 items = recipes,
                 itemContent = {
-                    RecipeListItem(navController = navController, recipe = it)
+                    RecipeListItem2(navController = navController, recipe = it, navigateToProfile)
                 })
         }
     }
@@ -86,7 +95,7 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
         IconButton(
             onClick = {
                 // TODO Fix should be recipe.id
-                navController.navigate("recipeDetailed")
+                //navController.navigate("recipeDetailed")
             },
             modifier = Modifier
                 .apply { padding(imagePadding.dp) }
@@ -119,6 +128,64 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
         )
     }
 }
+
+@Composable
+fun RecipeListItem2(navController: NavController, recipe: Recipe, navigateToProfile: (Recipe) -> Unit) {
+    val imageSize: Int = 220
+    val imagePadding: Int = 0
+    Card(
+        modifier = Modifier
+            .padding(horizontal = 8.dp, vertical = 8.dp)
+            .fillMaxWidth().clickable { navigateToProfile(recipe)},
+        elevation = 2.dp,
+        shape = RoundedCornerShape(corner = CornerSize(16.dp))
+    ){
+        Row{
+            //Modifier.clickable { navigateToProfile(recipe)}
+            //Image
+            if (recipe.picture == "jaulo") {
+                Image(
+                    painter = painterResource(R.drawable.jaulo),
+                    contentDescription = recipe.id,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                )
+            } else if (recipe.picture == "nutritionalflour") {
+                Image(
+                    painter = painterResource(R.drawable.nutritionalflour),
+                    contentDescription = recipe.id,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                )
+            } else {
+                Image(
+                    painter = painterResource(R.drawable.information),
+                    contentDescription = recipe.id,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth()
+                    .align(Alignment.CenterVertically)
+            ){
+                //
+                 Text(text = recipe.name, style = typography.h6)
+                Text(text = "VIEW DETAIL", style = typography.caption)
+            }
+        }
+    }
+}
+
+/* Kan ikke laves på den måde vores ID's er sat op
+@Composable
+private fun RecipeImage(recipe: Recipe){
+    Image(painter = painterResource(id = recipe.picture), contentDescription = )
+}
+
+ */
 
 @Composable
 fun RecipeDetailedComposable(navController: NavController) {
