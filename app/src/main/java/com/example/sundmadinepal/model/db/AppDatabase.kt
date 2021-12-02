@@ -1,6 +1,7 @@
 package com.example.sundmadinepal.model.db
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -9,9 +10,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 @Database(
+    version = 2,
     entities = [RecipeEntity::class],
-    version = 1,
+    autoMigrations = [
+        AutoMigration (from = 1, to = 2)
+    ],
     exportSchema = true
+
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun recipeDao(): RecipeDao
@@ -32,10 +37,16 @@ abstract class AppDatabase : RoomDatabase() {
         }
         recipestuff()
     }
+
+
     companion object {
         fun build(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, "golden-days")
+
                 .build()
         }
+
     }
+
+
 }
