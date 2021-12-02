@@ -83,8 +83,6 @@ fun MyApp(navigateToProfile: (Recipe) -> Unit){
         }
         //ServiceLocator.init(application)
         //println(ServiceLocator.database.recipeDao().loadAll())
-    }
-}
 
 @Composable
 fun MainComposable(navController: NavController) {

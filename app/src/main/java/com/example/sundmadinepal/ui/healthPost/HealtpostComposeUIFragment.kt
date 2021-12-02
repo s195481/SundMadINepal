@@ -100,7 +100,7 @@ fun temp() {
                 rows = listOf(stringResource(id = R.string.healthpost_baby_sixtonine)),
                 images = listOf(/*
                     R.drawable.woman_breastfeeding, R.drawable.nutritionalflour,
-                    R.drawable.nutritionalflour, */R.drawable.jaulo/*, R.drawable.handwashing*/
+                    R.drawable.nutritionalflour, */R.drawable.p0/*, R.drawable.handwashing*/
                 )
             ),
             CollapsableSection(
