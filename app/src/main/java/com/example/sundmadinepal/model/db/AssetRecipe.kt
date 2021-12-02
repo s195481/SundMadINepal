@@ -10,9 +10,10 @@ data class AssetRecipe(
     val name: String,
     val ingredients: String,
     val procedure: String,
-    val picture: String
+    val picture: String,
+    val pictureID: Int
 )
 
-fun AssetRecipe.toModel(): Recipe = Recipe(id, name, ingredients, procedure, picture)
+fun AssetRecipe.toModel(): Recipe = Recipe(id, name, ingredients, procedure, picture, pictureID)
 
-fun Recipe.toEntity(): AssetRecipe = AssetRecipe(id, name, ingredients, procedure, picture)
+fun Recipe.toEntity(): AssetRecipe = AssetRecipe(id, name, ingredients, procedure, picture, pictureID)

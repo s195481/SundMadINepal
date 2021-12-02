@@ -1,6 +1,5 @@
 package com.example.sundmadinepal.ui.recipe
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,13 +27,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.sundmadinepal.MainActivity
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Recipe
-import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposable
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
@@ -106,12 +102,12 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
         ) {
             if (recipe.picture == "jaulo") {
                 Image(
-                    painter = painterResource(R.drawable.jaulo),
+                    painter = painterResource(R.drawable.p0),
                     contentDescription = recipe.id
                 )
             } else if (recipe.picture == "nutritionalflour") {
                 Image(
-                    painter = painterResource(R.drawable.nutritionalflour),
+                    painter = painterResource(R.drawable.p1),
                     contentDescription = recipe.id
                 )
             } else {
@@ -143,16 +139,18 @@ fun RecipeListItem2(navController: NavController, recipe: Recipe, navigateToProf
         Row{
             //Modifier.clickable { navigateToProfile(recipe)}
             //Image
-            if (recipe.picture == "jaulo") {
+            Image(
+                painter = painterResource(recipe.pictureID),
+                contentDescription = recipe.id,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+            )
+            /*
+            if (recipe.picture == "p0") {
+
+            } else if (recipe.picture == "p1") {
                 Image(
-                    painter = painterResource(R.drawable.jaulo),
-                    contentDescription = recipe.id,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
-                )
-            } else if (recipe.picture == "nutritionalflour") {
-                Image(
-                    painter = painterResource(R.drawable.nutritionalflour),
+                    painter = painterResource(R.drawable.p1),
                     contentDescription = recipe.id,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
@@ -165,6 +163,8 @@ fun RecipeListItem2(navController: NavController, recipe: Recipe, navigateToProf
                     modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
                 )
             }
+
+             */
             Column(
                 modifier = Modifier
                     .padding(16.dp)
@@ -192,7 +192,7 @@ fun RecipeDetailedComposable(navController: NavController) {
     RecipeComposableGenerator(
         navController = navController,
         title = R.string.jaulo_title_string,
-        picture = R.drawable.jaulo,
+        picture = R.drawable.p0,
         breadText = R.string.jaulo_string
     )
 }

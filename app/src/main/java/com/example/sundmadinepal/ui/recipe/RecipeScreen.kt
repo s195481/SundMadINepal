@@ -46,7 +46,7 @@ private fun RecipeHeader(
         modifier = Modifier
             .heightIn(max = containerHeight / 2)
             .fillMaxWidth(),
-        painter = painterResource(),
+        painter = painterResource(recipe.pictureID),
         contentScale = ContentScale.Crop,
         contentDescription = null
     )

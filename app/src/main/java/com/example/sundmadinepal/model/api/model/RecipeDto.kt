@@ -10,8 +10,9 @@ data class RecipeDto(
     val name: String = "",
     val ingredients: String = "",
     val procedure: String = "",
-    val picture: String = ""
+    val picture: String = "",
+    val pictureID: Int = 0
 )
 
-fun RecipeDto.toModel() = Recipe(id, name, ingredients, procedure, picture)
-fun RecipeDto.toEntity() = AssetRecipe(id, name, ingredients, procedure, picture)
+fun RecipeDto.toModel() = Recipe(id, name, ingredients, procedure, picture, pictureID)
+fun RecipeDto.toEntity() = AssetRecipe(id, name, ingredients, procedure, picture, pictureID)
