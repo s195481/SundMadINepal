@@ -12,7 +12,7 @@ interface RecipeDao {
     fun loadById(id: String): Flow<RecipeEntity?>
 
     @Query("SELECT * FROM recipe")
-    fun loadAll(): Flow<RecipeEntity?>
+    fun loadAll(): List<RecipeEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(asset: RecipeEntity)
