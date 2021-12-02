@@ -73,6 +73,9 @@ dependencies {
     implementation 'androidx.databinding:databinding-runtime:7.0.3'
     testImplementation 'junit:junit:4.+'
 
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+
 
     // Extensions = ViewModel + LiveData
     implementation "android.arch.lifecycle:extensions:1.1.1"

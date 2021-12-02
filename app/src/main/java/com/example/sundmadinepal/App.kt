@@ -3,6 +3,7 @@ package com.example.sundmadinepal
 import android.app.Application
 import android.util.Log
 import com.example.sundmadinepal.di.ServiceLocator
+import kotlinx.coroutines.CoroutineScope
 import java.util.*
 
 class App : Application() {
@@ -11,9 +12,7 @@ class App : Application() {
         super.onCreate()
         Locale.setDefault(Locale("da", "DK"))
         ServiceLocator.init(this)
-        //ServiceLocator.db.RecipeGeneratorThing()
-        //val list = ServiceLocator.db.recipeDao().loadAll()
-        //Log.e("DB_Check", list[0].toString())
+        ServiceLocator.db.RecipeGeneratorThing()
 
         Log.d("HERE", "I AM HERE")
     }
