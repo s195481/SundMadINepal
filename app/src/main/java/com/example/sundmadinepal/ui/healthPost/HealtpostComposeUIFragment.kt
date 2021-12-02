@@ -209,12 +209,16 @@ fun CollapsableLazyColumn(
                     }
                     Divider()
                 }
+
                 items(dataItem.images) { image ->
                     Row {
-                        Spacer(modifier = Modifier.size(MaterialIconDimension.dp))
+                        Spacer(modifier = Modifier
+                            .fillMaxHeight())
                         Image(
                             painter = painterResource(image),
-                            contentDescription = ""
+                            contentDescription = "",
+                            modifier = Modifier
+                                .fillMaxHeight()
                         )
                     }
                 }
