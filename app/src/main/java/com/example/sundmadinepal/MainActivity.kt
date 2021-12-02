@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -161,24 +162,29 @@ fun NavFromHomeGenerator(
     padding: Int
 ) {
     val modifiedIconSize: Double = (iconSize*0.8)
-    Row(
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .padding(padding.dp)
-            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
-            .background(colorResource(id = color))
+            .background(colorResource(id = color), RoundedCornerShape(corner = CornerSize(16.dp)))
             .border(5.dp, colorResource(id = R.color.Border_Col))
     ) {
-        IconButton(modifier = Modifier.then(Modifier.size(iconSize.dp)),
+        Text(
+            text = stringResource(title),
+            modifier = Modifier.padding(4.dp)
+        )
+        IconButton(
+            modifier = Modifier
+                .size(iconSize.dp),
             onClick = {
                 navController.navigate(destination)
             }) {
             Icon(
                 painter = painterResource(id = imageSrc),
                 contentDescription = stringResource(title),
-                modifier = Modifier.size(modifiedIconSize.dp)
-                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                modifier = Modifier
+                    .size(modifiedIconSize.dp)
             )
         }
     }
