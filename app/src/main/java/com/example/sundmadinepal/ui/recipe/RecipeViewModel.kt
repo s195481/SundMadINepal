@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.di.ServiceLocator
-import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.model.db.toModel
 import com.example.sundmadinepal.model.model.Recipe
 import kotlinx.coroutines.coroutineScope
@@ -21,6 +20,7 @@ class RecipeViewModel() : ViewModel() {
                 Log.e("DB_check", recipes[0].toString())
                 for (i in recipes.indices) {
                     recipes[i]?.let { recipeList.add(it.toModel()) }
+                    recipes[i]?.pictureID ?: R.drawable.p0
                 }
             }
         }
