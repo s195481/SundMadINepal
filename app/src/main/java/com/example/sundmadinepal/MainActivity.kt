@@ -1,5 +1,6 @@
 package com.example.sundmadinepal
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,9 +21,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.activity
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.comics.ComicsComposable
 import com.example.sundmadinepal.ui.goldenDays.*
 import com.example.sundmadinepal.ui.health.HealthComposable
@@ -40,25 +43,10 @@ class MainActivity : ComponentActivity() {
         // That is the question
         //init(App())
         setContent {
-            val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "main") {
-                composable("main") { MainComposable(navController) }
-                composable("recipes") { RecipesComposable(navController) }
-                // TODO Edit guy below when things start working
-                composable("recipeDetailed") { RecipeDetailedComposable(navController) }
-                composable("goldenDays") { GoldenDaysComposable(navController) }
-                composable("Maternity") { GoldenDaysMaternityComposable(navController) }
-                composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
-                composable("6-9 Months") { GoldenDaysSecondPeriodComposable(navController) }
-                composable("9-12 Months") { GoldenDaysThirdPeriodComposable(navController) }
-                composable("12-24 Months") { GoldenDaysFourthPeriodComposable(navController) }
-                composable("comics") { ComicsComposable(navController) }
-                composable("health") { HealthComposable(navController) }
-                composable("healthPost") { HealthPostComposable(navController) }
+            MyApp(){
+                startActivity(RecipeProfileActivity.newIntent(this,it))
             }
         }
-        //ServiceLocator.init(application)
-        //println(ServiceLocator.database.recipeDao().loadAll())
     }
 }
 
@@ -70,6 +58,29 @@ fun DefaultPreview() {
         MainComposable(navController)
     }
 }
+
+@Composable
+fun MyApp(navigateToProfile: (Recipe) -> Unit){
+    val navController = rememberNavController()
+            NavHost(navController = navController, startDestination = "main") {
+                composable("main") { MainComposable(navController) }
+                composable("recipes") { RecipesComposable(navController, navigateToProfile = navigateToProfile) }
+                // TODO Edit guy below when things start working
+                composable("recipeDetailed") { RecipeDetailedComposable(navController) }
+                composable("goldenDays") { GoldenDaysComposable(navController) }
+                composable("Maternity") { GoldenDaysMaternityComposable(navController) }
+                composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
+                composable("6-9 Months") { GoldenDaysSecondPeriodComposable(navController) }
+                composable("9-12 Months") { GoldenDaysThirdPeriodComposable(navController) }
+                composable("12-24 Months") { GoldenDaysFourthPeriodComposable(navController) }
+                composable("comics") { ComicsComposable(navController) }
+                composable("health") { HealthComposable(navController) }
+                composable("healthPost") { HealthPostComposable(navController) }
+                activity("RecipeProfileActivity"){RecipeProfileActivity()}
+            }
+        }
+        //ServiceLocator.init(application)
+        //println(ServiceLocator.database.recipeDao().loadAll())
 
 @Composable
 fun MainComposable(navController: NavController) {

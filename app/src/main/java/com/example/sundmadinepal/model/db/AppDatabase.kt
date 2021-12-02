@@ -10,10 +10,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 @Database(
-    version = 2,
+    version = 3,
     entities = [RecipeEntity::class],
     autoMigrations = [
-        AutoMigration(from = 1, to = 2)
+        AutoMigration (from = 1, to = 2),
+        AutoMigration (from = 2, to = 3)
     ],
     exportSchema = true
 
@@ -27,7 +28,8 @@ abstract class AppDatabase : RoomDatabase() {
             name = "Dahl_v1",
             ingredients = "Beans 1",
             procedure = "Cook 1",
-            picture = ""
+            picture = "",
+            pictureID = 34
         )
         val recipe1x: RecipeEntity = (recipe1.toEntity())
         fun recipestuff() = runBlocking { // this: CoroutineScope

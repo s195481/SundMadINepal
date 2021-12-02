@@ -74,7 +74,8 @@ class AssetRepository(
             name = "Dahl_v1",
             ingredients = "Beans 1",
             procedure = "Cook 1",
-            picture = ""
+            picture = "",
+            pictureID = 3
         )
         val recipe1x: RecipeEntity = (recipe1.toEntity())
         fun recipestuff() = runBlocking { // this: CoroutineScope
