@@ -1,5 +1,6 @@
 package com.example.sundmadinepal.ui.recipe
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -35,8 +36,7 @@ import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 class RecipeComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class RecipeComposeUIFragment : ComponentActivity() {
         }
     }
 }
-fun dbWork() = runBlocking {
+suspend fun dbWork() = coroutineScope {
     launch{
         val recipes = ServiceLocator.db.recipeDao().loadAll()
         Log.e("DB_check",recipes[0].toString())
@@ -62,10 +62,12 @@ fun DefaultPreview() {
 }
 
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun RecipesComposable(navController: NavController, navigateToProfile: (Recipe) -> Unit) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
-    dbWork()
+
+    GlobalScope.async() {dbWork()}
 
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
