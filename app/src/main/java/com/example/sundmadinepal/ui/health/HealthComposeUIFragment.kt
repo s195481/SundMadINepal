@@ -33,6 +33,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
+import com.example.sundmadinepal.ui.healthPost.HealthpostViewModel
+import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import java.util.*
@@ -42,6 +44,7 @@ class HealthComposeUIFragment : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+            val viewModel: HealthViewModel
         }
     }
 }
@@ -103,21 +106,19 @@ fun HealthComposable(navController: NavController) {
             Row(
 
             ){
-                Text(
-                    text = stringResource(R.string.name_string),
-                    modifier = Modifier.padding(5.dp)
-                )
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
-                    label = { Text(name) }
+                    label = { Text(stringResource(R.string.name_string)) }
                 )
             }
-            Text(
-                text = (stringResource(R.string.day_string) + "/" +
+
+            OutlinedTextField(
+                value = name,
+                onValueChange = { name = it },
+                label = { Text(stringResource(R.string.day_string) + "/" +
                         stringResource(R.string.months_string) + "/" +
-                        stringResource(R.string.year_string)),
-                modifier = Modifier.padding(5.dp)
+                        stringResource(R.string.year_string)) }
             )
         }
         Column() {
