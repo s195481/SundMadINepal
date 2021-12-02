@@ -3,6 +3,7 @@ package com.example.sundmadinepal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -34,6 +35,7 @@ import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
 class MainActivity : ComponentActivity() {
+    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // To call or not call
