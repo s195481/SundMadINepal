@@ -12,8 +12,10 @@ import com.example.sundmadinepal.model.model.Recipe
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class RecipeViewModel(private val db: AppDatabase) : ViewModel() {
+
     fun getRecipes() {
         val recipeList = listOf(
             db.recipeDao().loadById("Dahl_v1"),
@@ -21,12 +23,7 @@ class RecipeViewModel(private val db: AppDatabase) : ViewModel() {
     }
 
     object DataProvider {
-        suspend fun Recipes() = coroutineScope {
-            launch {
-                val list = ServiceLocator.db.recipeDao().loadAll()
-                Log.e("DB_Check", list[0].toString())
-            }
-        }
+
         // TODO Giver ikke de rigtige strings til RecipeListItem i MainActivity. De kan ikke findes i frontenden og det giver ingen mening. Se evt. vedlagt error code.
         /*
         E/e.sundmadinepa: No package ID 7f found for ID 0x7f100046.
@@ -104,6 +101,7 @@ I/Process: Sending signal. PID: 3012 SIG: 9
          */
         //val Jaulo: String = Resources.getSystem().getString(R.string.jaulo_title_string)
         //val Flour: String = Resources.getSystem().getString(R.string.nutritionalflour_title_string)
+
         val recipeList = listOf(
             //ServiceLocator.recipeRepository.getAsset("Dahl_v1")
             // TODO Har lige lavet alt nedunder til Strings - bare så det kan blive loaded og der kan laves UI

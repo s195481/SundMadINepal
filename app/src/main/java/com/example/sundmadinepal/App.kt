@@ -13,7 +13,5 @@ class App : Application() {
         Locale.setDefault(Locale("da", "DK"))
         ServiceLocator.init(this)
         ServiceLocator.db.RecipeGeneratorThing()
-
-        Log.d("HERE", "I AM HERE")
     }
 }
