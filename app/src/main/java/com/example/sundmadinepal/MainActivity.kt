@@ -45,8 +45,7 @@ class MainActivity : ComponentActivity() {
         //init(App())
         setContent {
             MyApp(){
-
-                startActivity(Intent(this,RecipeProfileActivity::class.java))
+                startActivity(RecipeProfileActivity.newIntent(this,it))
             }
         }
     }
