@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -54,7 +53,8 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "main") {
                 composable("main") { MainComposable(navController) }
                 composable("recipes") { RecipesComposable(navController) }
-                // TODO composable("recipeDetails") { RecipesDetailedComposable(navController) }
+                // TODO Edit guy below when things start working
+                composable("recipeDetailed") {RecipeDetailedComposable(navController)}
                 composable("goldenDays") { GoldenDaysComposable(navController) }
                 composable("Maternity") { GoldenDaysMaternityComposable(navController) }
                 composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
@@ -337,7 +337,6 @@ fun GoldenDaysFourthPeriodComposable(navController: NavController) {
     )
 }
 
-
 @Composable
 fun GoldenDaysPeriodGenerator(
     navController: NavController,
@@ -480,7 +479,6 @@ fun InfoBarGenerator(infoType: String, infoFill: String) {
     }
 }
 
-
 @Composable
 fun RecipesComposable(navController: NavController) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
@@ -508,7 +506,6 @@ fun RecipesComposable(navController: NavController) {
     }
 }
 
-
 @Composable
 fun RecipeListItem(navController: NavController, recipe: Recipe) {
     val imageSize: Int = 220
@@ -517,7 +514,8 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
         verticalAlignment = Alignment.CenterVertically) {
         IconButton(
             onClick = {
-                // TODO navController.navigate(goldenDays.goldenDayPeriod)
+                // TODO Fix
+                navController.navigate(recipe.id)
             },
             modifier = Modifier
                 .apply { padding(imagePadding.dp) }
@@ -547,6 +545,53 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
             style = MaterialTheme.typography.h6)
     }
 }
+
+@Composable
+fun RecipeDetailedComposable(navController: NavController){
+    RecipeComposableGenerator(
+        navController = navController,
+        title = R.string.jaulo_title_string,
+        picture = R.string.jaulo_title_string,
+        breadText = R.string.jaulo_string)
+}
+
+@Composable
+fun RecipeComposableGenerator(
+    navController: NavController,
+    title: Int,
+    picture: Int,
+    breadText: Int
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.recipes,
+            title = stringResource(title),
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Recipe_Icon
+        )
+        Image(
+            painter = painterResource(picture),
+            contentDescription = stringResource(title),
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(300.dp)
+                .padding(10.dp)
+        )
+        Text(
+            text = stringResource(id = breadText),
+            style = MaterialTheme.typography.subtitle1,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp)
+        )
+    }
+}
+
+
 @Composable
 fun ComicsComposable(navController: NavController) {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
