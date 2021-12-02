@@ -10,7 +10,7 @@ import kotlinx.coroutines.runBlocking
 
 @Database(
     entities = [RecipeEntity::class],
-    version = 2,
+    version = 1,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
