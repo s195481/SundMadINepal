@@ -563,7 +563,7 @@ fun RecipeComposableGenerator(
     breadText: Int
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxSize()
     ) {
         TopBarGenerator(
             navController = navController,
