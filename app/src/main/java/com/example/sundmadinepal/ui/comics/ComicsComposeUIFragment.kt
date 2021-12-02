@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -52,7 +53,8 @@ fun DefaultPreview() {
 fun ComicsComposable(navController: NavController) {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxSize()
+            .background(colorResource(R.color.Home_Col)),
     ) {
         TopBarGenerator(
             navController = navController,
@@ -89,7 +91,7 @@ fun ComicListItem(comic: Comics) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.LightGray)
+                .background(colorResource(R.color.Bar_Col))
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.settings),

@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -16,6 +18,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,7 +52,9 @@ fun DefaultPreview() {
 @Composable
 fun HealthComposable(navController: NavController) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(R.color.Home_Col)),
     ) {
         TopBarGenerator(
             navController = navController,
@@ -60,24 +66,20 @@ fun HealthComposable(navController: NavController) {
         )
         Column(
             modifier = Modifier
-                .background(Color.Yellow)
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(corner = CornerSize(40.dp))),
+                .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row(
                 modifier = Modifier
                     .size(150.dp)
-                    .background(Color.White)
-                    .clip(RoundedCornerShape(corner = CornerSize(40.dp)))
                     .padding(20.dp),
             ) {
                 IconButton(
                     modifier = Modifier
                         .then(Modifier.size(150.dp))
-                        .clip(
-                            RoundedCornerShape(corner = CornerSize(40.dp))
-                        ),
+                        .clip(CircleShape)
+                        .border(1.5.dp, colorResource(id = R.color.Border_Col), CircleShape)
+                        .background(Color.White),
                     onClick = {
                         //TODO Add ability to change picture
                         //Toast.makeText(LocalContext.current,"Picture changing not implemented",Toast.LENGTH_LONG).show()
@@ -87,7 +89,6 @@ fun HealthComposable(navController: NavController) {
                         contentDescription = stringResource(R.string.child_string),
                         modifier = Modifier
                             .size(150.dp)
-                            .background(Color.White),
                     )
                 }
             }
@@ -134,7 +135,7 @@ fun InfoBarGenerator(infoType: String, infoFill: String) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.LightGray)
+                .background(colorResource(id = R.color.Bar_Col))
         ) {
             Text(
                 text = infoType,

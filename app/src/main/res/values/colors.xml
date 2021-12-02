@@ -20,4 +20,9 @@
     <color name="Healthpost_Icon">#A9DBF6</color>
     <color name="Health_Icon">#FF6363</color>
 
+    <color name="Home_Col">#FF9A7A</color>
+    <color name="But_Col">#DE8B57</color>
+    <color name="Bar_Col">#669EC5</color>
+    <color name="Border_Col">#FF000000</color>
+
 </resources>

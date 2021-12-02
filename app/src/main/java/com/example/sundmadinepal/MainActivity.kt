@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -64,32 +65,18 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
-        //MainComposable(navController)
-        //RecipesComposable(navController)
-
-        //GoldenDaysComposable(navController)
-        //GoldenDaysMaternityComposable(navController)
-        //GoldenDaysFirstPeriodComposable(navController)
-        //GoldenDaysSecondPeriodComposable(navController)
-        //GoldenDaysThirdPeriodComposable(navController)
-        //GoldenDaysFourthPeriodComposable(navController)
-
-        //ComicsComposable(navController)
-        //HealthComposable(navController)
-        //HealthPostComposable(navController)
-
+        MainComposable(navController)
     }
 }
 
 @Composable
 fun MainComposable(navController: NavController) {
     val navIconSize: Int = 150
-    val navPadding: Int = navIconSize / 10
+    val navPadding: Int = navIconSize / 7
     val titleSize: Int = 100
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.Home_Menu_Background)),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         TopBarGenerator(
@@ -98,7 +85,7 @@ fun MainComposable(navController: NavController) {
             title = stringResource(id = R.string.home_string),
             titleSize = titleSize,
             backButtonBool = false,
-            color = R.color.Figma_Home_top
+            color = R.color.Home_Col
         )
         Row() {
             NavFromHomeGenerator(
@@ -173,6 +160,7 @@ fun NavFromHomeGenerator(
     color: Int,
     padding: Int
 ) {
+    val modifiedIconSize: Double = (iconSize*0.8)
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
@@ -180,6 +168,7 @@ fun NavFromHomeGenerator(
             .padding(padding.dp)
             .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             .background(colorResource(id = color))
+            .border(5.dp, colorResource(id = R.color.Border_Col))
     ) {
         IconButton(modifier = Modifier.then(Modifier.size(iconSize.dp)),
             onClick = {
@@ -188,7 +177,8 @@ fun NavFromHomeGenerator(
             Icon(
                 painter = painterResource(id = imageSrc),
                 contentDescription = stringResource(title),
-                modifier = Modifier.size(iconSize.dp)
+                modifier = Modifier.size(modifiedIconSize.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             )
         }
     }

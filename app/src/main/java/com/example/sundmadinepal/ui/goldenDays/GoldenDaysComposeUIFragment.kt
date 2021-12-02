@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,6 +46,11 @@ fun DefaultPreview() {
     SundMadINepalTheme {
         val navController = rememberNavController()
         GoldenDaysComposable(navController)
+        //GoldenDaysMaternityComposable(navController)
+        //GoldenDaysFirstPeriodComposable(navController)
+        //GoldenDaysSecondPeriodComposable(navController)
+        //GoldenDaysThirdPeriodComposable(navController)
+        //GoldenDaysFourthPeriodComposable(navController)
     }
 }
 
@@ -52,6 +59,7 @@ fun GoldenDaysComposable(navController: NavController) {
     val goldenDays = remember { GoldenDaysViewModel.DataProvider.goldenDaysList }
     Column(
         modifier = Modifier.fillMaxWidth()
+            .background(colorResource(R.color.Home_Col)),
     ) {
         TopBarGenerator(
             navController = navController,
@@ -90,7 +98,8 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
                 .apply { padding(imagePadding.dp) }
                 .size(imageSize.dp)
                 .clip(CircleShape)
-                .border(1.5.dp, Color.Black, CircleShape)
+                .border(1.5.dp, colorResource(id = R.color.Border_Col), CircleShape)
+                .background(Color.White),
         ) {
             if (goldenDays.goldenDayPicture == "maternity") {
                 Image(
@@ -127,7 +136,7 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = goldenDays.goldenDayPeriod,
-            style = MaterialTheme.typography.h6
+            style = MaterialTheme.typography.h6,
         )
     }
 }
