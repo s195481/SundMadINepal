@@ -211,17 +211,16 @@ fun CollapsableLazyColumn(
                     }
                     Divider()
                 }
+
                 items(dataItem.images) { image ->
-                    Row {
-                        Spacer(modifier = Modifier
-                            .size(MaterialIconDimension.dp)
-                        )
-                        Image(
-                            painter = painterResource(image),
-                            contentDescription = "",
-                        )
-                    }
+                    Image(
+                        painter = painterResource(image),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(50.dp)
+                    )
                 }
+
             }
         }
     }
