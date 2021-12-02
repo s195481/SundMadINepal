@@ -32,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
-import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel.DataProvider.dbWork
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme

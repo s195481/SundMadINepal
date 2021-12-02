@@ -17,7 +17,7 @@ class RecipeViewModel() : ViewModel() {
         suspend fun dbWork() = coroutineScope {
             launch {
                 val recipes = ServiceLocator.db.recipeDao().loadAll()
-                for (i in 0..recipes.size) {
+                for (i in 0..recipes.count() - 1) {
                     Log.e("DB_check", recipes[i].toString())
                     recipes[i]?.let { recipeList.add(it.toModel()) }
                     recipes[i]?.pictureID ?: R.drawable.p0
