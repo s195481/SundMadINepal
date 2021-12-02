@@ -61,10 +61,12 @@ fun DefaultPreview() {
     }
 }
 
+
 @Composable
 fun RecipesComposable(navController: NavController, navigateToProfile: (Recipe) -> Unit) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
     dbWork()
+
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
         Modifier
