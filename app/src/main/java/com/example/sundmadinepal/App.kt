@@ -12,7 +12,7 @@ class App : Application() {
         Locale.setDefault(Locale("da", "DK"))
         ServiceLocator.init(this)
         ServiceLocator.db.RecipeGeneratorThing()
-        println(ServiceLocator.db.recipeDao().loadById("Dahl_v1"))
+        Log.e("Check", ServiceLocator.db.recipeDao().loadById("Dahl_v1").toString())
         Log.d("HERE", "I AM HERE")
     }
 }
