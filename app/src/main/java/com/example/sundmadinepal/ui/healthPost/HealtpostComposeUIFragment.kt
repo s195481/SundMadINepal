@@ -1,5 +1,6 @@
 package com.example.sundmadinepal.ui.healthPost
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -77,45 +78,6 @@ fun HealthPostComposable(navController: NavController) {
 
 
 @Composable
-fun NavFromHealthpostGenerator(
-    navController: NavController,
-    destination: String,
-    title: Int,
-    imageSrc: Int,
-    iconSize: Int,
-    color: Int,
-    padding: Int
-) {
-    val modifiedIconSize: Double = (iconSize * 0.8)
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .padding(padding.dp)
-            .background(colorResource(id = color), RoundedCornerShape(corner = CornerSize(16.dp)))
-            .border(5.dp, colorResource(id = R.color.Border_Col))
-    ) {
-        Text(
-            text = stringResource(title),
-            modifier = Modifier.padding(4.dp)
-        )
-        IconButton(
-            modifier = Modifier
-                .size(iconSize.dp),
-            onClick = {
-                navController.navigate(destination)
-            }) {
-            Icon(
-                painter = painterResource(id = imageSrc),
-                contentDescription = stringResource(title),
-                modifier = Modifier
-                    .size(modifiedIconSize.dp)
-            )
-        }
-    }
-}
-
-@Composable
 fun temp() {
     CollapsableLazyColumn(
         sections = listOf(
@@ -123,30 +85,30 @@ fun temp() {
                 title = stringResource(id = R.string.healthpost_baby_pregnancy_title),
                 rows = listOf(stringResource(id = R.string.healthpost_baby_pregnancy)),
                 images = listOf(
-                    R.drawable.balanceddiet_nomeat, R.drawable.handwashing,
-                    R.drawable.visithealthpost, R.drawable.whentowashhands
+                    R.drawable.balanceddiet_nomeat/*, R.drawable.handwashing,
+                    R.drawable.visithealthpost, R.drawable.whentowashhands*/
                 )
             ),
             CollapsableSection(
                 title = stringResource(id = R.string.healthpost_baby_zerotosix_title),
                 rows = listOf(stringResource(id = R.string.healthpost_baby_zerotosix)),
-                images = listOf(R.drawable.woman_breastfeeding, R.drawable.handwashing)
+                images = listOf(R.drawable.woman_breastfeeding/*, R.drawable.handwashing*/)
             ),
             CollapsableSection(
                 title = stringResource(id = R.string.healthpost_baby_sixtonine_title),
                 rows = listOf(stringResource(id = R.string.healthpost_baby_sixtonine)),
-                images = listOf(
+                images = listOf(/*
                     R.drawable.woman_breastfeeding, R.drawable.nutritionalflour,
-                    R.drawable.nutritionalflour, R.drawable.jaulo, R.drawable.handwashing
+                    R.drawable.nutritionalflour, */R.drawable.jaulo/*, R.drawable.handwashing*/
                 )
             ),
             CollapsableSection(
                 title = stringResource(id = R.string.healthpost_baby_ninetotwelve_title),
                 rows = listOf(stringResource(id = R.string.healthpost_baby_ninetotwelve)),
-                images = listOf(
+                images = listOf(/*
                     R.drawable.woman_breastfeeding, R.drawable.nutritionalflour,
-                    R.drawable.nutritionalflour, R.drawable.banana, R.drawable.spinach,
-                    R.drawable.jaulo, R.drawable.handwashing
+                    R.drawable.nutritionalflour, R.drawable.banana,*/ R.drawable.spinach/*,
+                    R.drawable.jaulo, R.drawable.handwashing*/
                 )
             ),
             CollapsableSection(
@@ -216,7 +178,7 @@ fun CollapsableLazyColumn(
                         painter = painterResource(image),
                         contentDescription = "",
                         modifier = Modifier
-                            .size(80.dp)
+                            .size(300.dp)
                     )
                 }
 
