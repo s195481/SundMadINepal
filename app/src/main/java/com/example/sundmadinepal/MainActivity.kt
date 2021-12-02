@@ -70,7 +70,6 @@ fun MyApp(navigateToProfile: (Recipe) -> Unit) {
                 navigateToProfile = navigateToProfile
             )
         }
-        // TODO Edit guy below when things start working
         composable("recipeDetailed") { RecipeDetailedComposable(navController) }
         composable("goldenDays") { GoldenDaysComposable(navController) }
         composable("Maternity") { GoldenDaysMaternityComposable(navController) }

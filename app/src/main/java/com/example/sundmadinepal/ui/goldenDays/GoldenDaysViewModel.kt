@@ -3,7 +3,6 @@ package com.example.sundmadinepal.ui.goldenDays
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.model.model.GoldenDays
 
-// TODO Delete class and remove dependencies
 class GoldenDaysViewModel : ViewModel() {
 
     object DataProvider {

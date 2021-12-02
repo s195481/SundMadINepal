@@ -45,7 +45,6 @@ fun DefaultPreview() {
     }
 }
 
-//TODO Fix it's ugly as fuuuck
 @Composable
 fun HealthComposable(navController: NavController) {
     var name by remember { mutableStateOf("") }

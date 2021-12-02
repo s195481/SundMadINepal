@@ -49,44 +49,7 @@ class RecipeViewModel(private val db: AppDatabase) : ViewModel() {
                         "        honey , eggs, meat, and iodized salt.",
                 picture = "nutritionalflour",
                 pictureID = R.drawable.p1
-            )/*,
-            Recipe(
-                id = "Dahl_v2",
-                name = "Dahl_v2",
-                ingredients = "Beans 2",
-                procedure = "Cook 2",
-                picture = ""
-            ),
-            Recipe(
-                id = "Dahl_v3",
-                name = "Dahl_v3",
-                ingredients = "Beans 3",
-                procedure = "Cook 3",
-                picture = ""
-            ),
-            Recipe(
-                id = "Dahl_v4",
-                name = "Dahl_v4",
-                ingredients = "Beans 4",
-                procedure = "Cook 4",
-                picture = ""
-            ),
-            Recipe(
-                id = "Dahl_v5",
-                name = "Dahl_v5",
-                ingredients = "Beans 5",
-                procedure = "Cook 5",
-                picture = ""
-            ),
-            Recipe(
-                id = "Dahl_v6",
-                name = "Dahl_v6",
-                ingredients = "Beans 6",
-                procedure = "Cook 6",
-                picture = ""
-            ),*/
-            // TODO recipeRepository.getAsset("Dahl_v1"),
-            // recipeRepository.getAsset("Dahl_v1"),
+            )
         )
     }
 
