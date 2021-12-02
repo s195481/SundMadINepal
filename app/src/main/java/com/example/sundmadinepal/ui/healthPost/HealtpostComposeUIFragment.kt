@@ -125,16 +125,24 @@ fun temp(){
     CollapsableLazyColumn(
         sections = listOf(
             CollapsableSection(
-                title = stringResource(id = R.string.healthpost_baby_pregnancy),
-                rows = listOf("Apple", "Apricots", "Avocado")
+                title = stringResource(id = R.string.healthpost_baby_pregnancy_title),
+                rows = listOf(stringResource(id = R.string.healthpost_baby_pregnancy))
             ),
             CollapsableSection(
-                title = "Fruits B",
-                rows = listOf("Banana", "Blackberries", "Blueberries")
+                title = stringResource(id = R.string.healthpost_baby_zerotosix_title),
+                rows = listOf(stringResource(id = R.string.healthpost_baby_zerotosix))
             ),
             CollapsableSection(
-                title = "Fruits C",
-                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
+                title = stringResource(id = R.string.healthpost_baby_sixtonine_title),
+                rows = listOf(stringResource(id = R.string.healthpost_baby_sixtonine))
+            ),
+            CollapsableSection(
+                title = stringResource(id = R.string.healthpost_baby_ninetotwelve_title),
+                rows = listOf(stringResource(id = R.string.healthpost_baby_ninetotwelve))
+            ),
+            CollapsableSection(
+                title = stringResource(id = R.string.healthpost_fourfoodgroups_title),
+                rows = listOf(stringResource(id = R.string.healthpost_fourfoodgroups))
             ),
         ),
     )
@@ -168,7 +176,7 @@ fun CollapsableLazyColumn(
                                 KeyboardArrowUp
                         },
                         contentDescription = "",
-                        tint = Color.LightGray,
+                        tint = colorResource(R.color.black),
                     )
                     Text(
                         dataItem.title,
