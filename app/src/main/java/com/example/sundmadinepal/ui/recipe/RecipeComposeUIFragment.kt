@@ -46,12 +46,7 @@ class RecipeComposeUIFragment : ComponentActivity() {
         }
     }
 }
-suspend fun dbWork() = coroutineScope {
-    launch{
-        val recipes = ServiceLocator.db.recipeDao().loadAll()
-        Log.e("DB_check",recipes[0].toString())
-    }
-}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -67,7 +62,6 @@ fun DefaultPreview() {
 fun RecipesComposable(navController: NavController, navigateToProfile: (Recipe) -> Unit) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
 
-    GlobalScope.async() {dbWork()}
 
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(

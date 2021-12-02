@@ -62,7 +62,7 @@ object ServiceLocator {
                 return when (modelClass) {
                     MainViewModel::class.java -> MainViewModel()
                     GoldenDaysViewModel::class.java -> GoldenDaysViewModel()
-                    RecipeViewModel::class.java -> RecipeViewModel(db)
+                    RecipeViewModel::class.java -> RecipeViewModel()
                     HealthViewModel::class.java -> HealthViewModel()
                     ComicsViewModel::class.java -> ComicsViewModel()
                     else -> throw IllegalArgumentException("Unsupported ViewModel $modelClass")
