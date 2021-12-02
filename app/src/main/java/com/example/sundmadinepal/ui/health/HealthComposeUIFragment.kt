@@ -159,7 +159,7 @@ fun InfoBarGenerator(infoType: String) {
                 modifier = Modifier.padding(8.dp)
             )
 
-            OutlinedTextField(
+            TextField(
                 value = infoFill,
                 onValueChange = { infoFill = it },
                 label = { Text(infoFill) },
