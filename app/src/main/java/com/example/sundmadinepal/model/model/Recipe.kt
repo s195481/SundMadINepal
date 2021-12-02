@@ -1,6 +1,7 @@
 package com.example.sundmadinepal.model.model
 
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class Recipe(
@@ -8,5 +9,6 @@ data class Recipe(
     val name: String,
     val ingredients: String,
     val procedure: String,
-    val picture: String
-)
+    val picture: String,
+    val pictureID: Int
+) : Serializable

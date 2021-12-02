@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.di.ServiceLocator
+import com.example.sundmadinepal.R
+import com.example.sundmadinepal.model.AssetRepository
 import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.model.model.Recipe
 import kotlinx.coroutines.CoroutineScope
@@ -110,14 +112,16 @@ I/Process: Sending signal. PID: 3012 SIG: 9
                 name = "Jaulo",
                 ingredients = "",
                 procedure = "jaulo",
-                picture = "jaulo"
+                picture = "jaulo",
+                pictureID = R.drawable.p0
             ),
             Recipe(
                 id = "nutritionalflour",
                 name = "Flour",
                 ingredients = "",
                 procedure = "nutritionalflour",
-                picture = "nutritionalflour"
+                picture = "nutritionalflour",
+                pictureID = R.drawable.p1
             )/*,
             Recipe(
                 id = "Dahl_v2",
