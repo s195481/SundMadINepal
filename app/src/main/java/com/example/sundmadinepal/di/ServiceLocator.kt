@@ -1,26 +1,17 @@
 package com.example.sundmadinepal.di
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.get
 import com.example.sundmadinepal.facilitator.permission.PermissionFacilitator
-import com.example.sundmadinepal.model.AssetRepository
-import com.example.sundmadinepal.model.api.RecipeApi
-import com.example.sundmadinepal.model.api.WrapperConverter
 import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.ui.MainViewModel
 import com.example.sundmadinepal.ui.comics.ComicsViewModel
 import com.example.sundmadinepal.ui.goldenDays.GoldenDaysViewModel
 import com.example.sundmadinepal.ui.health.HealthViewModel
 import com.example.sundmadinepal.ui.recipe.RecipeViewModel
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 
 object ServiceLocator {
 
@@ -29,7 +20,8 @@ object ServiceLocator {
     fun init(application: Application) {
         ServiceLocator.application = application
     }
-    val db : AppDatabase by lazy { AppDatabase.build(application) }
+
+    val db: AppDatabase by lazy { AppDatabase.build(application) }
     /*
     val database: AppDatabase by lazy { AppDatabase.build(application) }
 
@@ -63,7 +55,6 @@ object ServiceLocator {
     }*/
 
 
-
     // Effectively singleton
     private val viewModelFactory by lazy {
         object : ViewModelProvider.Factory {
@@ -79,7 +70,6 @@ object ServiceLocator {
             }
         }
     }
-
 
 
     // Effectively singleton

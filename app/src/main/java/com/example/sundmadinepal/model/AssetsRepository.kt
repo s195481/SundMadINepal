@@ -1,4 +1,4 @@
-package com.example.sundmadinepal.model;
+package com.example.sundmadinepal.model
 
 import com.example.sundmadinepal.model.api.RecipeApi
 import com.example.sundmadinepal.model.api.model.RecipeDto

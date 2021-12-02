@@ -13,7 +13,7 @@ import kotlinx.coroutines.runBlocking
     version = 2,
     entities = [RecipeEntity::class],
     autoMigrations = [
-        AutoMigration (from = 1, to = 2)
+        AutoMigration(from = 1, to = 2)
     ],
     exportSchema = true
 

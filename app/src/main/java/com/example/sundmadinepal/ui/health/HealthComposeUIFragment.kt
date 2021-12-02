@@ -18,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -27,8 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
-import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
 class HealthComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,7 +102,7 @@ fun HealthComposable(navController: NavController) {
                 modifier = Modifier.padding(5.dp)
             )
         }
-        Column() {
+        Column {
             InfoBarGenerator(
                 infoType = (stringResource(R.string.height_string) + ":"),
                 infoFill = "55cm"

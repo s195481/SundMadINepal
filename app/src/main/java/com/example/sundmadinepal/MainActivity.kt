@@ -3,10 +3,9 @@ package com.example.sundmadinepal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.*
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -15,7 +14,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -91,7 +89,7 @@ fun MainComposable(navController: NavController) {
             backButtonBool = false,
             color = R.color.Home_Col
         )
-        Row() {
+        Row {
             NavFromHomeGenerator(
                 navController = navController,
                 destination = "goldenDays",
@@ -111,7 +109,7 @@ fun MainComposable(navController: NavController) {
                 padding = navPadding
             )
         }
-        Row() {
+        Row {
             NavFromHomeGenerator(
                 navController = navController,
                 destination = "comics",
@@ -131,7 +129,7 @@ fun MainComposable(navController: NavController) {
                 padding = navPadding
             )
         }
-        Row() {
+        Row {
             NavFromHomeGenerator(
                 navController = navController,
                 destination = "healthPost",
@@ -164,7 +162,7 @@ fun NavFromHomeGenerator(
     color: Int,
     padding: Int
 ) {
-    val modifiedIconSize: Double = (iconSize*0.8)
+    val modifiedIconSize: Double = (iconSize * 0.8)
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
