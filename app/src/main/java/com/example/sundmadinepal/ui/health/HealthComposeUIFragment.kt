@@ -1,15 +1,10 @@
 package com.example.sundmadinepal.ui.health
 
-import android.app.DatePickerDialog
-import android.content.Context
 import android.os.Bundle
-import android.widget.DatePicker
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
@@ -17,27 +12,19 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.input.key.Key.Companion.Calendar
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
-import com.example.sundmadinepal.ui.healthPost.HealthpostViewModel
-import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
-import java.util.*
 
 class HealthComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,7 +92,7 @@ fun HealthComposable(navController: NavController) {
             }
             Row(
 
-            ){
+            ) {
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
@@ -116,9 +103,13 @@ fun HealthComposable(navController: NavController) {
             OutlinedTextField(
                 value = name,
                 onValueChange = { name = it },
-                label = { Text(stringResource(R.string.day_string) + "/" +
-                        stringResource(R.string.months_string) + "/" +
-                        stringResource(R.string.year_string)) }
+                label = {
+                    Text(
+                        stringResource(R.string.day_string) + "/" +
+                                stringResource(R.string.months_string) + "/" +
+                                stringResource(R.string.year_string)
+                    )
+                }
             )
         }
         Column() {

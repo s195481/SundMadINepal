@@ -1,9 +1,7 @@
 package com.example.sundmadinepal
 
 import android.app.Application
-import android.util.Log
 import com.example.sundmadinepal.di.ServiceLocator
-import kotlinx.coroutines.CoroutineScope
 import java.util.*
 
 class App : Application() {

@@ -1,6 +1,5 @@
 package com.example.sundmadinepal
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -43,8 +42,8 @@ class MainActivity : ComponentActivity() {
         // That is the question
         //init(App())
         setContent {
-            MyApp(){
-                startActivity(RecipeProfileActivity.newIntent(this,it))
+            MyApp() {
+                startActivity(RecipeProfileActivity.newIntent(this, it))
             }
         }
     }
@@ -60,27 +59,32 @@ fun DefaultPreview() {
 }
 
 @Composable
-fun MyApp(navigateToProfile: (Recipe) -> Unit){
+fun MyApp(navigateToProfile: (Recipe) -> Unit) {
     val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "main") {
-                composable("main") { MainComposable(navController) }
-                composable("recipes") { RecipesComposable(navController, navigateToProfile = navigateToProfile) }
-                // TODO Edit guy below when things start working
-                composable("recipeDetailed") { RecipeDetailedComposable(navController) }
-                composable("goldenDays") { GoldenDaysComposable(navController) }
-                composable("Maternity") { GoldenDaysMaternityComposable(navController) }
-                composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
-                composable("6-9 Months") { GoldenDaysSecondPeriodComposable(navController) }
-                composable("9-12 Months") { GoldenDaysThirdPeriodComposable(navController) }
-                composable("12-24 Months") { GoldenDaysFourthPeriodComposable(navController) }
-                composable("comics") { ComicsComposable(navController) }
-                composable("health") { HealthComposable(navController) }
-                composable("healthPost") { HealthPostComposable(navController) }
-                activity("RecipeProfileActivity"){RecipeProfileActivity()}
-            }
+    NavHost(navController = navController, startDestination = "main") {
+        composable("main") { MainComposable(navController) }
+        composable("recipes") {
+            RecipesComposable(
+                navController,
+                navigateToProfile = navigateToProfile
+            )
         }
-        //ServiceLocator.init(application)
-        //println(ServiceLocator.database.recipeDao().loadAll())
+        // TODO Edit guy below when things start working
+        composable("recipeDetailed") { RecipeDetailedComposable(navController) }
+        composable("goldenDays") { GoldenDaysComposable(navController) }
+        composable("Maternity") { GoldenDaysMaternityComposable(navController) }
+        composable("0-6 Months") { GoldenDaysFirstPeriodComposable(navController) }
+        composable("6-9 Months") { GoldenDaysSecondPeriodComposable(navController) }
+        composable("9-12 Months") { GoldenDaysThirdPeriodComposable(navController) }
+        composable("12-24 Months") { GoldenDaysFourthPeriodComposable(navController) }
+        composable("comics") { ComicsComposable(navController) }
+        composable("health") { HealthComposable(navController) }
+        composable("healthPost") { HealthPostComposable(navController) }
+        activity("RecipeProfileActivity") { RecipeProfileActivity() }
+    }
+}
+//ServiceLocator.init(application)
+//println(ServiceLocator.database.recipeDao().loadAll())
 
 @Composable
 fun MainComposable(navController: NavController) {

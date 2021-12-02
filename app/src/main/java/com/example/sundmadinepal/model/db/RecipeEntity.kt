@@ -17,4 +17,5 @@ data class RecipeEntity(
 
 fun RecipeEntity.toModel(): Recipe = Recipe(id, name, ingredients, procedure, picture, pictureID)
 
-fun Recipe.toEntity(): RecipeEntity = RecipeEntity(id, name, ingredients, procedure, picture, pictureID)
+fun Recipe.toEntity(): RecipeEntity =
+    RecipeEntity(id, name, ingredients, procedure, picture, pictureID)

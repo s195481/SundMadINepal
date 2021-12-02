@@ -1,7 +1,6 @@
 package com.example.sundmadinepal.ui.recipe
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
@@ -31,11 +30,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
-import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
-import kotlinx.coroutines.runBlocking
 
 class RecipeComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +61,7 @@ fun RecipesComposable(navController: NavController, navigateToProfile: (Recipe) 
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
         Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .background(colorResource(R.color.Home_Col)),
     ) {
         TopBarGenerator(
@@ -133,24 +130,32 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
 }
 
 @Composable
-fun RecipeListItem2(navController: NavController, recipe: Recipe, navigateToProfile: (Recipe) -> Unit) {
+fun RecipeListItem2(
+    navController: NavController,
+    recipe: Recipe,
+    navigateToProfile: (Recipe) -> Unit
+) {
     val imageSize: Int = 220
     val imagePadding: Int = 0
     Card(
         modifier = Modifier
             .padding(horizontal = 8.dp, vertical = 8.dp)
-            .fillMaxWidth().clickable { navigateToProfile(recipe)},
+            .fillMaxWidth()
+            .clickable { navigateToProfile(recipe) },
         elevation = 2.dp,
         shape = RoundedCornerShape(corner = CornerSize(16.dp))
-    ){
-        Row{
+    ) {
+        Row {
             //Modifier.clickable { navigateToProfile(recipe)}
             //Image
             Image(
                 painter = painterResource(recipe.pictureID),
                 contentDescription = recipe.id,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.padding(8.dp).size(84.dp).clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                modifier = Modifier
+                    .padding(8.dp)
+                    .size(84.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
             )
             /*
             if (recipe.picture == "p0") {
@@ -177,9 +182,9 @@ fun RecipeListItem2(navController: NavController, recipe: Recipe, navigateToProf
                     .padding(16.dp)
                     .fillMaxWidth()
                     .align(Alignment.CenterVertically)
-            ){
+            ) {
                 //
-                 Text(text = recipe.name, style = typography.h6)
+                Text(text = recipe.name, style = typography.h6)
                 Text(text = "VIEW DETAIL", style = typography.caption)
             }
         }

@@ -1,7 +1,5 @@
 package com.example.sundmadinepal.ui.comics
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.model.model.Comics
 

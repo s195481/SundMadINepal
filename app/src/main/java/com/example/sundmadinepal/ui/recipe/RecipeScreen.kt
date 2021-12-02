@@ -1,7 +1,5 @@
 package com.example.sundmadinepal.ui.recipe
 
-import android.content.Context
-import android.content.res.Resources
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -12,13 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
-import com.example.sundmadinepal.RecipeProfileActivity
 import com.example.sundmadinepal.model.model.Recipe
 
 @Composable
-fun RecipeScreen(recipe: Recipe){
+fun RecipeScreen(recipe: Recipe) {
     val scrollState = rememberScrollState()
-    
+
     Column(modifier = Modifier.fillMaxSize()) {
         BoxWithConstraints {
             Surface {
@@ -26,7 +23,7 @@ fun RecipeScreen(recipe: Recipe){
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(scrollState)
-                ){
+                ) {
                     RecipeHeader(
                         recipe = recipe,
                         containerHeight = this@BoxWithConstraints.maxHeight,
@@ -41,7 +38,7 @@ fun RecipeScreen(recipe: Recipe){
 private fun RecipeHeader(
     recipe: Recipe,
     containerHeight: Dp,
-){
+) {
     Image(
         modifier = Modifier
             .heightIn(max = containerHeight / 2)
