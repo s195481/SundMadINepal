@@ -114,6 +114,12 @@
         \n●	Add iodized salt for taste.
     </string>
 
+    <string name="healthpost_baby_pregnancy_title">During pregnancy</string>
+    <string name="healthpost_baby_zerotosix_title">Baby 0–6 months</string>
+    <string name="healthpost_baby_sixtonine_title">Baby 6–9 months</string>
+    <string name="healthpost_baby_ninetotwelve_title">Baby 9–12 months</string>
+    <string name="healthpost_fourfoodgroups_title">Four foodgroups</string>
+
     <string name="healthpost_baby_pregnancy">
         \n●	Visit the healthpost 4 times during pregnancy
         \n●	Make sure to eat a balanced diet

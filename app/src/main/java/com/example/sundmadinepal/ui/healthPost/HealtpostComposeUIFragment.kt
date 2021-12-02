@@ -52,7 +52,6 @@ class HealtpostComposeUIFragment : ComponentActivity() {
     }
 }
 
-@ExperimentalAnimationApi
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -62,11 +61,11 @@ fun DefaultPreview() {
     }
 }
 
-@ExperimentalAnimationApi
 @Composable
 fun HealthPostComposable(navController: NavController) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(colorResource(R.color.Home_Col))
     ) {
         TopBarGenerator(
@@ -77,8 +76,8 @@ fun HealthPostComposable(navController: NavController) {
             backButtonBool = true,
             color = R.color.Healthpost_Icon
         )
+        temp()
     }
-    temp()
 }
 
 
@@ -126,7 +125,7 @@ fun temp(){
     CollapsableLazyColumn(
         sections = listOf(
             CollapsableSection(
-                title = "Fruits A",
+                title = stringResource(id = R.string.healthpost_baby_pregnancy),
                 rows = listOf("Apple", "Apricots", "Avocado")
             ),
             CollapsableSection(
@@ -140,7 +139,10 @@ fun temp(){
         ),
     )
 }
-
+/*
+Credits to https://stackoverflow.com/questions/68992694/how-to-create-expandable-list-view-with-static-values-in-jetpack-compose
+for inspiration to the collapsable lazy column. It has received small edits but the credit should non the less go to stackoverflow user Philip Dukhov
+ */
 @Composable
 fun CollapsableLazyColumn(
     sections: List<CollapsableSection>,

@@ -117,6 +117,12 @@
         \n● स्वादको लागि थोरै आयोडिन युक्त नून हाल्ने ।
     </string>
 
+    <string name="healthpost_baby_pregnancy_title">गर्भावस्थाको बेला</string>
+    <string name="healthpost_baby_zerotosix_title">बच्चा ०-६ महिना</string>
+    <string name="healthpost_baby_sixtonine_title">बच्चा ६-९ महिना</string>
+    <string name="healthpost_baby_ninetotwelve_title">बच्चा ०-९ महिना</string>
+    <string name="healthpost_fourfoodgroups_title">चार अन्नको समूह</string>
+
     <string name="healthpost_baby_pregnancy">
         \n●	कम्तिमा ४ पटक स्वास्थ्य चौकीमा जचाउन जानुपर्छ।
         \n●	पोषिलो खाना खानु जरुरी हुन्छ।
