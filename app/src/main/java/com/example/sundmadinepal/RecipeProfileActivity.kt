@@ -18,7 +18,7 @@ class RecipeProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent{
-            Text(text = "Hellow ${recipe.name}", color = Color.White)
+            Text(text = "Hellow ${recipe.name}")
         }
     }
 
