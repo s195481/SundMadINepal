@@ -158,4 +158,11 @@
         \n●	Vegetable and fruit
         \n●	Dairy products
     </string>
+
+    <string name="a_comic">
+        An unhealthy snack is not a body hack
+    </string>
+    <string name="b_comic">
+        Banana - The fuel of the brain
+    </string>
 </resources>
