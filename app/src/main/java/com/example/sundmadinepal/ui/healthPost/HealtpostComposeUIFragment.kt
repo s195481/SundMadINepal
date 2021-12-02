@@ -211,13 +211,12 @@ fun CollapsableLazyColumn(
                     }
                     Divider()
                 }
-
                 items(dataItem.images) { image ->
                     Image(
                         painter = painterResource(image),
                         contentDescription = "",
                         modifier = Modifier
-                            .size(50.dp)
+                            .size(80.dp)
                     )
                 }
 
