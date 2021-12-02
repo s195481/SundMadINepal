@@ -34,7 +34,7 @@ import com.example.sundmadinepal.TopBarGenerator
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
-class UNUSEDGoldenDaysComposeUIFragment : ComponentActivity() {
+class GoldenDaysComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -42,7 +42,6 @@ class UNUSEDGoldenDaysComposeUIFragment : ComponentActivity() {
         }
     }
 }
-
 
 @Composable
 fun GoldenDaysComposable(navController: NavController) {
