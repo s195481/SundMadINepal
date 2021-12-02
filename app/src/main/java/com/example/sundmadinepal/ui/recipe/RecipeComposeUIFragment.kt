@@ -113,10 +113,10 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
             }
         }
         Spacer(modifier = Modifier.width(8.dp))
-        Text(
+        /*Text(
             text = recipe.name,
             style = MaterialTheme.typography.h6
-        )
+        )*/
     }
 }
 

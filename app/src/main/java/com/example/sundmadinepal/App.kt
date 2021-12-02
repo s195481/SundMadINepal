@@ -11,7 +11,8 @@ class App : Application() {
         super.onCreate()
         Locale.setDefault(Locale("da", "DK"))
         ServiceLocator.init(this)
-        ServiceLocator.recipeRepository.RecipeGeneratorThing()
+        ServiceLocator.db.RecipeGeneratorThing()
+        Log.e("DB_Check", ServiceLocator.db.recipeDao().loadById("Dahl_v1").toString())
         Log.d("HERE", "I AM HERE")
     }
 }
