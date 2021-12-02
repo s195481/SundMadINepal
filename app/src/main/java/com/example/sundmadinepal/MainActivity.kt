@@ -230,7 +230,6 @@ fun GoldenDaysComposable(navController: NavController) {
     }
 }
 
-
 @Composable
 fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
     val imageSize: Int = 220
