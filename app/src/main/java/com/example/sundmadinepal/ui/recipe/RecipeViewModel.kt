@@ -1,32 +1,17 @@
 package com.example.sundmadinepal.ui.recipe
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.sundmadinepal.di.ServiceLocator
 import com.example.sundmadinepal.R
-import com.example.sundmadinepal.model.AssetRepository
 import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.model.model.Recipe
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 
 class RecipeViewModel(private val db: AppDatabase) : ViewModel() {
-    fun getRecipes() {
-        val recipeList = listOf(
-            db.recipeDao().loadById("Dahl_v1"),
-        )
-    }
+
 
     object DataProvider {
-        suspend fun Recipes() = coroutineScope {
-            launch {
-                val list = ServiceLocator.db.recipeDao().loadAll()
-                Log.e("DB_Check", list[0].toString())
-            }
-        }
+
         // TODO Giver ikke de rigtige strings til RecipeListItem i MainActivity. De kan ikke findes i frontenden og det giver ingen mening. Se evt. vedlagt error code.
         /*
         E/e.sundmadinepa: No package ID 7f found for ID 0x7f100046.
