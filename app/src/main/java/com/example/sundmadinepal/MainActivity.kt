@@ -32,6 +32,7 @@ import com.example.sundmadinepal.ui.healthPost.HealthPostComposable
 import com.example.sundmadinepal.ui.recipe.RecipeDetailedComposable
 import com.example.sundmadinepal.ui.recipe.RecipesComposable
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import com.example.sundmadinepal.ui.utils.NotImplemented
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
 class MainActivity : ComponentActivity() {
@@ -81,6 +82,7 @@ fun MyApp(navigateToProfile: (Recipe) -> Unit) {
         composable("health") { HealthComposable(navController) }
         composable("healthPost") { HealthPostComposable(navController) }
         activity("RecipeProfileActivity") { RecipeDetailedActivity() }
+        composable("na"){NotImplemented(navController)}
     }
 }
 //ServiceLocator.init(application)
@@ -134,15 +136,15 @@ fun MainComposable(navController: NavController) {
                 color = R.color.Comics_Icon,
                 padding = navPadding
             )
-            /*NavFromHomeGenerator(
+            NavFromHomeGenerator(
                 navController = navController,
-                destination = "",
+                destination = "na",
                 title = R.string.title_quiz,
                 imageSrc = R.drawable.quiz,
                 iconSize = navIconSize,
                 color = R.color.Quiz_Icon,
                 padding = navPadding
-            )*/
+            )
         }
         Row {
             NavFromHomeGenerator(
