@@ -5,20 +5,25 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
+import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 
 class HealthComposeUIFragment : ComponentActivity() {
@@ -26,99 +31,122 @@ class HealthComposeUIFragment : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            MainInfo()
         }
     }
 }
 
+//TODO Fix it's ugly as fuuuck
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Composable
-fun MainInfo() {
-    Row(
-        horizontalArrangement = Arrangement.Center
-    ) {
-        IconButton(modifier = Modifier.then(Modifier.size(24.dp)),
-            onClick = { }) {
-            Icon(
-                Icons.Filled.ArrowBack,
-                "contentDescription",
-                tint = Color.Red
-            )
-        }
-        Icon(
-            painter = painterResource(id = R.drawable.temp),
-            contentDescription = "Temp",
-            modifier = Modifier.size(20.dp)
-        )
-        Text(
-            text = "Health"
-        )
-    }
+fun HealthComposable(navController: NavController) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .padding(24.dp)
-            .background(Color.Yellow)
+        modifier = Modifier.fillMaxSize()
     ) {
-        Icon(
-            painter = painterResource(id = R.drawable.temp),
-            contentDescription = "Kid",
-            modifier = Modifier.size(20.dp)
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.baby,
+            title = stringResource(R.string.title_health),
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Health_Icon
         )
-        Text(
-            text = "name"
-        )
-        Text(
-            text = "dd/mm/yyyy"
-        )
-        Row(
-            horizontalArrangement = Arrangement.Start
+        Column(
+            modifier = Modifier
+                .background(Color.Yellow)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(corner = CornerSize(40.dp))),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Row(
+                modifier = Modifier
+                    .size(150.dp)
+                    .background(Color.White)
+                    .clip(RoundedCornerShape(corner = CornerSize(40.dp)))
+                    .padding(20.dp),
+            ) {
+                IconButton(
+                    modifier = Modifier
+                        .then(Modifier.size(150.dp))
+                        .clip(
+                            RoundedCornerShape(corner = CornerSize(40.dp))
+                        ),
+                    onClick = {
+                        //TODO Add ability to change picture
+                        //Toast.makeText(LocalContext.current,"Picture changing not implemented",Toast.LENGTH_LONG).show()
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.defaultbabyprofile),
+                        contentDescription = stringResource(R.string.child_string),
+                        modifier = Modifier
+                            .size(150.dp)
+                            .background(Color.White),
+                    )
+                }
+            }
             Text(
-                text = "Height: "
+                text = stringResource(R.string.name_string),
+                modifier = Modifier.padding(5.dp)
             )
             Text(
-                text = "55 cm"
+                text = (stringResource(R.string.day_string) + "/" +
+                        stringResource(R.string.months_string) + "/" +
+                        stringResource(R.string.year_string)),
+                modifier = Modifier.padding(5.dp)
             )
         }
-        Row(
-            horizontalArrangement = Arrangement.Start
-        ) {
-            Text(
-                text = "Weight: "
+        Column() {
+            InfoBarGenerator(
+                infoType = (stringResource(R.string.height_string) + ":"),
+                infoFill = "55cm"
             )
-            Text(
-                text = "5 kg"
+            InfoBarGenerator(
+                infoType = (stringResource(R.string.weight_string) + ":"),
+                infoFill = "5kg"
             )
-        }
-        Row(
-            horizontalArrangement = Arrangement.Start
-        ) {
-            Text(
-                text = "Diary: "
-            )
-            Text(
-                text = "Only eaten breastmilk so far."
+            InfoBarGenerator(
+                infoType = (stringResource(R.string.diary_string) + ":"),
+                infoFill = "He's a sucker for breastmilk"
             )
         }
     }
 }
 
-
 @Composable
-fun MyScreen() {
-    MainInfo()
+fun InfoBarGenerator(infoType: String, infoFill: String) {
+    Column(
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.LightGray)
+        ) {
+            Text(
+                text = infoType,
+                style = MaterialTheme.typography.h6,
+                modifier = Modifier.padding(8.dp)
+            )
+            Text(
+                text = infoFill,
+                style = MaterialTheme.typography.caption,
+                modifier = Modifier.padding(8.dp),
+            )
+        }
+    }
 }
+
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     SundMadINepalTheme {
         //Greeting("Android")
-        MyScreen()
+        //MyScreen()
     }
 }

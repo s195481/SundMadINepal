@@ -1,12 +1,8 @@
 package com.example.sundmadinepal.ui.recipe
 
-import android.content.res.Resources
-import androidx.compose.ui.res.stringResource
-import androidx.databinding.ObservableInt
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.AssetRepository
 import com.example.sundmadinepal.model.model.Recipe
 
@@ -101,7 +97,7 @@ I/Process: Sending signal. PID: 3012 SIG: 9
             // TODO Har lige lavet alt nedunder til Strings - bare så det kan blive loaded og der kan laves UI
             Recipe(
                 id = "jaulo",
-                name ="Jaulo",
+                name = "Jaulo",
                 ingredients = "",
                 procedure = "jaulo",
                 picture = "jaulo"

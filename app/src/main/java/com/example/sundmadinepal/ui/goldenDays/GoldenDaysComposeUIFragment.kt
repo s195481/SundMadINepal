@@ -4,15 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -24,15 +20,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
-import com.example.sundmadinepal.TopBarGenerator
 import com.example.sundmadinepal.model.model.GoldenDays
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
 class GoldenDaysComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,8 +69,10 @@ fun GoldenDaysComposable(navController: NavController) {
 fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
     val imageSize: Int = 220
     val imagePadding: Int = 0
-    Row(modifier = Modifier.padding(all = 8.dp),
-        verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier.padding(all = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         IconButton(
             onClick = {
                 navController.navigate(goldenDays.goldenDayPeriod)
@@ -119,8 +116,10 @@ fun GoldenDaysListItem(navController: NavController, goldenDays: GoldenDays) {
             }
         }
         Spacer(modifier = Modifier.width(8.dp))
-        Text(text = goldenDays.goldenDayPeriod,
-            style = MaterialTheme.typography.h6)
+        Text(
+            text = goldenDays.goldenDayPeriod,
+            style = MaterialTheme.typography.h6
+        )
     }
 }
 
