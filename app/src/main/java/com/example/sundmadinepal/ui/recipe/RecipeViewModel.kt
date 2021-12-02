@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.AssetRepository
+import com.example.sundmadinepal.model.db.AppDatabase
 import com.example.sundmadinepal.model.model.Recipe
 
-class RecipeViewModel(private val recipeRepository: AssetRepository) : ViewModel() {
+class RecipeViewModel(private val db: AppDatabase) : ViewModel() {
     fun getRecipes() {
         val recipeList = listOf(
-            recipeRepository.getAsset("Dahl_v1"),
-            recipeRepository.getAsset("Dahl_v1")
+            db.recipeDao().loadById("Dahl_v1"),
         )
     }
 

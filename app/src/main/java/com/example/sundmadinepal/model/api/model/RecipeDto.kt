@@ -1,6 +1,6 @@
 package com.example.sundmadinepal.model.api.model
 
-import com.example.sundmadinepal.model.db.AssetRecipe
+import com.example.sundmadinepal.model.db.RecipeEntity
 import com.example.sundmadinepal.model.model.Recipe
 import com.squareup.moshi.JsonClass
 
@@ -14,5 +14,5 @@ data class RecipeDto(
     val pictureID: Int = 0
 )
 
-fun RecipeDto.toModel() = Recipe(id, name, ingredients, procedure, picture, pictureID)
-fun RecipeDto.toEntity() = AssetRecipe(id, name, ingredients, procedure, picture, pictureID)
+fun RecipeDto.toModel() = Recipe(id, name, ingredients, procedure, picture)
+fun RecipeDto.toEntity() = RecipeEntity(id, name, ingredients, procedure, picture)

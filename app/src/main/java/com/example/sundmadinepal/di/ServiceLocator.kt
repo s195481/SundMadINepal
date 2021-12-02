@@ -29,9 +29,13 @@ object ServiceLocator {
     fun init(application: Application) {
         ServiceLocator.application = application
     }
-
+    val db : AppDatabase by lazy { AppDatabase.build(application) }
+    /*
     val database: AppDatabase by lazy { AppDatabase.build(application) }
 
+    val recipeRepository: AssetRepository by lazy {
+        AssetRepository(recipeApi, database)
+    }
     private val recipeApi: RecipeApi by lazy {
         Retrofit.Builder()
             .baseUrl("https://dadadadadadadadadadadadadadadadadadadadadada.com")
@@ -56,10 +60,9 @@ object ServiceLocator {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create()
-    }
+    }*/
 
 
-    //TODO Hvad fuck er det her
 
     // Effectively singleton
     private val viewModelFactory by lazy {
@@ -68,7 +71,7 @@ object ServiceLocator {
                 return when (modelClass) {
                     MainViewModel::class.java -> MainViewModel()
                     GoldenDaysViewModel::class.java -> GoldenDaysViewModel()
-                    RecipeViewModel::class.java -> RecipeViewModel(recipeRepository)
+                    RecipeViewModel::class.java -> RecipeViewModel(db)
                     HealthViewModel::class.java -> HealthViewModel()
                     ComicsViewModel::class.java -> ComicsViewModel()
                     else -> throw IllegalArgumentException("Unsupported ViewModel $modelClass")
@@ -77,9 +80,7 @@ object ServiceLocator {
         }
     }
 
-    val recipeRepository: AssetRepository by lazy {
-        AssetRepository(recipeApi, database)
-    }
+
 
     // Effectively singleton
     val permissionFacilitator: PermissionFacilitator by lazy {

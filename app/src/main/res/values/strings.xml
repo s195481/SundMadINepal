@@ -113,4 +113,49 @@
         \n●	While porridge is being cooked, add finely chopped green spinach and cook further covering with lid.
         \n●	Add iodized salt for taste.
     </string>
+
+    <string name="healthpost_baby_pregnancy_title">During pregnancy</string>
+    <string name="healthpost_baby_zerotosix_title">Baby 0–6 months</string>
+    <string name="healthpost_baby_sixtonine_title">Baby 6–9 months</string>
+    <string name="healthpost_baby_ninetotwelve_title">Baby 9–12 months</string>
+    <string name="healthpost_fourfoodgroups_title">Four foodgroups</string>
+
+    <string name="healthpost_baby_pregnancy">
+        \n●	Visit the healthpost 4 times during pregnancy
+        \n●	Make sure to eat a balanced diet
+        \n●	Balanced diet means eating food from all 4 food groups.
+        \n●	get plenty of rest.
+        \n●	wash hands after toilet and before eating.
+    </string>
+    <string name="healthpost_baby_zerotosix">
+        \n●	Visit the health post after 24 hours of birth, after 3 days, after 7 days and after 4 months.
+        \n●	Only breastfeeding is needed. No additional food or water.
+        \n●	If milk is not enough let the baby suckle more often. This will increase milk production
+        \n●	Wash hands before feeding baby
+    </string>
+    <string name="healthpost_baby_sixtonine">
+        \n●	Visit the healthpost at 6 months and 9 months.
+        \n●	Start to feed the baby solid food.
+        \n●	Start with a few spoonfuls 3 times in a day.
+        \n●	Use jaulo or litto
+        \n●	Slowly increase upto three bowls per day.
+        \n●	Give one bowl of jaulo and 2 glass of litto in a day
+        \n●	Wash your hands with soap before feeding your baby
+    </string>
+    <string name="healthpost_baby_ninetotwelve">
+        \n●	Visit the healthpost when the baby is 9 months old.
+        \n●	Give 3 meals in a day +  1 snack
+        \n●	Breastfeed frequently
+        \n●	Make litto and jaulo.
+        \n●	Give fruit as a snack.
+        \n●	Never give junkfood.
+        \n●	Use clean and safe water.
+        \n●	Wash hands before feeding
+    </string>
+    <string name="healthpost_fourfoodgroups">
+        \n●	Grains: Maize, wheat, rice
+        \n●	Pulses: Lentils, beans.
+        \n●	Vegetable and fruit
+        \n●	Dairy products
+    </string>
 </resources>
