@@ -1,34 +1,41 @@
 package com.example.sundmadinepal.ui.health
 
+import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
+import android.widget.DatePicker
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.input.key.Key.Companion.Calendar
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import java.util.*
 
 class HealthComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +58,7 @@ fun DefaultPreview() {
 //TODO Fix it's ugly as fuuuck
 @Composable
 fun HealthComposable(navController: NavController) {
+    var name by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -92,10 +100,19 @@ fun HealthComposable(navController: NavController) {
                     )
                 }
             }
-            Text(
-                text = stringResource(R.string.name_string),
-                modifier = Modifier.padding(5.dp)
-            )
+            Row(
+
+            ){
+                Text(
+                    text = stringResource(R.string.name_string),
+                    modifier = Modifier.padding(5.dp)
+                )
+                OutlinedTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text(name) }
+                )
+            }
             Text(
                 text = (stringResource(R.string.day_string) + "/" +
                         stringResource(R.string.months_string) + "/" +
@@ -105,23 +122,22 @@ fun HealthComposable(navController: NavController) {
         }
         Column() {
             InfoBarGenerator(
-                infoType = (stringResource(R.string.height_string) + ":"),
-                infoFill = "55cm"
+                infoType = (stringResource(R.string.height_string) + ":")
             )
             InfoBarGenerator(
-                infoType = (stringResource(R.string.weight_string) + ":"),
-                infoFill = "5kg"
+                infoType = (stringResource(R.string.weight_string) + ":")
             )
             InfoBarGenerator(
-                infoType = (stringResource(R.string.diary_string) + ":"),
-                infoFill = "He's a sucker for breastmilk"
+                infoType = (stringResource(R.string.diary_string) + ":")
             )
         }
     }
 }
 
 @Composable
-fun InfoBarGenerator(infoType: String, infoFill: String) {
+fun InfoBarGenerator(infoType: String) {
+    var infoFill by remember { mutableStateOf("") }
+
     Column(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top,
@@ -142,11 +158,13 @@ fun InfoBarGenerator(infoType: String, infoFill: String) {
                 style = MaterialTheme.typography.h6,
                 modifier = Modifier.padding(8.dp)
             )
-            Text(
-                text = infoFill,
-                style = MaterialTheme.typography.caption,
-                modifier = Modifier.padding(8.dp),
+
+            OutlinedTextField(
+                value = infoFill,
+                onValueChange = { infoFill = it },
+                label = { Text(infoFill) },
             )
+
         }
     }
 }
