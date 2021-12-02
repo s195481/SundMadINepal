@@ -514,8 +514,8 @@ fun RecipeListItem(navController: NavController, recipe: Recipe) {
         verticalAlignment = Alignment.CenterVertically) {
         IconButton(
             onClick = {
-                // TODO Fix
-                navController.navigate(recipe.id)
+                // TODO Fix should be recipe.id
+                navController.navigate("recipeDetailed")
             },
             modifier = Modifier
                 .apply { padding(imagePadding.dp) }
