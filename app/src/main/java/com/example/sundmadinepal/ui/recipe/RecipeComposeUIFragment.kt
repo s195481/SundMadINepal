@@ -52,7 +52,7 @@ fun RecipesComposable(navController: NavController) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
-        Modifier.fillMaxWidth()
+        Modifier.fillMaxSize()
             .background(colorResource(R.color.Home_Col)),
     ) {
         TopBarGenerator(
