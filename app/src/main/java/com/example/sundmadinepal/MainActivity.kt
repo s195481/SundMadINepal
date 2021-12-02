@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
         //init(App())
         setContent {
             MyApp() {
-                startActivity(RecipeProfileActivity.newIntent(this, it))
+                startActivity(RecipeDetailedActivity.newIntent(this, it))
             }
         }
     }
@@ -80,7 +80,7 @@ fun MyApp(navigateToProfile: (Recipe) -> Unit) {
         composable("comics") { ComicsComposable(navController) }
         composable("health") { HealthComposable(navController) }
         composable("healthPost") { HealthPostComposable(navController) }
-        activity("RecipeProfileActivity") { RecipeProfileActivity() }
+        activity("RecipeProfileActivity") { RecipeDetailedActivity() }
     }
 }
 //ServiceLocator.init(application)

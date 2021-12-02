@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sundmadinepal.model.model.Recipe
 import com.example.sundmadinepal.ui.recipe.RecipeScreen
 
-class RecipeProfileActivity : AppCompatActivity() {
+class RecipeDetailedActivity : AppCompatActivity() {
     var PACKAGE_NAME: String? = null
 
     private val recipe: Recipe by lazy {
@@ -25,7 +25,7 @@ class RecipeProfileActivity : AppCompatActivity() {
     companion object {
         private const val RECIPE_ID = "recipe_id"
         fun newIntent(context: Context, recipe: Recipe) =
-            Intent(context, RecipeProfileActivity::class.java).apply {
+            Intent(context, RecipeDetailedActivity::class.java).apply {
                 putExtra(RECIPE_ID, recipe)
 
             }
