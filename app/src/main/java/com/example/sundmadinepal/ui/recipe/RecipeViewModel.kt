@@ -14,16 +14,7 @@ import kotlinx.coroutines.launch
 class RecipeViewModel() : ViewModel() {
 
     object DataProvider {
-        suspend fun dbWork() = coroutineScope {
-            launch {
-                val recipes = ServiceLocator.db.recipeDao().loadAll()
-                for (i in 0..recipes.count() - 1) {
-                    Log.e("DB_check", recipes[i].toString())
-                    recipes[i]?.let { recipeList.add(it.toModel()) }
-                    recipes[i]?.pictureID ?: R.drawable.p0
-                }
-            }
-        }
+
 
 
         val recipeList = mutableListOf(

@@ -33,7 +33,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Recipe
-import com.example.sundmadinepal.ui.recipe.RecipeViewModel.DataProvider.dbWork
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 import kotlinx.coroutines.*
@@ -41,7 +40,6 @@ import kotlinx.coroutines.*
 class RecipeComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        GlobalScope.async {dbWork()}
         setContent {
             val navController = rememberNavController()
         }
