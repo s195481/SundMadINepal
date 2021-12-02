@@ -3,25 +3,39 @@ package com.example.sundmadinepal.ui.healthPost
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
@@ -29,7 +43,7 @@ import com.example.sundmadinepal.ui.health.HealthComposable
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
-class HealtPostComposeUIFragment : ComponentActivity() {
+class HealtpostComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -63,8 +77,8 @@ fun HealthPostComposable(navController: NavController) {
             backButtonBool = true,
             color = R.color.Healthpost_Icon
         )
-        Expandable()
     }
+    temp()
 }
 
 
@@ -107,30 +121,78 @@ fun NavFromHealthpostGenerator(
     }
 }
 
-@ExperimentalAnimationApi
 @Composable
-fun Expandable() {
-    var isExpanded: Boolean = false
-    Card(
-        modifier = Modifier.clickable {
-            isExpanded = !isExpanded
-        }
-    ) {
-        Column() {
+fun temp(){
+    CollapsableLazyColumn(
+        sections = listOf(
+            CollapsableSection(
+                title = "Fruits A",
+                rows = listOf("Apple", "Apricots", "Avocado")
+            ),
+            CollapsableSection(
+                title = "Fruits B",
+                rows = listOf("Banana", "Blackberries", "Blueberries")
+            ),
+            CollapsableSection(
+                title = "Fruits C",
+                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
+            ),
+        ),
+    )
+}
 
-            Text(text = "This text is always shown",
-                modifier = Modifier.padding(4.dp))
-
-            AnimatedVisibility(visible = isExpanded) {
-                Row() {
-                    TextField(label = { Text("Amount")} ,value = "", onValueChange = {})
-                    Button(onClick = {
-                        isExpanded = !isExpanded
-                    }) {
+@Composable
+fun CollapsableLazyColumn(
+    sections: List<CollapsableSection>,
+    modifier: Modifier = Modifier
+) {
+    val collapsedState = remember(sections) { sections.map { true }.toMutableStateList() }
+    LazyColumn(modifier) {
+        sections.forEachIndexed { i, dataItem ->
+            val collapsed = collapsedState[i]
+            item(key = "header_$i") {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .clickable {
+                            collapsedState[i] = !collapsed
+                        }
+                ) {
+                    Icon(
+                        Icons.Default.run {
+                            if (collapsed)
+                                KeyboardArrowDown
+                            else
+                                KeyboardArrowUp
+                        },
+                        contentDescription = "",
+                        tint = Color.LightGray,
+                    )
+                    Text(
+                        dataItem.title,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .padding(vertical = 10.dp)
+                            .weight(1f)
+                    )
+                }
+                Divider()
+            }
+            if (!collapsed) {
+                items(dataItem.rows) { row ->
+                    Row {
+                        Spacer(modifier = Modifier.size(MaterialIconDimension.dp))
+                        Text(
+                            row,
+                            modifier = Modifier
+                                .padding(vertical = 10.dp)
+                        )
                     }
+                    Divider()
                 }
             }
         }
     }
-
 }
+data class CollapsableSection(val title: String, val rows: List<String>)
+const val MaterialIconDimension = 24f
