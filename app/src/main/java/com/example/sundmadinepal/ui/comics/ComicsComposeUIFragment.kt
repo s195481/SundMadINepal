@@ -18,46 +18,52 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Comics
+import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposable
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
+import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
 class ComicsComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            Comics()
         }
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    SundMadINepalTheme {
+        val navController = rememberNavController()
+        ComicsComposable(navController)
+    }
+}
 
 @Composable
-fun Comics() {
+fun ComicsComposable(navController: NavController) {
     val comics = remember { ComicsViewModel.DataProvider.comicsList }
-    Column() {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.comic),
-                contentDescription = "Comics",
-                modifier = Modifier.size(50.dp).apply { padding(50.dp) }
-            )
-            Text(
-                text = "Comics",
-                //modifier = Modifier.size(50.dp).apply { padding(50.dp) },
-                textAlign = TextAlign.Center
-            )
-        }
+    Column(
+        modifier = Modifier.fillMaxSize()
+            .background(colorResource(R.color.Home_Col)),
+    ) {
+        TopBarGenerator(
+            navController = navController,
+            titleImageSrc = R.drawable.comic,
+            title = stringResource(R.string.title_comics),
+            titleSize = 100,
+            backButtonBool = true,
+            color = R.color.Comics_Icon
+        )
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         ) {
@@ -85,7 +91,7 @@ fun ComicListItem(comic: Comics) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.LightGray)
+                .background(colorResource(R.color.Bar_Col))
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.settings),
@@ -96,14 +102,5 @@ fun ComicListItem(comic: Comics) {
             Text(text = comic.id.toString(), style = MaterialTheme.typography.caption)
 
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SundMadINepalTheme {
-        //Greeting("Android")
-        Comics()
     }
 }

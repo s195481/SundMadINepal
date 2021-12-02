@@ -47,4 +47,70 @@
     <string name="statistics_string">Statistics</string>
     <string name="yourChild_string">Your Child</string>
     <string name="weight_string">Weight</string>
+
+    <string name="goldendays_detailed_string">
+        \nHealthy diet for children 0 - 24 months:
+        \n●	It is important to breastfeed also after 6 months
+        \n●	It is important to start feeding the baby solid food like beans, vegetables and eggs after 6 months only.
+        \n●	It is important to feed the baby a variety of solid foods from 3 food groups
+        \n
+        \n●	The 3 food groups are:
+        \nEnergy food (rice, wheat, potatoes )
+        \nGrowth development foods (meat, fish, chickpeas and other pulses, yogurt, milk and egg
+        \nProtective foods: Vegetables (green etc), fruits.
+        \n●	while feeding a child one should be patient and playful taking plenty of time
+    </string>
+    <string name="maternity_detailed_string">
+        \n●	While you are pregnant: It is important to eat food  like beans, vegetables and dairy products when you are  pregnant.
+        \n●	It is important to eat a balanced diet from all 4 food groups
+    </string>
+    <string name="zeroToSixMonths_detailed_string">
+        \n●	Baby: 0-6 months. Baby needs only breast feeding in this period. No additional food is needed.
+        \n●	Mothers should eat a balanced diet with plenty of pulses, vegetables and dairy products.
+    </string>
+    <string name="sixToNineMonths_detailed_string">
+        \n●	Baby 6 - 9 months: Start giving the baby solid food after 6 months
+        \n●	The baby still needs breastfeeding
+        \n●	Use food from the 3 different food groups. It should be smooth and thick, without lumps”
+        \n●	Feed baby solid foods 3 times a day
+    </string>
+    <string name="nineToTwelveMonths_detailed_string">
+        \n●	Baby 9 - 12 months: The baby needs solid food and breastfeeding
+        \n●	Feed baby 3 times a day, plus 1 snack
+        \n●	Use a variety of food from the 3 food groups
+    </string>
+    <string name="twelveToTwentyFourMonths_detailed_string">
+        \n●	Baby 12- 24 months: The baby needs solid food and breastfeeding
+        \n●	Feed baby solid food 3 times a day, plus 2 snacks
+        \n●	Use a variety of food from the 3 food groups
+        \n●Twice a year, provide vitamin A supplement
+    </string>
+
+    <string name="nutritionalflour_title_string">
+        Nutritional Flour
+    </string>
+    <string name="nutritionalflour_string">
+        How to prepare nutritional flour:
+        \nTake 2 proportions of different types of grains (corn, barley, rye, millet, oat, rice, etc. one proportio each)
+        and 1 proportion of cereals/lentils (soya, chickpeas, peas, etc). Separately sort/clean and dry roast well until
+        cooked properly and then separately grind store. This flour can be cooked with green spinach, carrot ,milk, clarified butter,
+        honey , eggs, meat, and iodized salt.
+    </string>
+    <string name="jaulo_title_string">
+        Jaulo
+    </string>
+    <string name="jaulo_string">
+        \nIngredients:
+        \n●	Rice	25 gram
+        \n●	Mung / pink lentil / split yellow pigeon peas / black gram lentil	8 gram
+        \n●	Clarified butter or oil 5 gram
+        \n●	Green spinach (saag) according to taste
+        \n
+        \nDirection:
+        \n●	Clean rice and lentils.
+        \n●	Mix rice and lentil together and soak for half an hour after washing.
+        \n●	After half an hour, cook in a pan covering with lid using a bit of clarified butter and water.
+        \n●	While porridge is being cooked, add finely chopped green spinach and cook further covering with lid.
+        \n●	Add iodized salt for taste.
+    </string>
 </resources>
