@@ -178,15 +178,14 @@ fun CollapsableLazyColumn(
                     Row(
                         horizontalArrangement = Arrangement.Center,
                         modifier = Modifier
-                            .fillMaxWidth()
                             .background(Color.White, RoundedCornerShape(corner = CornerSize(60.dp)))
                     ){
                     Image(
                         painter = painterResource(image),
                         contentDescription = "",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(5.dp),
+                            .padding(5.dp)
+                            .background(Color.Transparent, RoundedCornerShape(corner = CornerSize(60.dp))),
 
                     )
                     }
