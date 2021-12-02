@@ -31,8 +31,10 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Recipe
+import com.example.sundmadinepal.ui.recipe.RecipeViewModel.DataProvider.Recipes
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
+import kotlinx.coroutines.runBlocking
 
 class RecipeComposeUIFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +57,9 @@ fun DefaultPreview() {
 @Composable
 fun RecipesComposable(navController: NavController, navigateToProfile: (Recipe) -> Unit) {
     //val recipes2 = remember { RecipeViewModel().getRecipes()}
+    fun co() = runBlocking {
+        Recipes()
+    }
     val recipes = remember { RecipeViewModel.DataProvider.recipeList }
     Column(
         Modifier
