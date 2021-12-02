@@ -220,7 +220,7 @@ fun CollapsableLazyColumn(
                             contentDescription = "",
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            contentScale = ContentScale.Fit
+                            contentScale = ContentScale.FillWidth
                         )
                     }
                 }
