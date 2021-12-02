@@ -35,6 +35,15 @@ class HealthComposeUIFragment : ComponentActivity() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    SundMadINepalTheme {
+        val navController = rememberNavController()
+        HealthComposable(navController)
+    }
+}
+
 //TODO Fix it's ugly as fuuuck
 @Composable
 fun HealthComposable(navController: NavController) {
@@ -142,11 +151,3 @@ fun InfoBarGenerator(infoType: String, infoFill: String) {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SundMadINepalTheme {
-        //Greeting("Android")
-        //MyScreen()
-    }
-}

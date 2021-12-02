@@ -26,6 +26,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.GoldenDays
+import com.example.sundmadinepal.ui.health.HealthComposable
 import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
@@ -35,6 +36,14 @@ class GoldenDaysComposeUIFragment : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
         }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    SundMadINepalTheme {
+        val navController = rememberNavController()
+        GoldenDaysComposable(navController)
     }
 }
 
@@ -206,16 +215,6 @@ fun GoldenDaysPeriodGenerator(
                 .fillMaxWidth()
                 .padding(10.dp)
         )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SundMadINepalTheme {
-        //Greeting("Android")
-        val navController = rememberNavController()
     }
 }
 

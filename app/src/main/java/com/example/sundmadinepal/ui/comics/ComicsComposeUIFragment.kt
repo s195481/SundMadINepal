@@ -20,11 +20,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadinepal.R
 import com.example.sundmadinepal.model.model.Comics
+import com.example.sundmadinepal.ui.goldenDays.GoldenDaysComposable
+import com.example.sundmadinepal.ui.theme.SundMadINepalTheme
 import com.example.sundmadinepal.ui.utils.TopBarGenerator
 
 class ComicsComposeUIFragment : ComponentActivity() {
@@ -36,6 +39,14 @@ class ComicsComposeUIFragment : ComponentActivity() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    SundMadINepalTheme {
+        val navController = rememberNavController()
+        ComicsComposable(navController)
+    }
+}
 
 @Composable
 fun ComicsComposable(navController: NavController) {
