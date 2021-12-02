@@ -26,6 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -174,12 +175,20 @@ fun CollapsableLazyColumn(
                     Divider()
                 }
                 items(dataItem.images) { image ->
+                    Row(
+                        horizontalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .background(Color.White, RoundedCornerShape(corner = CornerSize(40.dp)))
+                    ){
                     Image(
                         painter = painterResource(image),
                         contentDescription = "",
                         modifier = Modifier
-                            .size(300.dp)
+                            .fillMaxWidth()
+                            .padding(5.dp),
+
                     )
+                    }
                 }
 
             }
