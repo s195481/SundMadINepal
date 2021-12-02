@@ -130,7 +130,7 @@ fun MainComposable(navController: NavController) {
                 color = R.color.Comics_Icon,
                 padding = navPadding
             )
-            NavFromHomeGenerator(
+            /*NavFromHomeGenerator(
                 navController = navController,
                 destination = "",
                 title = R.string.title_quiz,
@@ -138,7 +138,7 @@ fun MainComposable(navController: NavController) {
                 iconSize = navIconSize,
                 color = R.color.Quiz_Icon,
                 padding = navPadding
-            )
+            )*/
         }
         Row {
             NavFromHomeGenerator(
