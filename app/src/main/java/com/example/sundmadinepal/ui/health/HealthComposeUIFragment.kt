@@ -162,7 +162,7 @@ fun InfoBarGenerator(infoType: String) {
             TextField(
                 value = infoFill,
                 onValueChange = { infoFill = it },
-                label = { Text(infoFill) },
+                label = { Text("") },
             )
 
         }
