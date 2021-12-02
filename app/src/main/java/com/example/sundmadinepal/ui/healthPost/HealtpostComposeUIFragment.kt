@@ -213,7 +213,7 @@ fun CollapsableLazyColumn(
                     Row {
                         Spacer(modifier = Modifier.size(MaterialIconDimension.dp))
                         Image(
-                            painter = painterResource(R.drawable.information),
+                            painter = painterResource(image),
                             contentDescription = ""
                         )
                     }
