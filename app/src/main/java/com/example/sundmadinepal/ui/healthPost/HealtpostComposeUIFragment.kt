@@ -1,18 +1,22 @@
 package com.example.sundmadinepal.ui.healthPost
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -23,6 +27,7 @@ import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -68,13 +73,13 @@ fun HealthPostComposable(navController: NavController) {
             backButtonBool = true,
             color = R.color.Healthpost_Icon
         )
-        temp()
+        HealthpostTopicsComposable()
     }
 }
 
 
 @Composable
-fun temp() {
+fun HealthpostTopicsComposable() {
     CollapsableLazyColumn(
         sections = listOf(
             CollapsableSection(
@@ -173,16 +178,17 @@ fun CollapsableLazyColumn(
                     Row(
                         horizontalArrangement = Arrangement.Center,
                         modifier = Modifier
-                            .background(Color.White, RoundedCornerShape(corner = CornerSize(40.dp)))
-                    ) {
-                        Image(
-                            painter = painterResource(image),
-                            contentDescription = "",
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(5.dp),
+                            .fillMaxWidth()
+                            .background(Color.White, RoundedCornerShape(corner = CornerSize(60.dp)))
+                    ){
+                    Image(
+                        painter = painterResource(image),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(5.dp),
 
-                            )
+                    )
                     }
                 }
 

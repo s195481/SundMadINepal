@@ -161,4 +161,11 @@
         \n●	सब्जी र फलफुल
         \n●	दुध बाट बनेको सामग्री
     </string>
+
+    <string name="a_comic">
+        एक अस्वास्थ्यकर खाजा एक शरीर ह्याक होइन
+    </string>
+    <string name="b_comic">
+        केला - मस्तिष्क को ईन्धन
+    </string>
 </resources>
