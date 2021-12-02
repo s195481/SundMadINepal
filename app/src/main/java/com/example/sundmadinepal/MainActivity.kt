@@ -3,9 +3,7 @@ package com.example.sundmadinepal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -562,6 +560,7 @@ fun RecipeComposableGenerator(
     picture: Int,
     breadText: Int
 ) {
+    val scrollState = rememberScrollState()
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -573,21 +572,25 @@ fun RecipeComposableGenerator(
             backButtonBool = true,
             color = R.color.Recipe_Icon
         )
-        Image(
-            painter = painterResource(picture),
-            contentDescription = stringResource(title),
-            modifier = Modifier
-                .fillMaxWidth()
-                .size(300.dp)
-                .padding(10.dp)
-        )
-        Text(
-            text = stringResource(id = breadText),
-            style = MaterialTheme.typography.subtitle1,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp)
-        )
+        Column(
+            modifier = Modifier.verticalScroll(scrollState)
+        ) {
+            Image(
+                painter = painterResource(picture),
+                contentDescription = stringResource(title),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .size(300.dp)
+                    .padding(10.dp)
+            )
+            Text(
+                text = stringResource(id = breadText),
+                style = MaterialTheme.typography.subtitle1,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
+            )
+        }
     }
 }
 
