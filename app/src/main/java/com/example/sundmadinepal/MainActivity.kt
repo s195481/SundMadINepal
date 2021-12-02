@@ -551,7 +551,7 @@ fun RecipeDetailedComposable(navController: NavController){
     RecipeComposableGenerator(
         navController = navController,
         title = R.string.jaulo_title_string,
-        picture = R.string.jaulo_title_string,
+        picture = R.drawable.jaulo,
         breadText = R.string.jaulo_string)
 }
 
